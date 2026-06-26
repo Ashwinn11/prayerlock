@@ -16,37 +16,6 @@ enum PLTab: String, CaseIterable, Identifiable {
     }
 }
 
-struct PLTabBar: View {
-    @Binding var selection: PLTab
-    var body: some View {
-        HStack(spacing: 4) {
-            ForEach(PLTab.allCases) { tab in
-                let active = tab == selection
-                Button { withAnimation(.snappy(duration: 0.2)) { selection = tab } } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: tab.icon).font(.system(size: 18, weight: .medium))
-                        Text(tab.title).font(PL.F.sans(11, .semibold))
-                    }
-                    .foregroundColor(active ? PL.C.gold : PL.C.textMuted)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 8)
-                    .background(active ? Capsule().fill(PL.C.cream) : Capsule().fill(.clear))
-                }
-                .buttonStyle(.plain)
-            }
-        }
-        .padding(6)
-        .background(
-            Capsule().fill(PL.C.card)
-                .shadow(color: .black.opacity(0.08), radius: 14, y: 4)
-        )
-        .overlay(Capsule().stroke(PL.C.stroke, lineWidth: 1))
-        .padding(.horizontal, PL.S.xxl)
-        .frame(maxWidth: 460)
-        .frame(maxWidth: .infinity)
-    }
-}
-
 // MARK: - Home pieces
 
 /// Circular faith/level progress ring with centered label.

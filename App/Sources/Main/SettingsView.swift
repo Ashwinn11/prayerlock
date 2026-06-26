@@ -97,14 +97,14 @@ struct SettingsView: View {
             Text("Apps lock at these times until you pray.")
                 .font(.plSubtitle).foregroundColor(PL.C.textMuted).padding(.leading, PL.S.xs)
             VStack(spacing: PL.S.md) {
-                ForEach(app.prayerTimes.indices, id: \.self) { i in
+                ForEach($app.prayerTimes) { $time in
                     HStack {
                         DatePicker("", selection: Binding(
-                            get: { app.prayerTimes[i].date },
+                            get: { time.date },
                             set: { d in
                                 let c = Calendar.current.dateComponents([.hour, .minute], from: d)
-                                app.prayerTimes[i].hour = c.hour ?? 0
-                                app.prayerTimes[i].minute = c.minute ?? 0
+                                time.hour = c.hour ?? 0
+                                time.minute = c.minute ?? 0
                                 screen.reschedule(times: app.prayerTimes)
                             }
                         ), displayedComponents: .hourAndMinute)
@@ -113,7 +113,7 @@ struct SettingsView: View {
                         .tint(PL.C.gold)
                         Spacer()
                         Button {
-                            app.prayerTimes.remove(at: i)
+                            app.prayerTimes.removeAll { $0.id == time.id }
                             screen.reschedule(times: app.prayerTimes)
                         } label: {
                             Image(systemName: "minus.circle.fill")

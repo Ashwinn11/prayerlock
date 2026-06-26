@@ -100,7 +100,7 @@ struct OnbScaffold<Content: View>: View {
             HStack(spacing: 0) {
                 backButton
                 Spacer()
-                if let primary { continueButton(primary) }
+                if let primary { continueButton(primary, extraWidth: showBack ? 0 : PL.L.backButton) }
             }
         }
         .padding(.bottom, PL.L.bottomBar)
@@ -117,12 +117,11 @@ struct OnbScaffold<Content: View>: View {
             }
             .buttonStyle(.plain)
         } else {
-            // Placeholder to keep continue button right-aligned even without a back button.
-            Color.clear.frame(width: PL.L.backButton, height: PL.L.backButton)
+            EmptyView()
         }
     }
 
-    private func continueButton(_ cfg: ButtonConfig) -> some View {
+    private func continueButton(_ cfg: ButtonConfig, extraWidth: CGFloat = 0) -> some View {
         let isDark = theme == .dark
         let textColor: Color = isDark ? PL.C.textOnInk : labelColor(cfg.style)
         let bg: Color = isDark ? .clear : bgColor(cfg.style, enabled: cfg.enabled)
@@ -151,7 +150,7 @@ struct OnbScaffold<Content: View>: View {
                     .padding(.horizontal, PL.S.xl)
                 }
             }
-            .frame(minWidth: cfg.loading ? 80 : 160, minHeight: PL.L.backButton, maxHeight: PL.L.backButton)
+            .frame(minWidth: cfg.loading ? 80 : 160 + extraWidth, minHeight: PL.L.backButton, maxHeight: PL.L.backButton)
             .opacity(cfg.enabled ? 1 : 0.4)
         }
         .buttonStyle(.plain)

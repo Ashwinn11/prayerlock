@@ -8,21 +8,23 @@ struct TimeListEditor: View {
 
     var body: some View {
         VStack(spacing: PL.S.md) {
-            ForEach(times.indices, id: \.self) { i in
+            ForEach($times) { $time in
                 HStack {
                     DatePicker("", selection: Binding(
-                        get: { times[i].date },
+                        get: { time.date },
                         set: { d in
                             let c = Calendar.current.dateComponents([.hour, .minute], from: d)
-                            times[i].hour = c.hour ?? 0
-                            times[i].minute = c.minute ?? 0
+                            time.hour = c.hour ?? 0
+                            time.minute = c.minute ?? 0
                         }
                     ), displayedComponents: .hourAndMinute)
                     .datePickerStyle(.compact)
                     .labelsHidden()
                     .tint(PL.C.gold)
                     Spacer()
-                    Button { times.remove(at: i) } label: {
+                    Button {
+                        times.removeAll { $0.id == time.id }
+                    } label: {
                         Image(systemName: "minus.circle.fill")
                             .font(.system(size: 22))
                             .foregroundColor(PL.C.textMuted)
