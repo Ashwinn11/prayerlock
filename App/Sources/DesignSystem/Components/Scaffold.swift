@@ -11,13 +11,13 @@ enum ScreenTheme {
 /// Bottom button configuration passed to a scaffold.
 struct ButtonConfig {
     var title: String
-    var style: PrimaryButton.Style = .primary
+    var style: PrimaryButton.Style = .primary   // kept for call-site compat; footer ignores it
     var enabled: Bool = true
     var loading: Bool = false
     var action: () -> Void
 }
 
-/// Thin gold progress track.
+/// Thin gold progress track (prayer session, main app — not onboarding).
 struct ProgressBar: View {
     let value: Double // 0...1
     var body: some View {
@@ -33,76 +33,147 @@ struct ProgressBar: View {
     }
 }
 
-/// Top bar: circular back button + optional progress.
-struct OnboardingTopBar: View {
-    var showBack: Bool
-    var progress: Double?
-    var tint: Color
-    var onBack: () -> Void
+/// Step dots shown during the onboarding question segment (10 question steps).
+struct OnbDots: View {
+    let progress: Double   // 0...1 as returned by Onboarding.progress
+    private let total = 10
+    private var filled: Int { max(0, Int((progress * Double(total)).rounded())) }
 
     var body: some View {
-        HStack(spacing: PL.S.lg) {
-            if showBack {
-                Button(action: onBack) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(tint)
-                        .frame(width: PL.L.backButton, height: PL.L.backButton)
-                        .overlay(Circle().stroke(tint.opacity(0.22), lineWidth: 1.2))
-                }
-                .buttonStyle(.plain)
-            }
-            if let progress {
-                ProgressBar(value: progress)
-            } else {
-                Spacer(minLength: 0)
+        HStack(spacing: 8) {
+            ForEach(0..<total, id: \.self) { i in
+                Circle()
+                    .fill(i < filled ? PL.C.gold : PL.C.track)
+                    .frame(width: i < filled ? 8 : 6, height: i < filled ? 8 : 6)
+                    .animation(.easeOut(duration: 0.2), value: filled)
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .frame(height: PL.L.backButton)
     }
 }
 
 /// The universal onboarding/flow screen container.
-/// Light or dark theme, optional back + progress, top-aligned content, pinned bottom button.
-/// `centered` is accepted but ignored — all screens are top-aligned for visual consistency.
+///
+/// Navigation lives entirely in the footer:
+///   [← back]  ········  [Continue →]
+/// with optional progress dots on the row above when `progress != nil`.
+///
+/// Content alignment:
+///   `centered: false` (default) → content pinned near top, below a fixed top margin.
+///                                  Best for form / list / card-heavy screens.
+///   `centered: true`            → Spacer above+below content so it floats vertically.
+///                                  Best for illustration / sparse-content screens.
 struct OnbScaffold<Content: View>: View {
     var theme: ScreenTheme = .light
     var showBack: Bool = true
     var progress: Double? = nil
-    var centered: Bool = false   // kept for call-site compatibility; layout is always top-aligned
+    var centered: Bool = false
     var onBack: () -> Void = {}
     var primary: ButtonConfig? = nil
     @ViewBuilder var content: () -> Content
-
-    private var hasTopBar: Bool { showBack || progress != nil }
 
     var body: some View {
         ZStack {
             theme.background.ignoresSafeArea()
             VStack(spacing: 0) {
-                if hasTopBar {
-                    OnboardingTopBar(showBack: showBack, progress: progress,
-                                     tint: theme.textPrimary, onBack: onBack)
-                        .padding(.top, PL.S.sm)
-                        .padding(.bottom, PL.S.xl)
-                } else {
-                    Spacer().frame(height: PL.S.xl)
-                }
+                Spacer(minLength: PL.S.xl)
 
                 content()
+
                 Spacer(minLength: PL.S.lg)
 
-                if let primary {
-                    PrimaryButton(title: primary.title, style: primary.style,
-                                  enabled: primary.enabled, loading: primary.loading,
-                                  action: primary.action)
-                        .padding(.bottom, PL.L.bottomBar)
-                }
+                footer
             }
             .padding(.horizontal, PL.L.margin)
             .plContent()
         }
         .preferredColorScheme(theme.colorScheme)
+    }
+
+    // MARK: Footer
+
+    private var footer: some View {
+        VStack(spacing: PL.S.lg) {
+            if let progress {
+                OnbDots(progress: progress)
+            }
+
+            HStack(spacing: 0) {
+                backButton
+                Spacer()
+                if let primary { continueButton(primary) }
+            }
+        }
+        .padding(.bottom, PL.L.bottomBar)
+    }
+
+    @ViewBuilder private var backButton: some View {
+        if showBack {
+            Button(action: onBack) {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundColor(theme.textPrimary)
+                    .frame(width: PL.L.backButton, height: PL.L.backButton)
+                    .overlay(Circle().stroke(theme.textPrimary.opacity(0.22), lineWidth: 1.2))
+            }
+            .buttonStyle(.plain)
+        } else {
+            // Placeholder to keep continue button right-aligned even without a back button.
+            Color.clear.frame(width: PL.L.backButton, height: PL.L.backButton)
+        }
+    }
+
+    private func continueButton(_ cfg: ButtonConfig) -> some View {
+        let isDark = theme == .dark
+        let textColor: Color = isDark ? PL.C.textOnInk : labelColor(cfg.style)
+        let bg: Color = isDark ? .clear : bgColor(cfg.style, enabled: cfg.enabled)
+        let strokeColor = theme.textPrimary.opacity(0.22)
+
+        return Button {
+            guard cfg.enabled && !cfg.loading else { return }
+            cfg.action()
+        } label: {
+            ZStack {
+                Capsule()
+                    .fill(bg)
+                if isDark {
+                    Capsule()
+                        .strokeBorder(strokeColor, lineWidth: 1.2)
+                }
+                if cfg.loading {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .tint(textColor)
+                        .scaleEffect(0.8)
+                } else {
+                    Text(cfg.title)
+                        .font(PL.F.sans(16, .semibold))
+                        .foregroundColor(textColor)
+                    .padding(.horizontal, PL.S.xl)
+                }
+            }
+            .frame(minWidth: cfg.loading ? 80 : 160, minHeight: PL.L.backButton, maxHeight: PL.L.backButton)
+            .opacity(cfg.enabled ? 1 : 0.4)
+        }
+        .buttonStyle(.plain)
+        .animation(.easeOut(duration: 0.15), value: cfg.enabled)
+        .animation(.easeOut(duration: 0.15), value: cfg.loading)
+    }
+
+    private func labelColor(_ style: PrimaryButton.Style) -> Color {
+        switch style {
+        case .primary:          return PL.C.buttonText
+        case .invertedPill:     return PL.C.ink
+        case .plainOnInk:       return PL.C.textOnInk
+        case .soft:             return PL.C.text
+        }
+    }
+
+    private func bgColor(_ style: PrimaryButton.Style, enabled: Bool) -> Color {
+        switch style {
+        case .primary:          return enabled ? PL.C.button : PL.C.buttonDisabled
+        case .invertedPill:     return enabled ? PL.C.textOnInk : PL.C.textOnInk.opacity(0.4)
+        case .plainOnInk:       return .clear
+        case .soft:             return PL.C.card
+        }
     }
 }

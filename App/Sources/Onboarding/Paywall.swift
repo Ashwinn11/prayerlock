@@ -12,32 +12,31 @@ struct PaywallScreen: View {
         ZStack {
             PL.C.cream.ignoresSafeArea()
             VStack(spacing: 0) {
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: PL.S.xl) {
-                        IllustrationSlot(name: "hand-dove", fallbackSymbol: "bird.fill", size: 120)
-                        VStack(spacing: PL.S.md) {
-                            GoldHeadline("From lukewarm to closer to God.", accents: ["closer to God"],
-                                         size: 27, alignment: .center)
-                            PLSubtitle("Give God room to show up in your life.", alignment: .center)
-                        }
-                        VStack(spacing: PL.S.xs) {
-                            Eyebrow(text: "The #1 Prayer Habit App")
-                            Text("Joined by 500,000+ people")
-                                .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.textMuted)
-                        }
-                        VStack(spacing: PL.S.md) {
-                            PlanOption(title: "Yearly", price: "$39.99 / year",
-                                       subtitle: "3-day free trial • $0.77/week",
-                                       selected: plan == .yearly) { plan = .yearly }
-                            PlanOption(title: "Weekly", price: "$9.99 / week",
-                                       subtitle: "Billed weekly",
-                                       selected: plan == .weekly) { plan = .weekly }
-                        }
+                Spacer(minLength: PL.S.xl)
+                VStack(spacing: PL.S.xl) {
+                    IllustrationSlot(name: "hand-dove", fallbackSymbol: "bird.fill", size: 120)
+                    VStack(spacing: PL.S.md) {
+                        GoldHeadline("From lukewarm to closer to God.", accents: ["closer to God"],
+                                     size: 27, alignment: .center)
+                        PLSubtitle("Give God room to show up in your life.", alignment: .center)
                     }
-                    .padding(.top, PL.S.xxl)
-                    .padding(.horizontal, PL.L.margin)
-                    .plContent()
+                    VStack(spacing: PL.S.xs) {
+                        Eyebrow(text: "The #1 Prayer Habit App")
+                        Text("Joined by 500,000+ people")
+                            .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.textMuted)
+                    }
+                    VStack(spacing: PL.S.md) {
+                        PlanOption(title: "Yearly", price: "$39.99 / year",
+                                   subtitle: "3-day free trial • $0.77/week",
+                                   selected: plan == .yearly) { plan = .yearly }
+                        PlanOption(title: "Weekly", price: "$9.99 / week",
+                                   subtitle: "Billed weekly",
+                                   selected: plan == .weekly) { plan = .weekly }
+                    }
                 }
+                .padding(.horizontal, PL.L.margin)
+                .plContent()
+                Spacer(minLength: PL.S.lg)
                 footer
             }
         }

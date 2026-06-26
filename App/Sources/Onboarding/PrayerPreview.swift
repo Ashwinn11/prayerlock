@@ -11,16 +11,13 @@ struct GuidedPrayerReadingScreen: View {
             theme: .light, showBack: ob.showBack, progress: nil, onBack: ob.back,
             primary: ButtonConfig(title: "Continue", action: ob.next)
         ) {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: PL.S.xl) {
-                    Eyebrow(text: "A Moment of Prayer")
-                    GoldHeadline("Let's pray", size: 28, alignment: .center)
-                    TypewriterText(text: prayer.body, font: .plBody, color: PL.C.textMuted)
-                    ScriptureDarkCard(text: prayer.scripture, reference: prayer.reference,
-                                      italic: true, textColor: PL.C.gold, refColor: PL.C.textOnInk)
-                        .padding(.top, PL.S.sm)
-                }
-                .padding(.vertical, PL.S.xl)
+            VStack(spacing: PL.S.xl) {
+                Eyebrow(text: "A Moment of Prayer")
+                GoldHeadline("Let's pray", size: 28, alignment: .center)
+                TypewriterText(text: prayer.body, font: .plBody, color: PL.C.textMuted)
+                ScriptureDarkCard(text: prayer.scripture, reference: prayer.reference,
+                                  italic: true, textColor: PL.C.gold, refColor: PL.C.textOnInk)
+                    .padding(.top, PL.S.sm)
             }
         }
     }
