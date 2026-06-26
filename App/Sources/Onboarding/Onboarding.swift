@@ -58,8 +58,8 @@ final class Onboarding: ObservableObject {
     @Published var sex: Set<String> = []
     @Published var commitment: Set<String> = []
     @Published var companionName: String = ""
-    @Published var feeling: String = ""
-    @Published var relationshipToday: String = ""
+    @Published var feelingMood: Int = 2        // 0...4 emoji slider
+    @Published var relationshipMood: Int = 2   // 0...4 emoji slider
 
     // MARK: Derived / dynamic
     var firstName: String {
@@ -69,6 +69,15 @@ final class Onboarding: ObservableObject {
     /// "7 years" from 4 hrs/day — fraction of day over a ~40-year horizon.
     var yearsOnPhone: Int {
         max(1, Int((Double(phoneHours) * 40.0 / 24.0).rounded()))
+    }
+    /// "Bible in 21 days" — the KJV takes ~84 hours to read; scale by daily screen time.
+    var bibleDays: Int {
+        max(3, Int((84.0 / Double(max(1, phoneHours))).rounded()))
+    }
+    /// Guided prayer chosen from the two emoji check-ins (the core selection logic,
+    /// shared with the in-app "Pray today" flow).
+    var selectedPrayer: GuidedPrayer {
+        PrayerLibrary.forMoods(feeling: feelingMood, relationship: relationshipMood)
     }
     /// First selected goal, used on the reflect screen.
     var primaryGoal: String { goals.first ?? "Deepen my relationship with God" }

@@ -131,6 +131,58 @@ struct ValueSlider: View {
     }
 }
 
+// MARK: - Emoji mood slider (relationship / feeling check-ins)
+
+struct MoodStop {
+    let emoji: String
+    let word: String
+}
+
+enum MoodStops {
+    static let feeling = [
+        MoodStop(emoji: "😞", word: "awful"),
+        MoodStop(emoji: "😕", word: "low"),
+        MoodStop(emoji: "😐", word: "okay"),
+        MoodStop(emoji: "🙂", word: "good"),
+        MoodStop(emoji: "😄", word: "great"),
+    ]
+    static let relationship = [
+        MoodStop(emoji: "😔", word: "distant"),
+        MoodStop(emoji: "😕", word: "strained"),
+        MoodStop(emoji: "😐", word: "okay"),
+        MoodStop(emoji: "🙂", word: "good"),
+        MoodStop(emoji: "🥰", word: "close"),
+    ]
+}
+
+/// Big emoji + native gold slider + word label. Drives prayer/verse selection.
+struct EmojiSlider: View {
+    let stops: [MoodStop]
+    @Binding var index: Int
+    var theme: ScreenTheme = .light
+
+    private var clamped: Int { min(max(index, 0), stops.count - 1) }
+
+    var body: some View {
+        VStack(spacing: PL.S.xl) {
+            Text(stops[clamped].emoji)
+                .font(.system(size: 68))
+                .id(clamped)
+                .transition(.scale.combined(with: .opacity))
+                .animation(.snappy(duration: 0.2), value: clamped)
+            Slider(value: Binding(get: { Double(clamped) },
+                                  set: { index = Int($0.rounded()) }),
+                   in: 0...Double(stops.count - 1), step: 1)
+                .tint(PL.C.gold)
+            Text(stops[clamped].word)
+                .font(.plSubtitle)
+                .foregroundColor(theme.textMuted)
+                .contentTransition(.opacity)
+                .animation(.snappy(duration: 0.2), value: clamped)
+        }
+    }
+}
+
 // MARK: - Text field
 
 struct PLTextField: View {

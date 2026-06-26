@@ -10,8 +10,9 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         let cream = UIColor(red: 0.94, green: 0.92, blue: 0.88, alpha: 1.0)
         let charcoal = UIColor(red: 0.227, green: 0.208, blue: 0.176, alpha: 1.0)
         let gold = UIColor(red: 0.71, green: 0.51, blue: 0.18, alpha: 1.0)
+        // No blur style → the shield always shows our fixed cream/charcoal/gold
+        // palette regardless of the device's light/dark setting.
         return ShieldConfiguration(
-            backgroundBlurStyle: .systemThinMaterial,
             backgroundColor: cream,
             icon: UIImage(named: "ShieldIcon"),
             title: ShieldConfiguration.Label(text: "Time to pray", color: charcoal),

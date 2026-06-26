@@ -206,6 +206,47 @@ struct PersonalizingScreen: View {
     }
 }
 
+// MARK: - Companion (the ring the user names — same widget shown on Home)
+
+struct CompanionIntroScreen: View {
+    @ObservedObject var ob: Onboarding
+    var body: some View {
+        OnbScaffold(
+            theme: .light, showBack: ob.showBack, progress: nil, centered: true, onBack: ob.back,
+            primary: ButtonConfig(title: "Continue", action: ob.next)
+        ) {
+            VStack(spacing: PL.S.xl) {
+                CompanionRing(level: 1, progress: 0).scaleEffect(1.3)
+                    .padding(.bottom, PL.S.md)
+                GoldHeadline("Meet your companion.", accents: ["companion"], size: 28, alignment: .center)
+                PLSubtitle("As you pray each day, your faith grows. Your companion walks the journey with you.",
+                           alignment: .center)
+            }
+        }
+    }
+}
+
+struct CompanionNameScreen: View {
+    @ObservedObject var ob: Onboarding
+    @FocusState private var focused: Bool
+    private var valid: Bool { !ob.companionName.trimmingCharacters(in: .whitespaces).isEmpty }
+    var body: some View {
+        OnbScaffold(
+            theme: .light, showBack: ob.showBack, progress: nil, centered: true, onBack: ob.back,
+            primary: ButtonConfig(title: "Let's go", enabled: valid, action: { focused = false; ob.next() })
+        ) {
+            VStack(spacing: PL.S.xl) {
+                CompanionRing(level: 1, progress: 0).scaleEffect(1.2)
+                    .padding(.bottom, PL.S.sm)
+                GoldHeadline("Name your companion.", accents: ["companion"], size: 28, alignment: .center)
+                PLSubtitle("A gentle reminder to return each day.", alignment: .center)
+                PLTextField(placeholder: "Grace", text: $ob.companionName).focused($focused)
+            }
+        }
+        .onAppear { DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { focused = true } }
+    }
+}
+
 // MARK: - Community
 
 struct CommunityScreen: View {
@@ -238,10 +279,21 @@ struct CommunityScreen: View {
 struct PrayerTimesSetupScreen: View {
     @ObservedObject var ob: Onboarding
     @ObservedObject var app = AppModel.shared
+    @State private var requesting = false
     var body: some View {
         OnbScaffold(
             theme: .light, showBack: ob.showBack, progress: nil, onBack: ob.back,
-            primary: ButtonConfig(title: "Continue", action: ob.next)
+            primary: ButtonConfig(title: "Continue", enabled: !requesting, loading: requesting, action: {
+                // Ask for Screen Time permission in context, then continue.
+                // Loading state blocks repeat taps while the system prompt loads.
+                guard !requesting else { return }
+                requesting = true
+                Task {
+                    await ScreenTimeManager.shared.requestAuthorization()
+                    requesting = false
+                    ob.next()
+                }
+            })
         ) {
             VStack(alignment: .leading, spacing: PL.S.xl) {
                 VStack(alignment: .leading, spacing: PL.S.md) {
@@ -323,18 +375,19 @@ struct SignCommitmentScreen: View {
 
     var body: some View {
         OnbScaffold(
-            theme: .light, showBack: ob.showBack, progress: nil, onBack: ob.back,
-            primary: ButtonConfig(title: "Continue", enabled: hasSigned, action: ob.next)
+            theme: .dark, showBack: ob.showBack, progress: nil, onBack: ob.back,
+            primary: ButtonConfig(title: "Continue", style: .plainOnInk, enabled: hasSigned, action: ob.next)
         ) {
             VStack(alignment: .leading, spacing: PL.S.xl) {
-                GoldHeadline("Make your commitment.", accents: ["commitment"], size: 27)
+                GoldHeadline("Make your commitment.", size: 27, base: PL.C.textOnInk)
                 VStack(alignment: .leading, spacing: PL.S.md) {
                     commitmentRow("Seek God before my phone")
                     commitmentRow("Pray before scrolling")
                     commitmentRow("Be intentional with my screen time")
                     commitmentRow("Guard my heart and mind")
                 }
-                PLSubtitle("Sign as a reminder of the promise you're making.")
+                PLSubtitle("Sign as a reminder of the promise you're making.",
+                           color: PL.C.textOnInkMuted)
                 signaturePad
             }
         }
@@ -342,8 +395,9 @@ struct SignCommitmentScreen: View {
 
     private func commitmentRow(_ t: String) -> some View {
         HStack(spacing: PL.S.md) {
-            Image(systemName: "checkmark.circle.fill").foregroundColor(PL.C.gold)
-            Text(t).font(PL.F.sans(16, .medium)).foregroundColor(PL.C.text)
+            Image(systemName: "checkmark").font(.system(size: 15, weight: .bold))
+                .foregroundColor(PL.C.gold)
+            Text(t).font(PL.F.sans(16, .medium)).foregroundColor(PL.C.textOnInk)
         }
     }
 

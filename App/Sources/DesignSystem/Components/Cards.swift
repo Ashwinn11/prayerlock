@@ -84,29 +84,61 @@ struct FeatureRow: View {
     }
 }
 
+/// Scripture in a dark brown card — verse-of-the-day / guided-prayer scripture.
+struct ScriptureDarkCard: View {
+    let text: String
+    let reference: String
+    var italic: Bool = false
+    var textColor: Color = PL.C.textOnInk
+    var refColor: Color = PL.C.gold
+
+    var body: some View {
+        VStack(spacing: PL.S.md) {
+            Text("\u{201C}\(text)\u{201D}")
+                .font(italic ? PL.F.serifItalic(18) : PL.F.serif(19))
+                .foregroundColor(textColor)
+                .multilineTextAlignment(.center)
+                .lineSpacing(5)
+                .fixedSize(horizontal: false, vertical: true)
+            Eyebrow(text: reference, color: refColor)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(PL.S.xl)
+        .background(PL.C.ink)
+        .clipShape(RoundedRectangle(cornerRadius: PL.R.bigCard, style: .continuous))
+        .shadow(color: .black.opacity(0.10), radius: 12, y: 6)
+    }
+}
+
 /// A saved prayer card. Compact = title + time (journal list); full = + prayer & scripture.
+/// `dark` renders the brown variant used on the "first prayer" screen.
 struct JournalEntryCard: View {
     let entry: JournalEntry
     var compact: Bool = false
     var showChevron: Bool = true
+    var dark: Bool = false
+
+    private var titleColor: Color { dark ? PL.C.textOnInk : PL.C.text }
+    private var bodyColor: Color { dark ? PL.C.textOnInkMuted : PL.C.text }
+    private var metaColor: Color { dark ? PL.C.textOnInkMuted : PL.C.textMuted }
 
     var body: some View {
         VStack(alignment: .leading, spacing: PL.S.sm) {
             HStack(spacing: PL.S.sm) {
                 Circle().fill(PL.C.gold).frame(width: 8, height: 8)
                 Text(entry.title)
-                    .font(PL.F.serif(20, .regular)).foregroundColor(PL.C.text)
+                    .font(PL.F.serif(20, .regular)).foregroundColor(titleColor)
                 Spacer(minLength: 0)
                 if showChevron {
                     Image(systemName: "chevron.right")
-                        .font(.system(size: 13, weight: .semibold)).foregroundColor(PL.C.textMuted)
+                        .font(.system(size: 13, weight: .semibold)).foregroundColor(metaColor)
                 }
             }
             Text(entry.timeLabel)
-                .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.textMuted)
+                .font(PL.F.sans(13, .medium)).foregroundColor(metaColor)
             if !compact {
                 Text(entry.prayerText)
-                    .font(PL.F.sans(15, .regular)).foregroundColor(PL.C.text)
+                    .font(PL.F.sans(15, .regular)).foregroundColor(bodyColor)
                     .lineSpacing(4)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, PL.S.xs)
@@ -115,9 +147,12 @@ struct JournalEntryCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(PL.S.lg)
-        .background(PL.C.card)
+        .background(dark ? PL.C.ink : PL.C.card)
         .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
-        .plCardStroke()
+        .overlay(
+            RoundedRectangle(cornerRadius: PL.R.card, style: .continuous)
+                .stroke(dark ? Color.clear : PL.C.stroke, lineWidth: 1)
+        )
     }
 }
 

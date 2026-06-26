@@ -5,6 +5,7 @@ struct PrayerTime: Identifiable, Codable, Equatable, Hashable {
     var id = UUID()
     var hour: Int
     var minute: Int
+    var enabled: Bool = true
 
     var date: Date {
         Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: Date()) ?? Date()
@@ -35,6 +36,11 @@ final class AppModel: ObservableObject {
     @AppStorage("totalPrayers") var totalPrayers: Int = 0
     @AppStorage("companionLevel") var companionLevel: Int = 1
     @AppStorage("faithPoints") var faithPoints: Int = 0
+
+    // Reminders
+    @AppStorage("dailyReminderEnabled") var dailyReminderEnabled: Bool = true
+    @AppStorage("reminderHour") var reminderHour: Int = 8
+    @AppStorage("reminderMinute") var reminderMinute: Int = 0
     @AppStorage("lastPrayerEpoch") var lastPrayerEpoch: Double = 0
     @AppStorage("planStartEpoch") var planStartEpoch: Double = 0
 
@@ -95,5 +101,34 @@ final class AppModel: ObservableObject {
         if totalPrayers >= companionLevel * 7 { companionLevel += 1 }
         journal.insert(entry, at: 0)
         ShieldController().unlock()
+    }
+
+    /// Completely wipe all data and return to onboarding (Settings → Delete all data).
+    func deleteAllData() {
+        // Identity + progress (standard defaults)
+        userName = ""
+        companionName = "Grace"
+        denomination = ""
+        streak = 0; totalPrayers = 0; companionLevel = 1; faithPoints = 0
+        lastPrayerEpoch = 0; planStartEpoch = 0
+        dailyReminderEnabled = true; reminderHour = 8; reminderMinute = 0
+
+        // Journal + prayer times (back to fresh defaults)
+        journal = []
+        prayerTimes = [PrayerTime(hour: 8, minute: 0),
+                       PrayerTime(hour: 12, minute: 0),
+                       PrayerTime(hour: 18, minute: 0)]
+
+        // App-group shared state
+        for key in ["blockedSelection", "isLocked", "unlockedUntil",
+                    "lastLockActivity", "wantsToPray", "prayerTimes", "journalEntries"] {
+            PL.defaults.removeObject(forKey: key)
+        }
+
+        // Clear any active shield (ScreenTimeManager.clearAll also stops monitoring,
+        // called from the Settings delete action which is main-actor isolated).
+        ShieldController().unlock()
+
+        onboardingComplete = false
     }
 }

@@ -13,6 +13,7 @@ struct ButtonConfig {
     var title: String
     var style: PrimaryButton.Style = .primary
     var enabled: Bool = true
+    var loading: Bool = false
     var action: () -> Void
 }
 
@@ -100,7 +101,8 @@ struct OnbScaffold<Content: View>: View {
 
                 if let primary {
                     PrimaryButton(title: primary.title, style: primary.style,
-                                  enabled: primary.enabled, action: primary.action)
+                                  enabled: primary.enabled, loading: primary.loading,
+                                  action: primary.action)
                         .padding(.bottom, PL.L.bottomBar)
                 }
             }

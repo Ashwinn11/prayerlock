@@ -9,6 +9,7 @@ struct JournalEntry: Identifiable, Codable, Equatable {
     var scriptureRef: String       // e.g. "PSALMS 46:10"
     var reflection: String = ""
     var date: Date = Date()
+    var illustration: String? = nil   // asset name for the journal thumbnail
 
     var timeLabel: String {
         let f = DateFormatter()

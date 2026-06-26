@@ -62,6 +62,29 @@ struct SliderScreen: View {
     }
 }
 
+// MARK: - Reusable: emoji mood check-in (relationship / feeling)
+
+struct MoodSliderScreen: View {
+    @ObservedObject var ob: Onboarding
+    let title: String
+    var accents: [String] = []
+    let stops: [MoodStop]
+    @Binding var index: Int
+
+    var body: some View {
+        OnbScaffold(
+            theme: .light, showBack: ob.showBack, progress: nil, centered: true,
+            onBack: ob.back,
+            primary: ButtonConfig(title: "Continue", action: ob.next)
+        ) {
+            VStack(spacing: PL.S.xxxl) {
+                GoldHeadline(title, accents: accents, size: 28, alignment: .center)
+                EmojiSlider(stops: stops, index: $index)
+            }
+        }
+    }
+}
+
 // MARK: - Reusable: insight / intro / info screen
 
 struct InsightScreen: View {

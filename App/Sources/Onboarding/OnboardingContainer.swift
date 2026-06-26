@@ -115,7 +115,7 @@ struct OnboardingContainer: View {
                           buttonStyle: .plainOnInk)
         case .bible21:
             InsightScreen(ob: ob, illustration: "bible", symbol: "book.closed.fill",
-                          headline: "You could read the entire Bible in 21 days.",
+                          headline: "You could read the entire Bible in \(ob.bibleDays) days.",
                           accents: ["entire Bible"],
                           subtitle: "If you traded screen time for scripture time.")
         case .giveBack:
@@ -138,16 +138,14 @@ struct OnboardingContainer: View {
 
         // MARK: First-prayer preview
         case .feelingRelationship:
-            TextInputScreen(ob: ob, showIllustration: false,
-                            title: "How's your relationship with God today?",
-                            accents: ["relationship with God"],
-                            placeholder: "Share a word or two…", text: $ob.relationshipToday)
+            MoodSliderScreen(ob: ob, title: "How's your relationship with God today?",
+                             accents: ["relationship with God"],
+                             stops: MoodStops.relationship, index: $ob.relationshipMood)
         case .feeling:
-            TextInputScreen(ob: ob, showIllustration: false,
-                            title: "How are you feeling today?", accents: ["feeling"],
-                            placeholder: "Share how you're feeling…", text: $ob.feeling)
+            MoodSliderScreen(ob: ob, title: "How are you feeling today?", accents: ["feeling"],
+                             stops: MoodStops.feeling, index: $ob.feelingMood)
         case .guidedPrayer:
-            GuidedPrayerReadingScreen(ob: ob, prayer: PrayerLibrary.forMood(ob.feeling))
+            GuidedPrayerReadingScreen(ob: ob)
         case .prayOwn:
             InsightScreen(ob: ob, illustration: "praying-hands", symbol: "hands.sparkles",
                           headline: "You can also pray on your own.",
@@ -160,14 +158,9 @@ struct OnboardingContainer: View {
 
         // MARK: Companion + community + setup
         case .companionIntro:
-            InsightScreen(ob: ob, illustration: "companion", symbol: "leaf.fill",
-                          headline: "Meet your companion.", accents: ["companion"],
-                          subtitle: "As you pray each day, your faith grows. Your companion walks the journey with you.")
+            CompanionIntroScreen(ob: ob)
         case .companionName:
-            TextInputScreen(ob: ob, illustration: "companion", symbol: "leaf.fill",
-                            title: "Name your companion.",
-                            subtitle: "A gentle reminder to return each day.",
-                            placeholder: "Grace", text: $ob.companionName, buttonTitle: "Let's go")
+            CompanionNameScreen(ob: ob)
         case .community:
             CommunityScreen(ob: ob)
         case .prayerTimes:

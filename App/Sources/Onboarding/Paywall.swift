@@ -3,6 +3,8 @@ import SwiftUI
 struct PaywallScreen: View {
     @ObservedObject var ob: Onboarding
     @State private var plan: Plan = .yearly
+    @State private var legal: LegalDoc?
+    @State private var showRestore = false
 
     enum Plan { case yearly, weekly }
 
@@ -12,6 +14,7 @@ struct PaywallScreen: View {
             VStack(spacing: 0) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: PL.S.xl) {
+                        IllustrationSlot(name: "hand-dove", fallbackSymbol: "bird.fill", size: 120)
                         VStack(spacing: PL.S.md) {
                             GoldHeadline("From lukewarm to closer to God.", accents: ["closer to God"],
                                          size: 27, alignment: .center)
@@ -38,6 +41,12 @@ struct PaywallScreen: View {
             }
         }
         .preferredColorScheme(.light)
+        .sheet(item: $legal) { LegalView(doc: $0) }
+        .alert("No purchases found", isPresented: $showRestore) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("We couldn't find a previous purchase to restore.")
+        }
     }
 
     private var footer: some View {
@@ -47,9 +56,9 @@ struct PaywallScreen: View {
                 .font(PL.F.sans(12, .regular)).foregroundColor(PL.C.textMuted)
                 .multilineTextAlignment(.center)
             HStack(spacing: PL.S.xl) {
-                Button("Restore") {}
-                Button("Terms") {}
-                Button("Privacy") {}
+                Button("Restore") { showRestore = true }
+                Button("Terms") { legal = .terms }
+                Button("Privacy") { legal = .privacy }
             }
             .font(PL.F.sans(12, .medium))
             .foregroundColor(PL.C.textMuted)
