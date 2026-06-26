@@ -1,18 +1,18 @@
 import SwiftUI
 
-/// Type system: Lora (warm humanist serif) for headlines & numerals,
-/// Lora italic for scripture, Manrope for body & UI.
+/// Type system: Newsreader (warm editorial serif) for headlines & numerals,
+/// Newsreader italic for scripture, Hanken Grotesk for body & UI.
 extension PL {
     enum F {
-        // MARK: Serif (Lora) — headlines & numerals
+        // MARK: Serif (Newsreader) — headlines & numerals
         static func serif(_ size: CGFloat, _ weight: SerifWeight = .regular) -> Font {
             .custom(weight.psName, size: size)
         }
-        // MARK: Serif italic (Lora) — used for scripture quotes
+        // MARK: Serif italic (Newsreader) — used for scripture quotes
         static func serifItalic(_ size: CGFloat, medium: Bool = false) -> Font {
-            .custom(medium ? "Lora-MediumItalic" : "Lora-Italic", size: size)
+            .custom(medium ? "Newsreader-MediumItalic" : "Newsreader-Italic", size: size)
         }
-        // MARK: Sans (Manrope) — body & UI
+        // MARK: Sans (Hanken Grotesk) — body & UI
         static func sans(_ size: CGFloat, _ weight: SansWeight = .regular) -> Font {
             .custom(weight.psName, size: size)
         }
@@ -21,11 +21,11 @@ extension PL {
             case light, regular, medium, semibold, bold
             var psName: String {
                 switch self {
-                case .light: return "Lora-Regular"   // Lora has no light cut
-                case .regular: return "Lora-Regular"
-                case .medium: return "Lora-Medium"
-                case .semibold: return "Lora-SemiBold"
-                case .bold: return "Lora-Bold"
+                case .light: return "Newsreader-Light"
+                case .regular: return "Newsreader-Regular"
+                case .medium: return "Newsreader-Medium"
+                case .semibold: return "Newsreader-SemiBold"
+                case .bold: return "Newsreader-Bold"
                 }
             }
         }
@@ -33,11 +33,11 @@ extension PL {
             case regular, medium, semibold, bold, extrabold
             var psName: String {
                 switch self {
-                case .regular: return "Manrope-Regular"
-                case .medium: return "Manrope-Medium"
-                case .semibold: return "Manrope-SemiBold"
-                case .bold: return "Manrope-Bold"
-                case .extrabold: return "Manrope-ExtraBold"
+                case .regular: return "HankenGrotesk-Regular"
+                case .medium: return "HankenGrotesk-Medium"
+                case .semibold: return "HankenGrotesk-SemiBold"
+                case .bold: return "HankenGrotesk-Bold"
+                case .extrabold: return "HankenGrotesk-ExtraBold"
                 }
             }
         }

@@ -12,37 +12,38 @@ extension Color {
     }
 }
 
-/// Prayer Lock palette — warm cream + charcoal-brown + gold accent.
-/// Extends the shared `PL` namespace (defined in Shared/PrayerLockShared.swift).
+/// Prayer Lock palette — bone paper + warm ink + single gold accent.
+/// Synced with the canonical Quiet Sanctuary design tokens (PrayerLock/Theme.swift).
 extension PL {
     enum C {
-        /// Light "question" screen background.
-        static let cream = Color(hex: 0xF1ECE3)
-        /// Slightly lighter card / field surface on cream.
-        static let card = Color(hex: 0xFAF7F0)
-        /// Dark "insight" screen background.
-        static let ink = Color(hex: 0x36322B)
-        /// Card surface used on dark screens.
-        static let inkCard = Color(hex: 0x423D34)
+        /// Primary screen background — bone paper.
+        static let cream = Color(hex: 0xF4EFE6)
+        /// Cards, list groups, field surfaces.
+        static let card = Color(hex: 0xFBF8F1)
+        /// Dark insight/interstitial screen background.
+        static let ink = Color(hex: 0x34302A)
+        /// Alt background — shield / lock / illustration plate.
+        static let inkCard = Color(hex: 0xEFE9DD)
 
         /// Primary text (near-black warm brown).
-        static let text = Color(hex: 0x2E2A24)
+        static let text = Color(hex: 0x34302A)
         /// Secondary / muted text.
-        static let textMuted = Color(hex: 0x8C857A)
+        static let textMuted = Color(hex: 0x6F6A61)
         /// Text on dark backgrounds.
-        static let textOnInk = Color(hex: 0xF3EEE6)
-        static let textOnInkMuted = Color(hex: 0xB7AE9F)
+        static let textOnInk = Color(hex: 0xF4EFE6)
+        /// Muted text on dark backgrounds.
+        static let textOnInkMuted = Color(hex: 0x9C9486)
 
-        /// Gold / amber accent (emphasis words, slider fill, progress).
-        static let gold = Color(hex: 0xB5832E)
+        /// The single gold accent — emphasis words, slider fill, progress.
+        static let gold = Color(hex: 0xA87C3D)
 
         /// Primary pill button fill + its text.
-        static let button = Color(hex: 0x36322B)
-        static let buttonText = Color(hex: 0xF6F1E8)
-        static let buttonDisabled = Color(hex: 0xA9A399)
+        static let button = Color(hex: 0x34302A)
+        static let buttonText = Color(hex: 0xFBF8F1)
+        static let buttonDisabled = Color(hex: 0x9C9486)
 
-        /// Hairline / track colors.
-        static let track = Color(hex: 0xDED7CA)
-        static let stroke = Color(hex: 0xE4DDD0)
+        /// Hairline / track / border colors.
+        static let track = Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.07)
+        static let stroke = Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.14)
     }
 }

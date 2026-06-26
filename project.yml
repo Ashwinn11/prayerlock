@@ -52,17 +52,18 @@ targets:
           - UIInterfaceOrientationPortrait
         ITSAppUsesNonExemptEncryption: false
         UIAppFonts:
-          - Lora-Regular.ttf
-          - Lora-Medium.ttf
-          - Lora-SemiBold.ttf
-          - Lora-Bold.ttf
-          - Lora-RegularItalic.ttf
-          - Lora-MediumItalic.ttf
-          - Manrope-Regular.ttf
-          - Manrope-Medium.ttf
-          - Manrope-SemiBold.ttf
-          - Manrope-Bold.ttf
-          - Manrope-ExtraBold.ttf
+          - Newsreader-Light.ttf
+          - Newsreader-Regular.ttf
+          - Newsreader-Medium.ttf
+          - Newsreader-SemiBold.ttf
+          - Newsreader-Bold.ttf
+          - Newsreader-Italic.ttf
+          - Newsreader-MediumItalic.ttf
+          - HankenGrotesk-Regular.ttf
+          - HankenGrotesk-Medium.ttf
+          - HankenGrotesk-SemiBold.ttf
+          - HankenGrotesk-Bold.ttf
+          - HankenGrotesk-ExtraBold.ttf
     settings:
       base:
         PRODUCT_NAME: PrayerLock

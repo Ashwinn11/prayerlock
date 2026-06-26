@@ -24,17 +24,18 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Lora-Regular.ttf</string>
-		<string>Lora-Medium.ttf</string>
-		<string>Lora-SemiBold.ttf</string>
-		<string>Lora-Bold.ttf</string>
-		<string>Lora-RegularItalic.ttf</string>
-		<string>Lora-MediumItalic.ttf</string>
-		<string>Manrope-Regular.ttf</string>
-		<string>Manrope-Medium.ttf</string>
-		<string>Manrope-SemiBold.ttf</string>
-		<string>Manrope-Bold.ttf</string>
-		<string>Manrope-ExtraBold.ttf</string>
+		<string>Newsreader-Light.ttf</string>
+		<string>Newsreader-Regular.ttf</string>
+		<string>Newsreader-Medium.ttf</string>
+		<string>Newsreader-SemiBold.ttf</string>
+		<string>Newsreader-Bold.ttf</string>
+		<string>Newsreader-Italic.ttf</string>
+		<string>Newsreader-MediumItalic.ttf</string>
+		<string>HankenGrotesk-Regular.ttf</string>
+		<string>HankenGrotesk-Medium.ttf</string>
+		<string>HankenGrotesk-SemiBold.ttf</string>
+		<string>HankenGrotesk-Bold.ttf</string>
+		<string>HankenGrotesk-ExtraBold.ttf</string>
 	</array>
 	<key>UILaunchScreen</key>
 	<dict>

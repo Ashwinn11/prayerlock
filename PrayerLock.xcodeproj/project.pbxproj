@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031502B49591AC6CF594FDD1 /* Newsreader-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9717297ABE22FBF8992FCC15 /* Newsreader-SemiBold.ttf */; };
 		043CECE6DAD71D2128A4CA57 /* BibleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456349401580B0857269578 /* BibleStore.swift */; };
 		09648343F413749F3D8B46EC /* Lora-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D2296AA303DCB878F718C /* Lora-RegularItalic.ttf */; };
 		0A9D7B75A2A832907297449F /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 929F9DBEB06DF797027F018B /* Manrope-ExtraBold.ttf */; };
+		0B3B6DC3AF8FD56F5304F6DF /* Newsreader-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0073A92C3C6E35BEDA2D7FA /* Newsreader-MediumItalic.ttf */; };
 		12EC8905A022549D19AA02D2 /* Monitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D608041A184DD00042F6685 /* Monitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		197CFF2F5E8640F34FBFF113 /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
 		1B76651D34D9768429C9FB33 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B09287EB4BC52CEB7E1C4E3 /* MainTabView.swift */; };
+		1E690472F6ED05C74EA2151D /* HankenGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86ECAF02EC10AECF60CB20A5 /* HankenGrotesk-SemiBold.ttf */; };
+		1F8FAB828BC632AB3E91F21F /* Newsreader-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEC82EBD32B396462C8A2D1C /* Newsreader-Medium.ttf */; };
 		21DA5C7D8E86771831AA7835 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CD841B6DDFDC6F55324DB8 /* Typography.swift */; };
 		2271F6327F1AD8A1AFAEA84B /* Scaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */; };
 		2E804E1A20B2F5636C9D2DB4 /* TypewriterText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5C8557D0C53A1EF26CB3C /* TypewriterText.swift */; };
 		2F04B2E2B1D79AD5473F662F /* Inputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DB97719C39E213C03A464 /* Inputs.swift */; };
 		339341EBF87B403264F43852 /* Lora-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC9F7BE260926E7E8FB774 /* Lora-MediumItalic.ttf */; };
+		36266F728D332EE98D923F69 /* HankenGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDF01C8470046AE814BD6FB5 /* HankenGrotesk-Bold.ttf */; };
 		40D8FA289B17AD1F1B74CBD8 /* PrayerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DC234BB1094D1E0657151 /* PrayerContent.swift */; };
 		463AF4C31FEB818E3C5727A2 /* OnboardingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */; };
 		472EA2F5D25127DE1EB14160 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */; };
@@ -32,14 +37,19 @@
 		7349820B1B111395B2B1A289 /* Shield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FDDE87368536B3842549A2F /* Shield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		78A4DBA4FEBFBEC7D40BC230 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */; };
 		7A808A83B41B4A36D529C434 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */; };
+		801E4B51B3BDE60723C7643D /* HankenGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9D1ADB4530C7A0175706409 /* HankenGrotesk-Regular.ttf */; };
 		806EFF357959A4482532682B /* Paywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32CE88A25AC36BA5C597875 /* Paywall.swift */; };
 		839A22ED8A0E734347338E59 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C344C8C2CA897B7FA924FA1 /* DeviceActivityMonitorExtension.swift */; };
 		842392C3BA9573F55CD7AA23 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284FC86C9CFCF158B7CF2544 /* LegalView.swift */; };
+		84E7352E92D688E9448F89A8 /* Newsreader-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4EFF57EDD57D2BBF9BC7DB4 /* Newsreader-Bold.ttf */; };
 		850A3B210233C54E0272F5CB /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092EA8C62E6000B70EF2BF2 /* Metrics.swift */; };
 		882A0145121E46DB8EE90249 /* OnboardingCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */; };
 		8DE8570730C75491010FBC5F /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
+		8ED4A59E11CBD7479C09E2C9 /* HankenGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 868E7E33874CF48A9A01714B /* HankenGrotesk-Medium.ttf */; };
+		909579EB197CD107DC51620E /* Newsreader-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E98E0F7EC46464EA07A20351 /* Newsreader-Regular.ttf */; };
 		9568EE998D5713D26525AB1F /* PrayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */; };
 		992C541AC21BFF83D700A656 /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F8DBF0284057B42966EFD /* BibleView.swift */; };
+		9CED88629CB189D7E8000307 /* HankenGrotesk-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF39D952808A60C3550C15DE /* HankenGrotesk-ExtraBold.ttf */; };
 		9D443D82C2D12DB4CD7058F4 /* Lora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B34159010EABBD54AAE6902 /* Lora-Medium.ttf */; };
 		A33D8AE53F7FE4A998AC87D1 /* TimeListEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35838E259B10E5F3975DF9E /* TimeListEditor.swift */; };
 		A89B2DD5D9EACAF8699CAB65 /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B22AD4340AEB579324C46476 /* Lora-Bold.ttf */; };
@@ -50,6 +60,7 @@
 		B745AD9EF1D3993BC2966E9D /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461C0F2012650F99FDCF408 /* AppModel.swift */; };
 		B79E56C0714317878EF57652 /* MainComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA27602CE7320CED1F0B66C /* MainComponents.swift */; };
+		B839E7AEE46D10CCDA061755 /* Newsreader-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FF9BE417DF0C5B11027E0F4 /* Newsreader-Light.ttf */; };
 		BB36A8ECE526E797AF690CFF /* PrayerLockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */; };
 		BC178990B8A360F691E898BD /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */; };
 		BCEC013F5D2038A40200090D /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 637991545F3D4C024611412F /* Lora-Regular.ttf */; };
@@ -60,6 +71,7 @@
 		CF527BC6938BDAE4DA4705DB /* GoldHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFD7F5727F2CE0CABD73E62 /* GoldHeadline.swift */; };
 		D1D40748E5D5940213012FBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2DF79D242102553B4EB1BA /* Assets.xcassets */; };
 		D4E9BC8CD7D076EF5BC57454 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE82AB09B74C44EAC8FCE7 /* PrimaryButton.swift */; };
+		D71CF0537E31C7A7705D01A3 /* Newsreader-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94E0D1AB538C72CC3E9EF8E0 /* Newsreader-Italic.ttf */; };
 		DACFF8D9F45EA4EB40CB0BF1 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C52A281C99284630633FA7 /* Palette.swift */; };
 		E3261197508C19760150DD46 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */; };
 		E5718664215FBC29C278B437 /* ShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -137,6 +149,7 @@
 		5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scaffold.swift; sourceTree = "<group>"; };
 		5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
 		5EFE82AB09B74C44EAC8FCE7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		5FF9BE417DF0C5B11027E0F4 /* Newsreader-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-Light.ttf"; sourceTree = "<group>"; };
 		637991545F3D4C024611412F /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
 		6D608041A184DD00042F6685 /* Monitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Monitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7456349401580B0857269578 /* BibleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleStore.swift; sourceTree = "<group>"; };
@@ -145,6 +158,8 @@
 		835C24431289F269B86568C5 /* PrayerLockShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerLockShared.swift; sourceTree = "<group>"; };
 		846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
 		84C07477A81E1BEFB3C70C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		868E7E33874CF48A9A01714B /* HankenGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HankenGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		86ECAF02EC10AECF60CB20A5 /* HankenGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HankenGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F12944E25FDBC5AD6DA59A8 /* Shield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shield.entitlements; sourceTree = "<group>"; };
 		91775386DF1B1D5D7283FE3D /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
@@ -152,17 +167,22 @@
 		93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainer.swift; sourceTree = "<group>"; };
 		941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		9461C0F2012650F99FDCF408 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		94E0D1AB538C72CC3E9EF8E0 /* Newsreader-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-Italic.ttf"; sourceTree = "<group>"; };
+		9717297ABE22FBF8992FCC15 /* Newsreader-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-SemiBold.ttf"; sourceTree = "<group>"; };
 		9A5D2296AA303DCB878F718C /* Lora-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-RegularItalic.ttf"; sourceTree = "<group>"; };
 		9B09287EB4BC52CEB7E1C4E3 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerPreview.swift; sourceTree = "<group>"; };
 		A4C256F4E4DA3ABE9A34AA3E /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-SemiBold.ttf"; sourceTree = "<group>"; };
 		A4C52A281C99284630633FA7 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		AF39D952808A60C3550C15DE /* HankenGrotesk-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HankenGrotesk-ExtraBold.ttf"; sourceTree = "<group>"; };
 		B1CD841B6DDFDC6F55324DB8 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		B22AD4340AEB579324C46476 /* Lora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Bold.ttf"; sourceTree = "<group>"; };
 		B40AF6688E703867FB488528 /* PrayerLock.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PrayerLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53F8DBF0284057B42966EFD /* BibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleView.swift; sourceTree = "<group>"; };
 		B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerLockApp.swift; sourceTree = "<group>"; };
 		B949F68A903250807815257B /* PrayerSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSessionView.swift; sourceTree = "<group>"; };
+		B9D1ADB4530C7A0175706409 /* HankenGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HankenGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		BEC82EBD32B396462C8A2D1C /* Newsreader-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-Medium.ttf"; sourceTree = "<group>"; };
 		C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLNamespace.swift; sourceTree = "<group>"; };
 		D05D497043B96DD148FAB509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
@@ -170,9 +190,13 @@
 		DAE6462B9A6E79CCDF4DC768 /* ScreenTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeManager.swift; sourceTree = "<group>"; };
 		E35838E259B10E5F3975DF9E /* TimeListEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeListEditor.swift; sourceTree = "<group>"; };
 		E39B82FE0713A89A47F527B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E98E0F7EC46464EA07A20351 /* Newsreader-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-Regular.ttf"; sourceTree = "<group>"; };
+		F0073A92C3C6E35BEDA2D7FA /* Newsreader-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-MediumItalic.ttf"; sourceTree = "<group>"; };
 		F32CE88A25AC36BA5C597875 /* Paywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paywall.swift; sourceTree = "<group>"; };
 		F32DC234BB1094D1E0657151 /* PrayerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerContent.swift; sourceTree = "<group>"; };
+		F4EFF57EDD57D2BBF9BC7DB4 /* Newsreader-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-Bold.ttf"; sourceTree = "<group>"; };
 		FDCFA6FC624D2A41CDA2865F /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		FDF01C8470046AE814BD6FB5 /* HankenGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HankenGrotesk-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -272,6 +296,11 @@
 		60F6D0DCB8ABE550C4D7EDFF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				FDF01C8470046AE814BD6FB5 /* HankenGrotesk-Bold.ttf */,
+				AF39D952808A60C3550C15DE /* HankenGrotesk-ExtraBold.ttf */,
+				868E7E33874CF48A9A01714B /* HankenGrotesk-Medium.ttf */,
+				B9D1ADB4530C7A0175706409 /* HankenGrotesk-Regular.ttf */,
+				86ECAF02EC10AECF60CB20A5 /* HankenGrotesk-SemiBold.ttf */,
 				B22AD4340AEB579324C46476 /* Lora-Bold.ttf */,
 				2B34159010EABBD54AAE6902 /* Lora-Medium.ttf */,
 				3DCC9F7BE260926E7E8FB774 /* Lora-MediumItalic.ttf */,
@@ -283,6 +312,13 @@
 				D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */,
 				5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */,
 				0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */,
+				F4EFF57EDD57D2BBF9BC7DB4 /* Newsreader-Bold.ttf */,
+				94E0D1AB538C72CC3E9EF8E0 /* Newsreader-Italic.ttf */,
+				5FF9BE417DF0C5B11027E0F4 /* Newsreader-Light.ttf */,
+				BEC82EBD32B396462C8A2D1C /* Newsreader-Medium.ttf */,
+				F0073A92C3C6E35BEDA2D7FA /* Newsreader-MediumItalic.ttf */,
+				E98E0F7EC46464EA07A20351 /* Newsreader-Regular.ttf */,
+				9717297ABE22FBF8992FCC15 /* Newsreader-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -529,6 +565,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D40748E5D5940213012FBC /* Assets.xcassets in Resources */,
+				36266F728D332EE98D923F69 /* HankenGrotesk-Bold.ttf in Resources */,
+				9CED88629CB189D7E8000307 /* HankenGrotesk-ExtraBold.ttf in Resources */,
+				8ED4A59E11CBD7479C09E2C9 /* HankenGrotesk-Medium.ttf in Resources */,
+				801E4B51B3BDE60723C7643D /* HankenGrotesk-Regular.ttf in Resources */,
+				1E690472F6ED05C74EA2151D /* HankenGrotesk-SemiBold.ttf in Resources */,
 				A89B2DD5D9EACAF8699CAB65 /* Lora-Bold.ttf in Resources */,
 				9D443D82C2D12DB4CD7058F4 /* Lora-Medium.ttf in Resources */,
 				339341EBF87B403264F43852 /* Lora-MediumItalic.ttf in Resources */,
@@ -540,6 +581,13 @@
 				68BAF63266E101D77D5A358E /* Manrope-Medium.ttf in Resources */,
 				6DDD54C0102ABFE6002F30AA /* Manrope-Regular.ttf in Resources */,
 				E3261197508C19760150DD46 /* Manrope-SemiBold.ttf in Resources */,
+				84E7352E92D688E9448F89A8 /* Newsreader-Bold.ttf in Resources */,
+				D71CF0537E31C7A7705D01A3 /* Newsreader-Italic.ttf in Resources */,
+				B839E7AEE46D10CCDA061755 /* Newsreader-Light.ttf in Resources */,
+				1F8FAB828BC632AB3E91F21F /* Newsreader-Medium.ttf in Resources */,
+				0B3B6DC3AF8FD56F5304F6DF /* Newsreader-MediumItalic.ttf in Resources */,
+				909579EB197CD107DC51620E /* Newsreader-Regular.ttf in Resources */,
+				031502B49591AC6CF594FDD1 /* Newsreader-SemiBold.ttf in Resources */,
 				F43E8FC6FD368F1E7ACFB813 /* kjv.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
