@@ -53,7 +53,7 @@ struct HomeView: View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 2) {
                 Eyebrow(text: greeting)
-                Text("Grace and peace")
+                Text(app.userName.isEmpty ? "Grace and peace" : app.userName)
                     .font(PL.F.serif(30, .regular)).foregroundColor(PL.C.text)
             }
             Spacer()
