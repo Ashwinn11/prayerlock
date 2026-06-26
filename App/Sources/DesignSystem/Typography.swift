@@ -1,16 +1,16 @@
 import SwiftUI
 
-/// Type system: Fraunces (display serif, 144pt optical cut) for headlines & numerals,
-/// Fraunces 72pt italic for scripture, Manrope for body & UI.
+/// Type system: Lora (warm humanist serif) for headlines & numerals,
+/// Lora italic for scripture, Manrope for body & UI.
 extension PL {
     enum F {
-        // MARK: Serif display (Fraunces 144pt optical size)
+        // MARK: Serif (Lora) — headlines & numerals
         static func serif(_ size: CGFloat, _ weight: SerifWeight = .regular) -> Font {
             .custom(weight.psName, size: size)
         }
-        // MARK: Serif italic (Fraunces 72pt) — used for scripture quotes
+        // MARK: Serif italic (Lora) — used for scripture quotes
         static func serifItalic(_ size: CGFloat, medium: Bool = false) -> Font {
-            .custom(medium ? "Fraunces72pt-MediumItalic" : "Fraunces72pt-Italic", size: size)
+            .custom(medium ? "Lora-MediumItalic" : "Lora-Italic", size: size)
         }
         // MARK: Sans (Manrope) — body & UI
         static func sans(_ size: CGFloat, _ weight: SansWeight = .regular) -> Font {
@@ -21,11 +21,11 @@ extension PL {
             case light, regular, medium, semibold, bold
             var psName: String {
                 switch self {
-                case .light: return "Fraunces144pt-Light"
-                case .regular: return "Fraunces144pt-Regular"
-                case .medium: return "Fraunces144pt-Medium"
-                case .semibold: return "Fraunces144pt-SemiBold"
-                case .bold: return "Fraunces144pt-Bold"
+                case .light: return "Lora-Regular"   // Lora has no light cut
+                case .regular: return "Lora-Regular"
+                case .medium: return "Lora-Medium"
+                case .semibold: return "Lora-SemiBold"
+                case .bold: return "Lora-Bold"
                 }
             }
         }
@@ -54,13 +54,13 @@ extension Font {
     /// Section header on main screens (serif). ~26pt.
     static var plSectionTitle: Font { PL.F.serif(26, .medium) }
     /// Body copy (sans).
-    static var plBody: Font { PL.F.sans(17, .regular) }
+    static var plBody: Font { PL.F.sans(16, .regular) }
     /// Subtitle / supporting copy (sans).
-    static var plSubtitle: Font { PL.F.sans(16, .medium) }
+    static var plSubtitle: Font { PL.F.sans(15, .medium) }
     /// Option row label (sans).
-    static var plOption: Font { PL.F.sans(17, .medium) }
+    static var plOption: Font { PL.F.sans(16, .medium) }
     /// Button label (sans).
-    static var plButton: Font { PL.F.sans(18, .semibold) }
+    static var plButton: Font { PL.F.sans(17, .semibold) }
     /// Small tracked-out caps label (sans).
     static var plEyebrow: Font { PL.F.sans(13, .bold) }
 }

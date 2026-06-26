@@ -5,7 +5,7 @@ import SwiftUI
 struct GoldHeadline: View {
     let text: String
     var accents: [String] = []
-    var size: CGFloat = 32
+    var size: CGFloat = 28
     var weight: PL.F.SerifWeight = .regular
     var base: Color = PL.C.text
     var accent: Color = PL.C.gold
@@ -15,7 +15,7 @@ struct GoldHeadline: View {
         Text(Self.attributed(text, accents: accents, font: PL.F.serif(size, weight),
                              base: base, accent: accent))
             .multilineTextAlignment(alignment)
-            .lineSpacing(2)
+            .lineSpacing(1)
             .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity, alignment: alignment == .center ? .center : .leading)
     }

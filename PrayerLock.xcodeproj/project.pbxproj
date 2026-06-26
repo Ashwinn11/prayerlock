@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		019C8E8114918D53B8EF533D /* Fraunces-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C512E30B7C733A70EEA3585D /* Fraunces-SemiBold.ttf */; };
+		09648343F413749F3D8B46EC /* Lora-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D2296AA303DCB878F718C /* Lora-RegularItalic.ttf */; };
 		0A9D7B75A2A832907297449F /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 929F9DBEB06DF797027F018B /* Manrope-ExtraBold.ttf */; };
 		12EC8905A022549D19AA02D2 /* Monitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D608041A184DD00042F6685 /* Monitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		197CFF2F5E8640F34FBFF113 /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
@@ -15,35 +15,35 @@
 		21DA5C7D8E86771831AA7835 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CD841B6DDFDC6F55324DB8 /* Typography.swift */; };
 		2271F6327F1AD8A1AFAEA84B /* Scaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */; };
 		2F04B2E2B1D79AD5473F662F /* Inputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DB97719C39E213C03A464 /* Inputs.swift */; };
+		339341EBF87B403264F43852 /* Lora-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC9F7BE260926E7E8FB774 /* Lora-MediumItalic.ttf */; };
 		40D8FA289B17AD1F1B74CBD8 /* PrayerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DC234BB1094D1E0657151 /* PrayerContent.swift */; };
-		417484BE82A806A1CABE061A /* Fraunces-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2DBE3ACEAEE84D862AA78CE /* Fraunces-Bold.ttf */; };
 		463AF4C31FEB818E3C5727A2 /* OnboardingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */; };
 		472EA2F5D25127DE1EB14160 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */; };
-		47D2CC86D0AD2E0DC8ECCB92 /* Fraunces-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468CBF49B2E675CB25276F18 /* Fraunces-RegularItalic.ttf */; };
 		54FB98871FE09ACCD2734F92 /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
+		5BABA2BE40B2635A2E2033CB /* Lora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C256F4E4DA3ABE9A34AA3E /* Lora-SemiBold.ttf */; };
 		68BAF63266E101D77D5A358E /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */; };
 		6DDD54C0102ABFE6002F30AA /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */; };
 		6EBFDF271C105802F8AC7F35 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */; };
 		7349820B1B111395B2B1A289 /* Shield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FDDE87368536B3842549A2F /* Shield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		78A4DBA4FEBFBEC7D40BC230 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */; };
 		7A808A83B41B4A36D529C434 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */; };
-		7CD47E3041B843A1914732A1 /* Fraunces-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBB936DEDDCB7A89A2B94E86 /* Fraunces-MediumItalic.ttf */; };
 		806EFF357959A4482532682B /* Paywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32CE88A25AC36BA5C597875 /* Paywall.swift */; };
 		839A22ED8A0E734347338E59 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C344C8C2CA897B7FA924FA1 /* DeviceActivityMonitorExtension.swift */; };
 		850A3B210233C54E0272F5CB /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092EA8C62E6000B70EF2BF2 /* Metrics.swift */; };
 		882A0145121E46DB8EE90249 /* OnboardingCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */; };
 		8DE8570730C75491010FBC5F /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		9568EE998D5713D26525AB1F /* PrayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */; };
-		A1284098DB69CFEDFC840725 /* Fraunces-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D640A6D0C93903F2862C2CFD /* Fraunces-Medium.ttf */; };
+		9D443D82C2D12DB4CD7058F4 /* Lora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B34159010EABBD54AAE6902 /* Lora-Medium.ttf */; };
 		A33D8AE53F7FE4A998AC87D1 /* TimeListEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35838E259B10E5F3975DF9E /* TimeListEditor.swift */; };
+		A89B2DD5D9EACAF8699CAB65 /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B22AD4340AEB579324C46476 /* Lora-Bold.ttf */; };
 		A9CF9BBCE5CC3993C407D4CE /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F726CC77C52FE7955F19 /* Cards.swift */; };
-		ABBC41DA1CA52EAA8B97A217 /* Fraunces-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48678D54E23B78B3BB92B948 /* Fraunces-Regular.ttf */; };
 		ACC388C6C5F4B51E6DBA2D9A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6C5644FDCE1D41D708F5E /* RootView.swift */; };
 		B405E32463A596B55EBF0CC3 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */; };
 		B745AD9EF1D3993BC2966E9D /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461C0F2012650F99FDCF408 /* AppModel.swift */; };
 		BB36A8ECE526E797AF690CFF /* PrayerLockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */; };
 		BC178990B8A360F691E898BD /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */; };
+		BCEC013F5D2038A40200090D /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 637991545F3D4C024611412F /* Lora-Regular.ttf */; };
 		BD267BAB2ECFE551DEAE9534 /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		BD6B78B0978638DE73758D23 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76957BDFE6701F8BCADD8FDD /* Media.swift */; };
 		BF0E0FC3A2FF396D52DB307A /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
@@ -53,7 +53,6 @@
 		DACFF8D9F45EA4EB40CB0BF1 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C52A281C99284630633FA7 /* Palette.swift */; };
 		E3261197508C19760150DD46 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */; };
 		E5718664215FBC29C278B437 /* ShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F0F230611ACF883BB8266D25 /* Fraunces-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC03B7B69552D529C9E439E8 /* Fraunces-Light.ttf */; };
 		F43E8FC6FD368F1E7ACFB813 /* kjv.json in Resources */ = {isa = PBXBuildFile; fileRef = 825C69FCD98B433CC4712290 /* kjv.json */; };
 		FD0F4B26135F1E3321BE4341 /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
 		FD696D5385D99099AD821D77 /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
@@ -107,19 +106,20 @@
 		1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		272FD4AAEF0DA7CAD1A9629F /* ShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldAction.entitlements; sourceTree = "<group>"; };
 		2868F726CC77C52FE7955F19 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		2B34159010EABBD54AAE6902 /* Lora-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Medium.ttf"; sourceTree = "<group>"; };
 		2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
 		369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustom.swift; sourceTree = "<group>"; };
 		3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		3DCC9F7BE260926E7E8FB774 /* Lora-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-MediumItalic.ttf"; sourceTree = "<group>"; };
 		3FDDE87368536B3842549A2F /* Shield.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Shield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		468CBF49B2E675CB25276F18 /* Fraunces-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-RegularItalic.ttf"; sourceTree = "<group>"; };
-		48678D54E23B78B3BB92B948 /* Fraunces-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Regular.ttf"; sourceTree = "<group>"; };
 		4C344C8C2CA897B7FA924FA1 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		5092EA8C62E6000B70EF2BF2 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		56F6C5644FDCE1D41D708F5E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scaffold.swift; sourceTree = "<group>"; };
 		5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
 		5EFE82AB09B74C44EAC8FCE7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		637991545F3D4C024611412F /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
 		6D608041A184DD00042F6685 /* Monitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Monitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		76957BDFE6701F8BCADD8FDD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		825C69FCD98B433CC4712290 /* kjv.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kjv.json; sourceTree = "<group>"; };
@@ -133,22 +133,20 @@
 		93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainer.swift; sourceTree = "<group>"; };
 		941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		9461C0F2012650F99FDCF408 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		9A5D2296AA303DCB878F718C /* Lora-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-RegularItalic.ttf"; sourceTree = "<group>"; };
 		9B09287EB4BC52CEB7E1C4E3 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerPreview.swift; sourceTree = "<group>"; };
+		A4C256F4E4DA3ABE9A34AA3E /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-SemiBold.ttf"; sourceTree = "<group>"; };
 		A4C52A281C99284630633FA7 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		B1CD841B6DDFDC6F55324DB8 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		B22AD4340AEB579324C46476 /* Lora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Bold.ttf"; sourceTree = "<group>"; };
 		B40AF6688E703867FB488528 /* PrayerLock.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PrayerLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerLockApp.swift; sourceTree = "<group>"; };
-		BBB936DEDDCB7A89A2B94E86 /* Fraunces-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-MediumItalic.ttf"; sourceTree = "<group>"; };
-		C512E30B7C733A70EEA3585D /* Fraunces-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-SemiBold.ttf"; sourceTree = "<group>"; };
 		C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLNamespace.swift; sourceTree = "<group>"; };
 		D05D497043B96DD148FAB509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D2DBE3ACEAEE84D862AA78CE /* Fraunces-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Bold.ttf"; sourceTree = "<group>"; };
-		D640A6D0C93903F2862C2CFD /* Fraunces-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Medium.ttf"; sourceTree = "<group>"; };
 		D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
 		D9E51993D3BDA1FB3EBFA6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E35838E259B10E5F3975DF9E /* TimeListEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeListEditor.swift; sourceTree = "<group>"; };
-		EC03B7B69552D529C9E439E8 /* Fraunces-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Light.ttf"; sourceTree = "<group>"; };
 		F32CE88A25AC36BA5C597875 /* Paywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paywall.swift; sourceTree = "<group>"; };
 		F32DC234BB1094D1E0657151 /* PrayerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,13 +236,12 @@
 		60F6D0DCB8ABE550C4D7EDFF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D2DBE3ACEAEE84D862AA78CE /* Fraunces-Bold.ttf */,
-				EC03B7B69552D529C9E439E8 /* Fraunces-Light.ttf */,
-				D640A6D0C93903F2862C2CFD /* Fraunces-Medium.ttf */,
-				BBB936DEDDCB7A89A2B94E86 /* Fraunces-MediumItalic.ttf */,
-				48678D54E23B78B3BB92B948 /* Fraunces-Regular.ttf */,
-				468CBF49B2E675CB25276F18 /* Fraunces-RegularItalic.ttf */,
-				C512E30B7C733A70EEA3585D /* Fraunces-SemiBold.ttf */,
+				B22AD4340AEB579324C46476 /* Lora-Bold.ttf */,
+				2B34159010EABBD54AAE6902 /* Lora-Medium.ttf */,
+				3DCC9F7BE260926E7E8FB774 /* Lora-MediumItalic.ttf */,
+				637991545F3D4C024611412F /* Lora-Regular.ttf */,
+				9A5D2296AA303DCB878F718C /* Lora-RegularItalic.ttf */,
+				A4C256F4E4DA3ABE9A34AA3E /* Lora-SemiBold.ttf */,
 				941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */,
 				929F9DBEB06DF797027F018B /* Manrope-ExtraBold.ttf */,
 				D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */,
@@ -474,13 +471,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D40748E5D5940213012FBC /* Assets.xcassets in Resources */,
-				417484BE82A806A1CABE061A /* Fraunces-Bold.ttf in Resources */,
-				F0F230611ACF883BB8266D25 /* Fraunces-Light.ttf in Resources */,
-				A1284098DB69CFEDFC840725 /* Fraunces-Medium.ttf in Resources */,
-				7CD47E3041B843A1914732A1 /* Fraunces-MediumItalic.ttf in Resources */,
-				ABBC41DA1CA52EAA8B97A217 /* Fraunces-Regular.ttf in Resources */,
-				47D2CC86D0AD2E0DC8ECCB92 /* Fraunces-RegularItalic.ttf in Resources */,
-				019C8E8114918D53B8EF533D /* Fraunces-SemiBold.ttf in Resources */,
+				A89B2DD5D9EACAF8699CAB65 /* Lora-Bold.ttf in Resources */,
+				9D443D82C2D12DB4CD7058F4 /* Lora-Medium.ttf in Resources */,
+				339341EBF87B403264F43852 /* Lora-MediumItalic.ttf in Resources */,
+				BCEC013F5D2038A40200090D /* Lora-Regular.ttf in Resources */,
+				09648343F413749F3D8B46EC /* Lora-RegularItalic.ttf in Resources */,
+				5BABA2BE40B2635A2E2033CB /* Lora-SemiBold.ttf in Resources */,
 				7A808A83B41B4A36D529C434 /* Manrope-Bold.ttf in Resources */,
 				0A9D7B75A2A832907297449F /* Manrope-ExtraBold.ttf in Resources */,
 				68BAF63266E101D77D5A358E /* Manrope-Medium.ttf in Resources */,

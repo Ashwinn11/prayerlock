@@ -14,7 +14,7 @@ struct PaywallScreen: View {
                     VStack(spacing: PL.S.xl) {
                         VStack(spacing: PL.S.md) {
                             GoldHeadline("From lukewarm to closer to God.", accents: ["closer to God"],
-                                         size: 30, alignment: .center)
+                                         size: 27, alignment: .center)
                             PLSubtitle("Give God room to show up in your life.", alignment: .center)
                         }
                         VStack(spacing: PL.S.xs) {

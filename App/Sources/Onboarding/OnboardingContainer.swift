@@ -183,8 +183,9 @@ struct OnboardingContainer: View {
                            selection: $ob.commitment)
         case .commitmentBeautiful:
             InsightScreen(ob: ob, theme: .dark, illustration: "dove", symbol: "heart.fill",
-                          headline: "Your commitment is beautiful.", accents: ["beautiful"],
-                          subtitle: "Your commitment is a gift. And on the days it dips, it's God's grace — not your willpower — that carries you forward.",
+                          headline: ob.commitmentAffirmation.headline,
+                          accents: [ob.commitmentAffirmation.accent],
+                          subtitle: ob.commitmentAffirmation.subtitle,
                           buttonTitle: "Done", buttonStyle: .plainOnInk)
         case .plan:
             PlanScreen(ob: ob)

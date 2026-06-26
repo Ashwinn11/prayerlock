@@ -68,7 +68,7 @@ struct HeroBlock: View {
     var body: some View {
         VStack(spacing: PL.S.xl) {
             IllustrationSlot(name: illustration, fallbackSymbol: symbol, size: illustrationSize)
-            GoldHeadline(text: headline, accents: accents, size: 32,
+            GoldHeadline(text: headline, accents: accents, size: 28,
                          base: theme.textPrimary, alignment: .center)
             if let subtitle {
                 PLSubtitle(subtitle, alignment: .center, color: theme.textMuted)
@@ -86,7 +86,7 @@ struct QuestionHeader: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: PL.S.md) {
-            GoldHeadline(text: title, accents: accents, size: 30,
+            GoldHeadline(text: title, accents: accents, size: 27,
                          base: theme.textPrimary, alignment: .leading)
             if let subtitle {
                 PLSubtitle(subtitle, color: theme.textMuted)

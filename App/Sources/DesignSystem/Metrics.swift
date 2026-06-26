@@ -26,7 +26,7 @@ extension PL {
         /// Screen horizontal margin (option rows sit at ~24pt).
         static let margin: CGFloat = 24
         /// Primary pill button height.
-        static let buttonHeight: CGFloat = 64
+        static let buttonHeight: CGFloat = 54
         /// Circular back button diameter.
         static let backButton: CGFloat = 44
         /// Option row min height.

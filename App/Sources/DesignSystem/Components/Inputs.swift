@@ -96,61 +96,37 @@ struct ValueSlider: View {
     var unit: String
     var theme: ScreenTheme = .light
 
-    private let thumbW: CGFloat = 40
-    private let thumbH: CGFloat = 30
-    private let trackH: CGFloat = 6
+    private var binding: Binding<Double> {
+        Binding(get: { Double(value) }, set: { value = Int($0.rounded()) })
+    }
 
     var body: some View {
         VStack(spacing: PL.S.xxl) {
             VStack(spacing: PL.S.xs) {
                 Text("\(value)")
-                    .font(PL.F.serif(96, .regular))
+                    .font(PL.F.serif(92, .regular))
                     .foregroundColor(theme.textPrimary)
                     .monospacedDigit()
+                    .contentTransition(.numericText())
+                    .animation(.snappy(duration: 0.18), value: value)
                 Text(unit)
                     .font(.plSubtitle)
                     .foregroundColor(theme.textMuted)
             }
-            slider
-        }
-    }
-
-    private var slider: some View {
-        GeometryReader { geo in
-            let w = geo.size.width
-            let span = w - thumbW
-            let pct = CGFloat(value - range.lowerBound) / CGFloat(range.upperBound - range.lowerBound)
-            let x = span * pct
-            ZStack(alignment: .leading) {
-                Capsule().fill(PL.C.track).frame(height: trackH)
-                Capsule().fill(PL.C.gold).frame(width: x + thumbW / 2, height: trackH)
-                Capsule()
-                    .fill(Color.white)
-                    .frame(width: thumbW, height: thumbH)
-                    .shadow(color: .black.opacity(0.12), radius: 4, y: 2)
-                    .offset(x: x)
+            VStack(spacing: PL.S.sm) {
+                // Native iOS slider (matches the iOS 26 redesigned handle).
+                Slider(value: binding,
+                       in: Double(range.lowerBound)...Double(range.upperBound),
+                       step: 1)
+                    .tint(PL.C.gold)
+                HStack {
+                    Text("\(range.lowerBound)")
+                    Spacer()
+                    Text("\(range.upperBound)")
+                }
+                .font(.plSubtitle)
+                .foregroundColor(theme.textMuted)
             }
-            .frame(height: thumbH)
-            .contentShape(Rectangle())
-            .gesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged { g in
-                        let raw = (g.location.x - thumbW / 2) / span
-                        let clamped = min(1, max(0, raw))
-                        let newVal = range.lowerBound +
-                            Int((clamped * CGFloat(range.upperBound - range.lowerBound)).rounded())
-                        if newVal != value { value = newVal }
-                    }
-            )
-        }
-        .frame(height: thumbH)
-        .overlay(alignment: .bottomLeading) {
-            Text("\(range.lowerBound)").font(.plSubtitle).foregroundColor(theme.textMuted)
-                .offset(y: 28)
-        }
-        .overlay(alignment: .bottomTrailing) {
-            Text("\(range.upperBound)").font(.plSubtitle).foregroundColor(theme.textMuted)
-                .offset(y: 28)
         }
     }
 }
@@ -165,13 +141,13 @@ struct PLTextField: View {
     var body: some View {
         TextField("", text: $text, prompt:
             Text(placeholder).foregroundColor(theme.textMuted))
-            .font(PL.F.serif(24, .regular))
+            .font(PL.F.serif(22, .regular))
             .foregroundColor(theme.textPrimary)
             .multilineTextAlignment(.center)
             .textFieldStyle(.plain)
-            .padding(.vertical, PL.S.xl)
             .padding(.horizontal, PL.S.xl)
             .frame(maxWidth: .infinity)
+            .frame(height: 56)
             .background(PL.C.card)
             .clipShape(RoundedRectangle(cornerRadius: PL.R.field, style: .continuous))
             .plCardStroke(PL.R.field)

@@ -121,17 +121,24 @@ struct JournalEntryCard: View {
     }
 }
 
-/// Numbered step row (how-it-works).
+/// Numbered step row (how-it-works). On dark screens the number sits in a gold
+/// outlined circle (matching the original); on light, a filled gold circle.
 struct NumberedStep: View {
     let number: Int
     let text: String
+    var theme: ScreenTheme = .light
     var body: some View {
         HStack(spacing: PL.S.lg) {
             ZStack {
-                Circle().fill(PL.C.gold).frame(width: 30, height: 30)
-                Text("\(number)").font(PL.F.sans(15, .bold)).foregroundColor(.white)
+                if theme == .dark {
+                    Circle().stroke(PL.C.gold, lineWidth: 1.4).frame(width: 32, height: 32)
+                    Text("\(number)").font(PL.F.sans(15, .semibold)).foregroundColor(PL.C.gold)
+                } else {
+                    Circle().fill(PL.C.gold).frame(width: 30, height: 30)
+                    Text("\(number)").font(PL.F.sans(15, .bold)).foregroundColor(.white)
+                }
             }
-            Text(text).font(PL.F.sans(17, .medium)).foregroundColor(PL.C.text)
+            Text(text).font(PL.F.sans(16, .medium)).foregroundColor(theme.textPrimary)
             Spacer(minLength: 0)
         }
     }

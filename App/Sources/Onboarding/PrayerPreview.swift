@@ -14,7 +14,7 @@ struct GuidedPrayerReadingScreen: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: PL.S.xl) {
                     Eyebrow(text: "A Moment of Prayer")
-                    GoldHeadline(title, size: 32, alignment: .center)
+                    GoldHeadline(title, size: 28, alignment: .center)
                     Text(prayer.body)
                         .font(.plBody).foregroundColor(PL.C.text)
                         .multilineTextAlignment(.center).lineSpacing(6)
@@ -57,7 +57,7 @@ struct FirstPrayerDoneScreen: View {
         ) {
             VStack(spacing: PL.S.xl) {
                 GoldHeadline("You completed your first prayer.", accents: ["first prayer"],
-                             size: 29, alignment: .center)
+                             size: 27, alignment: .center)
                 JournalEntryCard(
                     entry: JournalEntry(title: prayer.title, prayerText: prayer.body,
                                         scriptureText: prayer.scripture,

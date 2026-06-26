@@ -53,8 +53,11 @@ struct OnboardingTopBar: View {
             }
             if let progress {
                 ProgressBar(value: progress)
+            } else {
+                Spacer(minLength: 0)
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: PL.L.backButton)
     }
 }

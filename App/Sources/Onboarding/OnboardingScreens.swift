@@ -92,7 +92,7 @@ struct InsightScreen: View {
                 } else {
                     IllustrationSlot(name: illustration, fallbackSymbol: symbol, size: illustrationSize)
                 }
-                GoldHeadline(headline, accents: accents, size: 31,
+                GoldHeadline(headline, accents: accents, size: 28,
                              base: theme.textPrimary, alignment: .center)
                 if let subtitle {
                     PLSubtitle(subtitle, alignment: .center, color: theme.textMuted)

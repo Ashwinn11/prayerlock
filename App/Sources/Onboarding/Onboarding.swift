@@ -74,6 +74,30 @@ final class Onboarding: ObservableObject {
     var primaryGoal: String { goals.first ?? "Deepen my relationship with God" }
     var primaryThriving: String { thriving.first ?? "Building my life on the word of God" }
     var denominationValue: String { denomination.first ?? "" }
+    var commitmentLevel: String { commitment.first ?? "" }
+
+    /// "Your commitment is beautiful" screen — adapts to the level chosen.
+    /// (The "beautiful" variant is the one verified from the screenshot; the others
+    /// are authored in the same voice.)
+    var commitmentAffirmation: (headline: String, accent: String, subtitle: String) {
+        switch commitmentLevel {
+        case "Extremely committed":
+            return ("Your commitment is unshakable.", "unshakable",
+                    "A heart this set on God will not be moved. And on the days it dips, it's His grace — not your willpower — that carries you forward.")
+        case "Very committed", "":
+            return ("Your commitment is beautiful.", "beautiful",
+                    "Your commitment is a gift. And on the days it dips, it's God's grace — not your willpower — that carries you forward.")
+        case "Somewhat committed":
+            return ("Every honest step counts.", "Every honest step",
+                    "You don't have to feel ready. Just show up, and let God meet you there — His grace will carry the rest.")
+        case "A little committed":
+            return ("Small beginnings, faithful God.", "faithful God",
+                    "He is not waiting for your willpower. He's waiting for your yes — even a small one — and His grace does the carrying.")
+        default: // Just trying it out
+            return ("Curiosity is a holy start.", "holy start",
+                    "Even \u{201C}just trying\u{201D} is God drawing you near. Come as you are — His grace, not your willpower, carries the journey.")
+        }
+    }
 
     /// Progress 0...1 across the question segment; nil for non-question steps.
     var progress: Double? {

@@ -33,7 +33,7 @@ struct TextInputScreen: View {
                 if showIllustration {
                     IllustrationSlot(name: illustration, fallbackSymbol: symbol, size: 150)
                 }
-                GoldHeadline(title, accents: accents, size: 32, alignment: .center)
+                GoldHeadline(title, accents: accents, size: 28, alignment: .center)
                 if let subtitle { PLSubtitle(subtitle, alignment: .center) }
                 PLTextField(placeholder: placeholder, text: $text)
                     .focused($focused)
@@ -109,20 +109,23 @@ struct HowItWorksScreen: View {
     @ObservedObject var ob: Onboarding
     var body: some View {
         OnbScaffold(
-            theme: .light, showBack: ob.showBack, progress: nil, onBack: ob.back,
-            primary: ButtonConfig(title: "Let's go", action: ob.next)
+            theme: .dark, showBack: ob.showBack, progress: nil, centered: true, onBack: ob.back,
+            primary: ButtonConfig(title: "Let's go", style: .plainOnInk, action: ob.next)
         ) {
-            VStack(alignment: .leading, spacing: PL.S.xxl) {
-                VStack(alignment: .leading, spacing: PL.S.md) {
-                    GoldHeadline("\(ob.firstName), thank you for your honesty.",
-                                 accents: ["thank you"], size: 30)
-                    PLSubtitle("PrayerLock is here to walk with you. Share how you're feeling, pray, and your apps unlock.")
+            VStack(spacing: PL.S.xl) {
+                IllustrationSlot(name: "hand-dove", fallbackSymbol: "bird.fill", size: 150)
+                VStack(spacing: PL.S.md) {
+                    GoldHeadline("\(ob.firstName) , thank you for your honesty.",
+                                 size: 28, base: PL.C.textOnInk, alignment: .center)
+                    PLSubtitle("PrayerLock is here to walk with you. Share how you're feeling, pray, and your apps unlock.",
+                               alignment: .center, color: PL.C.textOnInkMuted)
                 }
                 VStack(alignment: .leading, spacing: PL.S.xl) {
-                    NumberedStep(number: 1, text: "Share how you're feeling today")
-                    NumberedStep(number: 2, text: "Pray")
-                    NumberedStep(number: 3, text: "Unlock your apps")
+                    NumberedStep(number: 1, text: "Share how you're feeling today", theme: .dark)
+                    NumberedStep(number: 2, text: "Pray", theme: .dark)
+                    NumberedStep(number: 3, text: "Unlock your apps", theme: .dark)
                 }
+                .padding(.top, PL.S.sm)
             }
         }
     }
@@ -133,7 +136,9 @@ struct HowItWorksScreen: View {
 struct PersonalizingScreen: View {
     @ObservedObject var ob: Onboarding
     @State private var progress: Double = 0
+    @State private var advanced = false
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+    private let dotCount = 7
 
     private var caption: String {
         switch progress {
@@ -142,31 +147,60 @@ struct PersonalizingScreen: View {
         default: return "Making sure this is tailored to you..."
         }
     }
+    private var filledDots: Int { min(dotCount, Int((progress * Double(dotCount)).rounded())) }
 
     var body: some View {
-        OnbScaffold(theme: .light, showBack: false, progress: nil) {
-            VStack(spacing: PL.S.xxl) {
-                VStack(spacing: PL.S.md) {
-                    Eyebrow(text: "The #1 Prayer Habit App")
-                    StarRow()
-                }
+        OnbScaffold(theme: .light, showBack: false, progress: nil, centered: true) {
+            VStack(spacing: PL.S.xl) {
+                laurelBadge
                 Text("\(Int(progress * 100))%")
-                    .font(PL.F.serif(56, .regular))
+                    .font(PL.F.serif(64, .regular))
                     .foregroundColor(PL.C.text)
                     .monospacedDigit()
                 ProgressBar(value: progress).frame(height: 8)
+                dots
                 Text(caption)
-                    .font(.plSubtitle).foregroundColor(PL.C.textMuted)
+                    .font(PL.F.serif(22, .regular)).foregroundColor(PL.C.text)
                     .multilineTextAlignment(.center)
                 ReviewCard(text: "My relationship with God strengthened. I used to struggle just trying to pray — this app helped me.", author: "Gia Faletto")
-                    .padding(.top, PL.S.lg)
+                    .padding(.top, PL.S.sm)
             }
         }
         .onReceive(timer) { _ in
             if progress < 1 {
                 progress = min(1, progress + 0.012)
-            } else {
+            } else if !advanced {
+                advanced = true
                 ob.next()
+            }
+        }
+    }
+
+    private var laurelBadge: some View {
+        HStack(spacing: PL.S.sm) {
+            Image(systemName: "laurel.leading").foregroundColor(PL.C.gold)
+            VStack(spacing: 4) {
+                Eyebrow(text: "The #1 Prayer Habit App")
+                StarRow(size: 13)
+            }
+            Image(systemName: "laurel.trailing").foregroundColor(PL.C.gold)
+        }
+        .font(.system(size: 34))
+    }
+
+    private var dots: some View {
+        HStack(spacing: PL.S.md) {
+            ForEach(0..<dotCount, id: \.self) { i in
+                ZStack {
+                    Circle()
+                        .strokeBorder(i < filledDots ? PL.C.gold : PL.C.track, lineWidth: 1.5)
+                        .background(Circle().fill(i < filledDots ? PL.C.gold : Color.clear))
+                        .frame(width: 26, height: 26)
+                    if i < filledDots {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 11, weight: .bold)).foregroundColor(.white)
+                    }
+                }
             }
         }
     }
@@ -183,7 +217,7 @@ struct CommunityScreen: View {
         ) {
             VStack(alignment: .leading, spacing: PL.S.xxl) {
                 VStack(alignment: .leading, spacing: PL.S.md) {
-                    GoldHeadline("Don't walk with God alone.", accents: ["God"], size: 30)
+                    GoldHeadline("Don't walk with God alone.", accents: ["God"], size: 27)
                     PLSubtitle("PrayerLock helps you pray before you scroll. The community keeps you encouraged, prayed for, and connected.")
                 }
                 VStack(alignment: .leading, spacing: PL.S.xl) {
@@ -211,7 +245,7 @@ struct PrayerTimesSetupScreen: View {
         ) {
             VStack(alignment: .leading, spacing: PL.S.xl) {
                 VStack(alignment: .leading, spacing: PL.S.md) {
-                    GoldHeadline("Set your prayer times.", accents: ["prayer times"], size: 30)
+                    GoldHeadline("Set your prayer times.", accents: ["prayer times"], size: 27)
                     PLSubtitle("Your apps lock at these times until you pray.")
                 }
                 TimeListEditor(times: $app.prayerTimes)
@@ -224,38 +258,55 @@ struct PrayerTimesSetupScreen: View {
 
 struct PlanScreen: View {
     @ObservedObject var ob: Onboarding
+    private let columns = 9
+    private let totalDays = 90
+    private let daysDone = 1   // day 1 (today) starts filled
+
     var body: some View {
         OnbScaffold(
-            theme: .dark, showBack: ob.showBack, progress: nil, centered: true, onBack: ob.back,
-            primary: ButtonConfig(title: "Start this plan", style: .invertedPill, action: ob.next)
+            theme: .light, showBack: ob.showBack, progress: nil, onBack: ob.back,
+            primary: ButtonConfig(title: "Start this plan", action: ob.next)
         ) {
             VStack(spacing: PL.S.xxl) {
-                GoldHeadline("90 days to build consistency.", accents: ["90 days"],
-                             size: 30, base: PL.C.textOnInk, alignment: .center)
-                VStack(alignment: .leading, spacing: PL.S.lg) {
-                    HStack {
-                        Text("90 day prayer journey")
-                            .font(PL.F.sans(15, .semibold)).foregroundColor(PL.C.textOnInk)
-                        Spacer()
-                        Text("0% complete")
-                            .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.gold)
-                    }
-                    ProgressBar(value: 0)
-                    HStack {
-                        Text(ob.firstName)
-                            .font(PL.F.serifItalic(20)).foregroundColor(PL.C.textOnInk)
-                        Spacer()
-                        Text(Self.today)
-                            .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.textOnInkMuted)
-                    }
-                    .padding(.top, PL.S.sm)
-                }
-                .padding(PL.S.xl)
-                .background(PL.C.inkCard)
-                .clipShape(RoundedRectangle(cornerRadius: PL.R.bigCard, style: .continuous))
+                GoldHeadline("90 days to build consistency.", accents: ["consistency"],
+                             size: 28, alignment: .center)
+                heatmapCard
             }
+            .padding(.top, PL.S.md)
         }
     }
+
+    private var heatmapCard: some View {
+        let grid = Array(repeating: GridItem(.flexible(), spacing: 7), count: columns)
+        return VStack(alignment: .leading, spacing: PL.S.lg) {
+            HStack {
+                Text("90 day prayer journey")
+                    .font(PL.F.sans(15, .semibold)).foregroundColor(PL.C.textOnInk)
+                Spacer()
+                Text("\(Int(Double(daysDone) / Double(totalDays) * 100))% complete")
+                    .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.gold)
+            }
+            LazyVGrid(columns: grid, spacing: 7) {
+                ForEach(0..<totalDays, id: \.self) { i in
+                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                        .fill(i < daysDone ? PL.C.gold : Color.white.opacity(0.07))
+                        .aspectRatio(1, contentMode: .fit)
+                }
+            }
+            HStack {
+                Text(Self.today)
+                    .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.textOnInkMuted)
+                Spacer()
+                Text(ob.firstName)
+                    .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.textOnInkMuted)
+            }
+            .padding(.top, PL.S.xs)
+        }
+        .padding(PL.S.xl)
+        .background(PL.C.ink)
+        .clipShape(RoundedRectangle(cornerRadius: PL.R.bigCard, style: .continuous))
+    }
+
     static var today: String {
         let f = DateFormatter(); f.dateFormat = "MMM d, yyyy"; return f.string(from: Date())
     }
@@ -276,7 +327,7 @@ struct SignCommitmentScreen: View {
             primary: ButtonConfig(title: "Continue", enabled: hasSigned, action: ob.next)
         ) {
             VStack(alignment: .leading, spacing: PL.S.xl) {
-                GoldHeadline("Make your commitment.", accents: ["commitment"], size: 30)
+                GoldHeadline("Make your commitment.", accents: ["commitment"], size: 27)
                 VStack(alignment: .leading, spacing: PL.S.md) {
                     commitmentRow("Seek God before my phone")
                     commitmentRow("Pray before scrolling")
