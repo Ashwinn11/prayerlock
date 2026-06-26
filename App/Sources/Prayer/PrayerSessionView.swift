@@ -78,27 +78,26 @@ struct PrayerSessionView: View {
     // MARK: Pray stage (breathing ring + typewriter prayer)
     private var prayStage: some View {
         VStack(spacing: PL.S.xl) {
-            closeButton
             Eyebrow(text: "A Moment of Prayer")
             BreathingRing(total: prayer.duration, remaining: remaining)
             Text(prayer.title)
                 .font(PL.F.serif(30, .regular)).foregroundColor(PL.C.text)
             TypewriterText(text: prayer.body, font: .plBody, color: PL.C.textMuted)
-            VStack(spacing: PL.S.sm) {
-                Text("\u{201C}\(prayer.scripture)\u{201D}")
-                    .font(PL.F.serifItalic(17)).foregroundColor(PL.C.gold)
-                    .multilineTextAlignment(.center).lineSpacing(4)
-                    .fixedSize(horizontal: false, vertical: true)
-                Eyebrow(text: prayer.reference, color: PL.C.textMuted)
-            }
+            ScriptureDarkCard(text: prayer.scripture, reference: prayer.reference,
+                              italic: true, textColor: PL.C.gold, refColor: PL.C.textOnInk)
             Spacer(minLength: PL.S.lg)
-            Button { goReflect() } label: {
-                Text("Be still · \(timeString)")
-                    .font(.plButton).foregroundColor(PL.C.gold)
+            let done = remaining == 0
+            Button { if done { goReflect() } } label: {
+                Text(done ? "Continue" : "Be still · \(timeString)")
+                    .font(.plButton)
+                    .foregroundColor(done ? PL.C.gold : PL.C.gold.opacity(0.35))
                     .frame(maxWidth: .infinity, minHeight: PL.L.buttonHeight)
-                    .overlay(Capsule().stroke(PL.C.gold.opacity(0.5), lineWidth: 1.4))
+                    .overlay(Capsule().stroke(
+                        done ? PL.C.gold.opacity(0.5) : PL.C.gold.opacity(0.2),
+                        lineWidth: 1.4))
             }
             .buttonStyle(.plain)
+            .disabled(!done)
         }
         .padding(.horizontal, PL.L.margin)
         .padding(.top, PL.S.sm)
@@ -134,6 +133,16 @@ struct PrayerSessionView: View {
         .padding(.horizontal, PL.L.margin)
         .padding(.top, PL.S.sm)
         .padding(.bottom, PL.S.lg)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    UIApplication.shared.sendAction(
+                        #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
+                .font(PL.F.sans(16, .semibold)).foregroundColor(PL.C.gold)
+            }
+        }
     }
 
     // MARK: Amen stage
