@@ -1,0 +1,904 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		019C8E8114918D53B8EF533D /* Fraunces-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C512E30B7C733A70EEA3585D /* Fraunces-SemiBold.ttf */; };
+		0A9D7B75A2A832907297449F /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 929F9DBEB06DF797027F018B /* Manrope-ExtraBold.ttf */; };
+		12EC8905A022549D19AA02D2 /* Monitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D608041A184DD00042F6685 /* Monitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		197CFF2F5E8640F34FBFF113 /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
+		1B76651D34D9768429C9FB33 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B09287EB4BC52CEB7E1C4E3 /* MainTabView.swift */; };
+		21DA5C7D8E86771831AA7835 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CD841B6DDFDC6F55324DB8 /* Typography.swift */; };
+		2271F6327F1AD8A1AFAEA84B /* Scaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */; };
+		2F04B2E2B1D79AD5473F662F /* Inputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DB97719C39E213C03A464 /* Inputs.swift */; };
+		40D8FA289B17AD1F1B74CBD8 /* PrayerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DC234BB1094D1E0657151 /* PrayerContent.swift */; };
+		417484BE82A806A1CABE061A /* Fraunces-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2DBE3ACEAEE84D862AA78CE /* Fraunces-Bold.ttf */; };
+		463AF4C31FEB818E3C5727A2 /* OnboardingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */; };
+		472EA2F5D25127DE1EB14160 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */; };
+		47D2CC86D0AD2E0DC8ECCB92 /* Fraunces-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 468CBF49B2E675CB25276F18 /* Fraunces-RegularItalic.ttf */; };
+		54FB98871FE09ACCD2734F92 /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
+		68BAF63266E101D77D5A358E /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */; };
+		6DDD54C0102ABFE6002F30AA /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */; };
+		6EBFDF271C105802F8AC7F35 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */; };
+		7349820B1B111395B2B1A289 /* Shield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FDDE87368536B3842549A2F /* Shield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		78A4DBA4FEBFBEC7D40BC230 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */; };
+		7A808A83B41B4A36D529C434 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */; };
+		7CD47E3041B843A1914732A1 /* Fraunces-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBB936DEDDCB7A89A2B94E86 /* Fraunces-MediumItalic.ttf */; };
+		806EFF357959A4482532682B /* Paywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32CE88A25AC36BA5C597875 /* Paywall.swift */; };
+		839A22ED8A0E734347338E59 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C344C8C2CA897B7FA924FA1 /* DeviceActivityMonitorExtension.swift */; };
+		850A3B210233C54E0272F5CB /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092EA8C62E6000B70EF2BF2 /* Metrics.swift */; };
+		882A0145121E46DB8EE90249 /* OnboardingCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */; };
+		8DE8570730C75491010FBC5F /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
+		9568EE998D5713D26525AB1F /* PrayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */; };
+		A1284098DB69CFEDFC840725 /* Fraunces-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D640A6D0C93903F2862C2CFD /* Fraunces-Medium.ttf */; };
+		A33D8AE53F7FE4A998AC87D1 /* TimeListEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35838E259B10E5F3975DF9E /* TimeListEditor.swift */; };
+		A9CF9BBCE5CC3993C407D4CE /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F726CC77C52FE7955F19 /* Cards.swift */; };
+		ABBC41DA1CA52EAA8B97A217 /* Fraunces-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48678D54E23B78B3BB92B948 /* Fraunces-Regular.ttf */; };
+		ACC388C6C5F4B51E6DBA2D9A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6C5644FDCE1D41D708F5E /* RootView.swift */; };
+		B405E32463A596B55EBF0CC3 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */; };
+		B745AD9EF1D3993BC2966E9D /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
+		B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461C0F2012650F99FDCF408 /* AppModel.swift */; };
+		BB36A8ECE526E797AF690CFF /* PrayerLockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */; };
+		BC178990B8A360F691E898BD /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */; };
+		BD267BAB2ECFE551DEAE9534 /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
+		BD6B78B0978638DE73758D23 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76957BDFE6701F8BCADD8FDD /* Media.swift */; };
+		BF0E0FC3A2FF396D52DB307A /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
+		CF527BC6938BDAE4DA4705DB /* GoldHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFD7F5727F2CE0CABD73E62 /* GoldHeadline.swift */; };
+		D1D40748E5D5940213012FBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2DF79D242102553B4EB1BA /* Assets.xcassets */; };
+		D4E9BC8CD7D076EF5BC57454 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE82AB09B74C44EAC8FCE7 /* PrimaryButton.swift */; };
+		DACFF8D9F45EA4EB40CB0BF1 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C52A281C99284630633FA7 /* Palette.swift */; };
+		E3261197508C19760150DD46 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */; };
+		E5718664215FBC29C278B437 /* ShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F0F230611ACF883BB8266D25 /* Fraunces-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC03B7B69552D529C9E439E8 /* Fraunces-Light.ttf */; };
+		F43E8FC6FD368F1E7ACFB813 /* kjv.json in Resources */ = {isa = PBXBuildFile; fileRef = 825C69FCD98B433CC4712290 /* kjv.json */; };
+		FD0F4B26135F1E3321BE4341 /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
+		FD696D5385D99099AD821D77 /* PLNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22F42613F610AD142F3ED603 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06622E255046B0FBB7553D60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92550A4A1AA766777AF1740B;
+			remoteInfo = Monitor;
+		};
+		7A257FA6A493A71F2D5C41F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06622E255046B0FBB7553D60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 544D52D876AB0AAF52406F8A;
+			remoteInfo = ShieldAction;
+		};
+		BA1C03E8CD110DFAAB9E691E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06622E255046B0FBB7553D60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79C1EFF61ACA4A655DD343DE;
+			remoteInfo = Shield;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		77BCC2076067987747923A79 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				12EC8905A022549D19AA02D2 /* Monitor.appex in Embed Foundation Extensions */,
+				7349820B1B111395B2B1A289 /* Shield.appex in Embed Foundation Extensions */,
+				E5718664215FBC29C278B437 /* ShieldAction.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0B7DB97719C39E213C03A464 /* Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputs.swift; sourceTree = "<group>"; };
+		0EFD7F5727F2CE0CABD73E62 /* GoldHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldHeadline.swift; sourceTree = "<group>"; };
+		0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
+		0F2DF79D242102553B4EB1BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		272FD4AAEF0DA7CAD1A9629F /* ShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldAction.entitlements; sourceTree = "<group>"; };
+		2868F726CC77C52FE7955F19 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
+		369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustom.swift; sourceTree = "<group>"; };
+		3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		3FDDE87368536B3842549A2F /* Shield.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Shield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		468CBF49B2E675CB25276F18 /* Fraunces-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-RegularItalic.ttf"; sourceTree = "<group>"; };
+		48678D54E23B78B3BB92B948 /* Fraunces-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Regular.ttf"; sourceTree = "<group>"; };
+		4C344C8C2CA897B7FA924FA1 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
+		5092EA8C62E6000B70EF2BF2 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		56F6C5644FDCE1D41D708F5E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scaffold.swift; sourceTree = "<group>"; };
+		5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
+		5EFE82AB09B74C44EAC8FCE7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		6D608041A184DD00042F6685 /* Monitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Monitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		76957BDFE6701F8BCADD8FDD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		825C69FCD98B433CC4712290 /* kjv.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kjv.json; sourceTree = "<group>"; };
+		835C24431289F269B86568C5 /* PrayerLockShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerLockShared.swift; sourceTree = "<group>"; };
+		846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
+		84C07477A81E1BEFB3C70C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F12944E25FDBC5AD6DA59A8 /* Shield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shield.entitlements; sourceTree = "<group>"; };
+		91775386DF1B1D5D7283FE3D /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
+		929F9DBEB06DF797027F018B /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
+		93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainer.swift; sourceTree = "<group>"; };
+		941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		9461C0F2012650F99FDCF408 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		9B09287EB4BC52CEB7E1C4E3 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerPreview.swift; sourceTree = "<group>"; };
+		A4C52A281C99284630633FA7 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		B1CD841B6DDFDC6F55324DB8 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		B40AF6688E703867FB488528 /* PrayerLock.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PrayerLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerLockApp.swift; sourceTree = "<group>"; };
+		BBB936DEDDCB7A89A2B94E86 /* Fraunces-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C512E30B7C733A70EEA3585D /* Fraunces-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-SemiBold.ttf"; sourceTree = "<group>"; };
+		C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLNamespace.swift; sourceTree = "<group>"; };
+		D05D497043B96DD148FAB509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D2DBE3ACEAEE84D862AA78CE /* Fraunces-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Bold.ttf"; sourceTree = "<group>"; };
+		D640A6D0C93903F2862C2CFD /* Fraunces-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Medium.ttf"; sourceTree = "<group>"; };
+		D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
+		D9E51993D3BDA1FB3EBFA6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E35838E259B10E5F3975DF9E /* TimeListEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeListEditor.swift; sourceTree = "<group>"; };
+		EC03B7B69552D529C9E439E8 /* Fraunces-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces-Light.ttf"; sourceTree = "<group>"; };
+		F32CE88A25AC36BA5C597875 /* Paywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paywall.swift; sourceTree = "<group>"; };
+		F32DC234BB1094D1E0657151 /* PrayerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerContent.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		041D9243B070F843FACFF991 /* Prayer */ = {
+			isa = PBXGroup;
+			children = (
+				F32DC234BB1094D1E0657151 /* PrayerContent.swift */,
+			);
+			path = Prayer;
+			sourceTree = "<group>";
+		};
+		068DD9EE3B20395647925400 = {
+			isa = PBXGroup;
+			children = (
+				6BE2A0826F0D8E95B8DD50BD /* App */,
+				271A6C7DE4A2A5840DBA9C1A /* Extensions */,
+				4E20521B9B3AA560F7EF11FF /* Shared */,
+				0830F778433BC7C298BA2F4D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0830F778433BC7C298BA2F4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D608041A184DD00042F6685 /* Monitor.appex */,
+				B40AF6688E703867FB488528 /* PrayerLock.app */,
+				3FDDE87368536B3842549A2F /* Shield.appex */,
+				8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C935B7E2267E75811942056 /* Shield */ = {
+			isa = PBXGroup;
+			children = (
+				D9E51993D3BDA1FB3EBFA6C9 /* Info.plist */,
+				8F12944E25FDBC5AD6DA59A8 /* Shield.entitlements */,
+				846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */,
+			);
+			path = Shield;
+			sourceTree = "<group>";
+		};
+		271A6C7DE4A2A5840DBA9C1A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5D01E2590F0F13C18F285799 /* Monitor */,
+				1C935B7E2267E75811942056 /* Shield */,
+				A7945E05C78066D246FF26AB /* ShieldAction */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4E20521B9B3AA560F7EF11FF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */,
+				835C24431289F269B86568C5 /* PrayerLockShared.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		542EB5C545036A662BF6C1F0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B20073BF78F61A6D0416A932 /* App */,
+				AAF84912735912E8579625AB /* DesignSystem */,
+				865FA9AF7D125C06586CC6AE /* Main */,
+				F1C52969007B7096D994BFA9 /* Models */,
+				D5ABD3A688A1518B8EC02463 /* Onboarding */,
+				041D9243B070F843FACFF991 /* Prayer */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		5D01E2590F0F13C18F285799 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				4C344C8C2CA897B7FA924FA1 /* DeviceActivityMonitorExtension.swift */,
+				D05D497043B96DD148FAB509 /* Info.plist */,
+				91775386DF1B1D5D7283FE3D /* Monitor.entitlements */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
+		60F6D0DCB8ABE550C4D7EDFF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D2DBE3ACEAEE84D862AA78CE /* Fraunces-Bold.ttf */,
+				EC03B7B69552D529C9E439E8 /* Fraunces-Light.ttf */,
+				D640A6D0C93903F2862C2CFD /* Fraunces-Medium.ttf */,
+				BBB936DEDDCB7A89A2B94E86 /* Fraunces-MediumItalic.ttf */,
+				48678D54E23B78B3BB92B948 /* Fraunces-Regular.ttf */,
+				468CBF49B2E675CB25276F18 /* Fraunces-RegularItalic.ttf */,
+				C512E30B7C733A70EEA3585D /* Fraunces-SemiBold.ttf */,
+				941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */,
+				929F9DBEB06DF797027F018B /* Manrope-ExtraBold.ttf */,
+				D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */,
+				5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */,
+				0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6BE2A0826F0D8E95B8DD50BD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				87E11A71B9377C16526476C1 /* Resources */,
+				542EB5C545036A662BF6C1F0 /* Sources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		865FA9AF7D125C06586CC6AE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9B09287EB4BC52CEB7E1C4E3 /* MainTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		87E11A71B9377C16526476C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60F6D0DCB8ABE550C4D7EDFF /* Fonts */,
+				0F2DF79D242102553B4EB1BA /* Assets.xcassets */,
+				825C69FCD98B433CC4712290 /* kjv.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A7945E05C78066D246FF26AB /* ShieldAction */ = {
+			isa = PBXGroup;
+			children = (
+				84C07477A81E1BEFB3C70C3D /* Info.plist */,
+				272FD4AAEF0DA7CAD1A9629F /* ShieldAction.entitlements */,
+				3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */,
+			);
+			path = ShieldAction;
+			sourceTree = "<group>";
+		};
+		AAF84912735912E8579625AB /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				F89B7B0094C9629B1CB5FC74 /* Components */,
+				5092EA8C62E6000B70EF2BF2 /* Metrics.swift */,
+				A4C52A281C99284630633FA7 /* Palette.swift */,
+				B1CD841B6DDFDC6F55324DB8 /* Typography.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		B20073BF78F61A6D0416A932 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */,
+				56F6C5644FDCE1D41D708F5E /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D5ABD3A688A1518B8EC02463 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */,
+				93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */,
+				369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */,
+				2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */,
+				F32CE88A25AC36BA5C597875 /* Paywall.swift */,
+				9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F1C52969007B7096D994BFA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9461C0F2012650F99FDCF408 /* AppModel.swift */,
+				1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F89B7B0094C9629B1CB5FC74 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2868F726CC77C52FE7955F19 /* Cards.swift */,
+				0EFD7F5727F2CE0CABD73E62 /* GoldHeadline.swift */,
+				0B7DB97719C39E213C03A464 /* Inputs.swift */,
+				76957BDFE6701F8BCADD8FDD /* Media.swift */,
+				5EFE82AB09B74C44EAC8FCE7 /* PrimaryButton.swift */,
+				5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */,
+				E35838E259B10E5F3975DF9E /* TimeListEditor.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D9C79FD0B70189B597FD993 /* PrayerLock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 756465B9996D6F25263EFB04 /* Build configuration list for PBXNativeTarget "PrayerLock" */;
+			buildPhases = (
+				D5F38F7595CDD59B42636EEA /* Sources */,
+				52F9BF461787550AB3BE0F42 /* Resources */,
+				77BCC2076067987747923A79 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E665CC443D4B2222043889A9 /* PBXTargetDependency */,
+				8BA495B45A9A01AC0D3A8224 /* PBXTargetDependency */,
+				EB1830DD211673D61839BA7E /* PBXTargetDependency */,
+			);
+			name = PrayerLock;
+			packageProductDependencies = (
+			);
+			productName = PrayerLock;
+			productReference = B40AF6688E703867FB488528 /* PrayerLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		544D52D876AB0AAF52406F8A /* ShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3705510450CD7351F8510E87 /* Build configuration list for PBXNativeTarget "ShieldAction" */;
+			buildPhases = (
+				BE402C446CF4F855CD516B64 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShieldAction;
+			packageProductDependencies = (
+			);
+			productName = ShieldAction;
+			productReference = 8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		79C1EFF61ACA4A655DD343DE /* Shield */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 009CD142BF76A204149650AC /* Build configuration list for PBXNativeTarget "Shield" */;
+			buildPhases = (
+				E04C6B71C495DA838076068D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shield;
+			packageProductDependencies = (
+			);
+			productName = Shield;
+			productReference = 3FDDE87368536B3842549A2F /* Shield.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		92550A4A1AA766777AF1740B /* Monitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0CEE54B2AA27A9A7760DD37 /* Build configuration list for PBXNativeTarget "Monitor" */;
+			buildPhases = (
+				0D109A342A757792FEB25706 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Monitor;
+			packageProductDependencies = (
+			);
+			productName = Monitor;
+			productReference = 6D608041A184DD00042F6685 /* Monitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06622E255046B0FBB7553D60 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1D9C79FD0B70189B597FD993 = {
+						ProvisioningStyle = Automatic;
+					};
+					544D52D876AB0AAF52406F8A = {
+						ProvisioningStyle = Automatic;
+					};
+					79C1EFF61ACA4A655DD343DE = {
+						ProvisioningStyle = Automatic;
+					};
+					92550A4A1AA766777AF1740B = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8DC150DD5D00AE5F5772B12D /* Build configuration list for PBXProject "PrayerLock" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 068DD9EE3B20395647925400;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0830F778433BC7C298BA2F4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92550A4A1AA766777AF1740B /* Monitor */,
+				1D9C79FD0B70189B597FD993 /* PrayerLock */,
+				79C1EFF61ACA4A655DD343DE /* Shield */,
+				544D52D876AB0AAF52406F8A /* ShieldAction */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52F9BF461787550AB3BE0F42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1D40748E5D5940213012FBC /* Assets.xcassets in Resources */,
+				417484BE82A806A1CABE061A /* Fraunces-Bold.ttf in Resources */,
+				F0F230611ACF883BB8266D25 /* Fraunces-Light.ttf in Resources */,
+				A1284098DB69CFEDFC840725 /* Fraunces-Medium.ttf in Resources */,
+				7CD47E3041B843A1914732A1 /* Fraunces-MediumItalic.ttf in Resources */,
+				ABBC41DA1CA52EAA8B97A217 /* Fraunces-Regular.ttf in Resources */,
+				47D2CC86D0AD2E0DC8ECCB92 /* Fraunces-RegularItalic.ttf in Resources */,
+				019C8E8114918D53B8EF533D /* Fraunces-SemiBold.ttf in Resources */,
+				7A808A83B41B4A36D529C434 /* Manrope-Bold.ttf in Resources */,
+				0A9D7B75A2A832907297449F /* Manrope-ExtraBold.ttf in Resources */,
+				68BAF63266E101D77D5A358E /* Manrope-Medium.ttf in Resources */,
+				6DDD54C0102ABFE6002F30AA /* Manrope-Regular.ttf in Resources */,
+				E3261197508C19760150DD46 /* Manrope-SemiBold.ttf in Resources */,
+				F43E8FC6FD368F1E7ACFB813 /* kjv.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D109A342A757792FEB25706 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				839A22ED8A0E734347338E59 /* DeviceActivityMonitorExtension.swift in Sources */,
+				BF0E0FC3A2FF396D52DB307A /* PLNamespace.swift in Sources */,
+				54FB98871FE09ACCD2734F92 /* PrayerLockShared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE402C446CF4F855CD516B64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				197CFF2F5E8640F34FBFF113 /* PLNamespace.swift in Sources */,
+				8DE8570730C75491010FBC5F /* PrayerLockShared.swift in Sources */,
+				6EBFDF271C105802F8AC7F35 /* ShieldActionExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5F38F7595CDD59B42636EEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */,
+				A9CF9BBCE5CC3993C407D4CE /* Cards.swift in Sources */,
+				CF527BC6938BDAE4DA4705DB /* GoldHeadline.swift in Sources */,
+				2F04B2E2B1D79AD5473F662F /* Inputs.swift in Sources */,
+				BC178990B8A360F691E898BD /* Journal.swift in Sources */,
+				1B76651D34D9768429C9FB33 /* MainTabView.swift in Sources */,
+				BD6B78B0978638DE73758D23 /* Media.swift in Sources */,
+				850A3B210233C54E0272F5CB /* Metrics.swift in Sources */,
+				472EA2F5D25127DE1EB14160 /* Onboarding.swift in Sources */,
+				463AF4C31FEB818E3C5727A2 /* OnboardingContainer.swift in Sources */,
+				882A0145121E46DB8EE90249 /* OnboardingCustom.swift in Sources */,
+				B405E32463A596B55EBF0CC3 /* OnboardingScreens.swift in Sources */,
+				FD696D5385D99099AD821D77 /* PLNamespace.swift in Sources */,
+				DACFF8D9F45EA4EB40CB0BF1 /* Palette.swift in Sources */,
+				806EFF357959A4482532682B /* Paywall.swift in Sources */,
+				40D8FA289B17AD1F1B74CBD8 /* PrayerContent.swift in Sources */,
+				BB36A8ECE526E797AF690CFF /* PrayerLockApp.swift in Sources */,
+				BD267BAB2ECFE551DEAE9534 /* PrayerLockShared.swift in Sources */,
+				9568EE998D5713D26525AB1F /* PrayerPreview.swift in Sources */,
+				D4E9BC8CD7D076EF5BC57454 /* PrimaryButton.swift in Sources */,
+				ACC388C6C5F4B51E6DBA2D9A /* RootView.swift in Sources */,
+				2271F6327F1AD8A1AFAEA84B /* Scaffold.swift in Sources */,
+				A33D8AE53F7FE4A998AC87D1 /* TimeListEditor.swift in Sources */,
+				21DA5C7D8E86771831AA7835 /* Typography.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E04C6B71C495DA838076068D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD0F4B26135F1E3321BE4341 /* PLNamespace.swift in Sources */,
+				B745AD9EF1D3993BC2966E9D /* PrayerLockShared.swift in Sources */,
+				78A4DBA4FEBFBEC7D40BC230 /* ShieldConfigurationExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BA495B45A9A01AC0D3A8224 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79C1EFF61ACA4A655DD343DE /* Shield */;
+			targetProxy = BA1C03E8CD110DFAAB9E691E /* PBXContainerItemProxy */;
+		};
+		E665CC443D4B2222043889A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92550A4A1AA766777AF1740B /* Monitor */;
+			targetProxy = 22F42613F610AD142F3ED603 /* PBXContainerItemProxy */;
+		};
+		EB1830DD211673D61839BA7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 544D52D876AB0AAF52406F8A /* ShieldAction */;
+			targetProxy = 7A257FA6A493A71F2D5C41F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		160A3D08429879431E6C66EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Shield/Shield.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Extensions/Shield/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app.shield;
+				PRODUCT_NAME = Shield;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16B8351354D1E3E284EB174A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Monitor/Monitor.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Extensions/Monitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app.monitor;
+				PRODUCT_NAME = Monitor;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1B76864BDEA49AE70F1F8138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2AE8DF82E059DFC3B42C7EDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/PrayerLock.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app;
+				PRODUCT_NAME = PrayerLock;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D3E80A60AEBEC32659ECB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/ShieldAction/ShieldAction.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Extensions/ShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app.shieldaction;
+				PRODUCT_NAME = ShieldAction;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		59FF8928DA6C642DD2A2EADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7CF4898A0773A71BDB74EB97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Shield/Shield.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Extensions/Shield/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app.shield;
+				PRODUCT_NAME = Shield;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1DF22A04B228D7FD3137F29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/ShieldAction/ShieldAction.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Extensions/ShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app.shieldaction;
+				PRODUCT_NAME = ShieldAction;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D237AD28D8064A181FEAF728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Monitor/Monitor.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Extensions/Monitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app.monitor;
+				PRODUCT_NAME = Monitor;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E7743BCAF8D0346C6A38713E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/PrayerLock.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prayer.lock.app;
+				PRODUCT_NAME = PrayerLock;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		009CD142BF76A204149650AC /* Build configuration list for PBXNativeTarget "Shield" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				160A3D08429879431E6C66EA /* Debug */,
+				7CF4898A0773A71BDB74EB97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3705510450CD7351F8510E87 /* Build configuration list for PBXNativeTarget "ShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D3E80A60AEBEC32659ECB9E /* Debug */,
+				A1DF22A04B228D7FD3137F29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		756465B9996D6F25263EFB04 /* Build configuration list for PBXNativeTarget "PrayerLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AE8DF82E059DFC3B42C7EDC /* Debug */,
+				E7743BCAF8D0346C6A38713E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8DC150DD5D00AE5F5772B12D /* Build configuration list for PBXProject "PrayerLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B76864BDEA49AE70F1F8138 /* Debug */,
+				59FF8928DA6C642DD2A2EADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C0CEE54B2AA27A9A7760DD37 /* Build configuration list for PBXNativeTarget "Monitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16B8351354D1E3E284EB174A /* Debug */,
+				D237AD28D8064A181FEAF728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06622E255046B0FBB7553D60 /* Project object */;
+}

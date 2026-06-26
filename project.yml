@@ -1,0 +1,99 @@
+name: PrayerLock
+options:
+  bundleIdPrefix: prayer.lock
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    TARGETED_DEVICE_FAMILY: "1"          # iPhone only
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_STRICT_CONCURRENCY: minimal
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+
+targets:
+  PrayerLock:
+    type: application
+    platform: iOS
+    sources:
+      - path: App/Sources
+      - path: App/Resources
+      - path: Shared
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Prayer Lock
+        UILaunchScreen: {}
+        UIUserInterfaceStyle: Light
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        ITSAppUsesNonExemptEncryption: false
+        UIAppFonts:
+          - Fraunces-Light.ttf
+          - Fraunces-Regular.ttf
+          - Fraunces-Medium.ttf
+          - Fraunces-SemiBold.ttf
+          - Fraunces-Bold.ttf
+          - Fraunces-RegularItalic.ttf
+          - Fraunces-MediumItalic.ttf
+          - Manrope-Regular.ttf
+          - Manrope-Medium.ttf
+          - Manrope-SemiBold.ttf
+          - Manrope-Bold.ttf
+          - Manrope-ExtraBold.ttf
+    settings:
+      base:
+        PRODUCT_NAME: PrayerLock
+        PRODUCT_BUNDLE_IDENTIFIER: prayer.lock.app
+        CODE_SIGN_ENTITLEMENTS: App/PrayerLock.entitlements
+    dependencies:
+      - target: Monitor
+      - target: Shield
+      - target: ShieldAction
+
+  Monitor:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Extensions/Monitor
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_NAME: Monitor
+        PRODUCT_BUNDLE_IDENTIFIER: prayer.lock.app.monitor
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Extensions/Monitor/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Extensions/Monitor/Monitor.entitlements
+
+  Shield:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Extensions/Shield
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_NAME: Shield
+        PRODUCT_BUNDLE_IDENTIFIER: prayer.lock.app.shield
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Extensions/Shield/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Extensions/Shield/Shield.entitlements
+
+  ShieldAction:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Extensions/ShieldAction
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_NAME: ShieldAction
+        PRODUCT_BUNDLE_IDENTIFIER: prayer.lock.app.shieldaction
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Extensions/ShieldAction/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Extensions/ShieldAction/ShieldAction.entitlements
