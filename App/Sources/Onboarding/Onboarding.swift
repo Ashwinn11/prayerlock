@@ -139,6 +139,11 @@ final class Onboarding: ObservableObject {
             ? "Grace" : companionName
         m.denomination = denominationValue
         m.planStartEpoch = Date().timeIntervalSince1970
+        // The onboarding prayer is mandatory — record it so the journal entry,
+        // streak, and heatmaps reflect day 1 from the start.
+        if m.totalPrayers == 0 {
+            m.completePrayer(entry: PrayerLibrary.entry(for: selectedPrayer))
+        }
         m.onboardingComplete = true
     }
 }

@@ -52,8 +52,8 @@ final class AppModel: ObservableObject {
         didSet { JournalStore.save(journal) }
     }
 
-    // MARK: Lock state (mirrors the shared ShieldController flags)
-    var isLocked: Bool { PL.defaults.bool(forKey: "isLocked") }
+    // MARK: Lock state — derived from the live ManagedSettings shield (never stale)
+    var isLocked: Bool { ShieldController().isShielded }
 
     /// Prayers needed to reach the next companion level.
     var prayersToNextLevel: Int { max(0, companionLevel * 7 - totalPrayers) }

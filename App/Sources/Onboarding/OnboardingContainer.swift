@@ -26,9 +26,7 @@ struct OnboardingContainer: View {
                           headline: "PrayerLock helps you choose God first, daily.",
                           accents: ["PrayerLock"])
         case .introUnlock:
-            InsightScreen(ob: ob, illustration: "cross-shroud", symbol: "cross.fill",
-                          headline: "Once you pray, your apps unlock.", accents: ["pray"],
-                          buttonTitle: "Get started")
+            IntroUnlockScreen(ob: ob)
         case .name:
             TextInputScreen(ob: ob, illustration: "dove", symbol: "bird.fill",
                             title: "What should we call you?",

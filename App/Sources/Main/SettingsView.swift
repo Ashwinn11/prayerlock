@@ -26,7 +26,6 @@ struct SettingsView: View {
                 prayerTimes
                 reminders
                 about
-                testing
                 data
             }
             .padding(.horizontal, PL.L.margin)
@@ -180,26 +179,6 @@ struct SettingsView: View {
             }
         }
         .buttonStyle(.plain)
-    }
-
-    private var testing: some View {
-        SettingsSection(title: "Testing") {
-            Button { screen.lockNow() } label: {
-                SettingsRow(label: "Block now") {
-                    Image(systemName: "lock.fill")
-                        .font(.system(size: 14)).foregroundColor(PL.C.gold)
-                }
-            }
-            .buttonStyle(.plain)
-            SettingsRowDivider()
-            Button { screen.unlockNow() } label: {
-                SettingsRow(label: "Unlock now") {
-                    Image(systemName: "lock.open.fill")
-                        .font(.system(size: 14)).foregroundColor(PL.C.gold)
-                }
-            }
-            .buttonStyle(.plain)
-        }
     }
 
     private var data: some View {

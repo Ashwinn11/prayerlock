@@ -61,5 +61,14 @@ public struct ShieldController {
         }
     }
 
-    public var isLocked: Bool { PL.defaults.bool(forKey: PL.Key.isLocked) }
+    /// True only if a shield is actually applied right now (reads the live
+    /// ManagedSettings state — works across the app + extensions, never goes stale).
+    public var isShielded: Bool {
+        if let apps = store.shield.applications, !apps.isEmpty { return true }
+        if let webs = store.shield.webDomains, !webs.isEmpty { return true }
+        if store.shield.applicationCategories != nil { return true }
+        return false
+    }
+
+    public var isLocked: Bool { isShielded }
 }

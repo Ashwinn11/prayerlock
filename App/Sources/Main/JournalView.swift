@@ -52,7 +52,7 @@ struct JournalView: View {
             }
             HeatmapGrid(total: expanded ? 90 : 7,
                         columns: expanded ? 9 : 7,
-                        done: app.streak, fillFromEnd: true)
+                        done: app.streak, fillFromEnd: false)
         }
         .padding(PL.S.xl)
         .background(PL.C.ink)

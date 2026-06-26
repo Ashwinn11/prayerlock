@@ -21,6 +21,7 @@
 		40D8FA289B17AD1F1B74CBD8 /* PrayerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DC234BB1094D1E0657151 /* PrayerContent.swift */; };
 		463AF4C31FEB818E3C5727A2 /* OnboardingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */; };
 		472EA2F5D25127DE1EB14160 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */; };
+		489D7EF64DF6431DAA45F5D9 /* AppLockShowcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D861980B733675D31602 /* AppLockShowcase.swift */; };
 		4A22E31D90CB46C24BAFCDD7 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFA6FC624D2A41CDA2865F /* JournalView.swift */; };
 		54FB98871FE09ACCD2734F92 /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		5BABA2BE40B2635A2E2033CB /* Lora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C256F4E4DA3ABE9A34AA3E /* Lora-SemiBold.ttf */; };
@@ -44,6 +45,7 @@
 		A89B2DD5D9EACAF8699CAB65 /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B22AD4340AEB579324C46476 /* Lora-Bold.ttf */; };
 		A9CF9BBCE5CC3993C407D4CE /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F726CC77C52FE7955F19 /* Cards.swift */; };
 		ACC388C6C5F4B51E6DBA2D9A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6C5644FDCE1D41D708F5E /* RootView.swift */; };
+		AFCBF65A8F5DF16D796FD0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1739002A004CB579C481CA32 /* Assets.xcassets */; };
 		B405E32463A596B55EBF0CC3 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */; };
 		B745AD9EF1D3993BC2966E9D /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461C0F2012650F99FDCF408 /* AppModel.swift */; };
@@ -114,6 +116,7 @@
 		0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
 		0F2DF79D242102553B4EB1BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		1739002A004CB579C481CA32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26A6F76170A0FCFC6DFBFDBF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		272FD4AAEF0DA7CAD1A9629F /* ShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldAction.entitlements; sourceTree = "<group>"; };
 		284FC86C9CFCF158B7CF2544 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 		2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
 		369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustom.swift; sourceTree = "<group>"; };
+		36F7D861980B733675D31602 /* AppLockShowcase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockShowcase.swift; sourceTree = "<group>"; };
 		3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
 		3DCC9F7BE260926E7E8FB774 /* Lora-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-MediumItalic.ttf"; sourceTree = "<group>"; };
 		3FDDE87368536B3842549A2F /* Shield.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Shield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +209,7 @@
 		1C935B7E2267E75811942056 /* Shield */ = {
 			isa = PBXGroup;
 			children = (
+				1739002A004CB579C481CA32 /* Assets.xcassets */,
 				D9E51993D3BDA1FB3EBFA6C9 /* Info.plist */,
 				8F12944E25FDBC5AD6DA59A8 /* Shield.entitlements */,
 				846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */,
@@ -356,6 +361,7 @@
 		D5ABD3A688A1518B8EC02463 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				36F7D861980B733675D31602 /* AppLockShowcase.swift */,
 				2B772FA3B93FCBA791CD2B33 /* Onboarding.swift */,
 				93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */,
 				369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */,
@@ -437,6 +443,7 @@
 			buildConfigurationList = 009CD142BF76A204149650AC /* Build configuration list for PBXNativeTarget "Shield" */;
 			buildPhases = (
 				E04C6B71C495DA838076068D /* Sources */,
+				B0D3A981F84AF4D21E04E48D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -537,6 +544,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0D3A981F84AF4D21E04E48D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFCBF65A8F5DF16D796FD0D8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -564,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489D7EF64DF6431DAA45F5D9 /* AppLockShowcase.swift in Sources */,
 				B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */,
 				043CECE6DAD71D2128A4CA57 /* BibleStore.swift in Sources */,
 				992C541AC21BFF83D700A656 /* BibleView.swift in Sources */,

@@ -58,13 +58,6 @@ final class ScreenTimeManager: ObservableObject {
         }
     }
 
-    /// Immediately shield the selected apps from the app itself (used to test blocking
-    /// without waiting for a schedule). Requires authorization.
-    func lockNow() {
-        guard isAuthorized else { return }
-        ShieldController().lock()
-    }
-    func unlockNow() { ShieldController().unlock() }
     var isLocked: Bool { ShieldController().isLocked }
 
     /// Stop all monitoring, clear the shield, and clear the app selection.
