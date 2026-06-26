@@ -35,6 +35,17 @@ extension PL {
         static let progressBar: CGFloat = 6
         /// Standard bottom inset above the home indicator for the button.
         static let bottomBar: CGFloat = 8
+        /// Max content column width — centers content on iPad, unconstrained on iPhone.
+        static let contentMax: CGFloat = 560
+    }
+}
+
+extension View {
+    /// Constrain content to a single centered column (iPad-safe). No-op on iPhone widths.
+    func plContent() -> some View {
+        self
+            .frame(maxWidth: PL.L.contentMax)
+            .frame(maxWidth: .infinity)
     }
 }
 

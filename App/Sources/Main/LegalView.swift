@@ -89,6 +89,7 @@ struct LegalView: View {
                 }
                 .padding(.horizontal, PL.L.margin)
                 .padding(.vertical, PL.S.xl)
+                .plContent()
             }
         }
         .preferredColorScheme(.light)

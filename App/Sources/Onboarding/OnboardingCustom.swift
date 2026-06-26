@@ -137,6 +137,7 @@ struct PersonalizingScreen: View {
     @ObservedObject var ob: Onboarding
     @State private var progress: Double = 0
     @State private var advanced = false
+    @Environment(\.horizontalSizeClass) private var sizeClass
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     private let dotCount = 7
 
@@ -154,9 +155,11 @@ struct PersonalizingScreen: View {
             VStack(spacing: PL.S.xl) {
                 laurelBadge
                 Text("\(Int(progress * 100))%")
-                    .font(PL.F.serif(64, .regular))
+                    .font(PL.F.serif(sizeClass == .regular ? 82 : 64, .regular))
                     .foregroundColor(PL.C.text)
                     .monospacedDigit()
+                    .contentTransition(.numericText())
+                    .animation(.snappy(duration: 0.18), value: Int(progress * 100))
                 ProgressBar(value: progress).frame(height: 8)
                 dots
                 Text(caption)

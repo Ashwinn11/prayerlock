@@ -42,6 +42,8 @@ struct PLTabBar: View {
         )
         .overlay(Capsule().stroke(PL.C.stroke, lineWidth: 1))
         .padding(.horizontal, PL.S.xxl)
+        .frame(maxWidth: 460)
+        .frame(maxWidth: .infinity)
     }
 }
 
@@ -51,6 +53,8 @@ struct PLTabBar: View {
 struct CompanionRing: View {
     let level: Int
     let progress: Double
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    private var diameter: CGFloat { sizeClass == .regular ? 120 : 92 }
     var body: some View {
         ZStack {
             Circle().stroke(PL.C.track, lineWidth: 5)
@@ -63,7 +67,7 @@ struct CompanionRing: View {
                 Text("Faith").font(PL.F.serif(20, .regular)).foregroundColor(PL.C.text)
             }
         }
-        .frame(width: 92, height: 92)
+        .frame(width: diameter, height: diameter)
     }
 }
 

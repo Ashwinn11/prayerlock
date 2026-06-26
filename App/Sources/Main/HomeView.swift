@@ -44,6 +44,7 @@ struct HomeView: View {
             .padding(.horizontal, PL.L.margin)
             .padding(.top, PL.S.sm)
             .padding(.bottom, 110)
+            .plContent()
         }
         .background(PL.C.cream.ignoresSafeArea())
     }

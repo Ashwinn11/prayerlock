@@ -5,7 +5,6 @@ import SwiftUI
 struct OptionRow: View {
     let title: String
     let selected: Bool
-    var multi: Bool = false
     let action: () -> Void
 
     var body: some View {
@@ -41,9 +40,9 @@ struct OptionRow: View {
                 .frame(width: 24, height: 24)
             if selected {
                 Circle().fill(PL.C.gold).frame(width: 24, height: 24)
-                Image(systemName: multi ? "checkmark" : "circle.fill")
-                    .font(.system(size: multi ? 12 : 8, weight: .bold))
-                    .foregroundColor(multi ? .white : .white)
+                Image(systemName: "circle.fill")
+                    .font(.system(size: 8, weight: .bold))
+                    .foregroundColor(.white)
             }
         }
     }
@@ -63,15 +62,14 @@ struct SelectableList: View {
     var body: some View {
         VStack(spacing: PL.S.md) {
             ForEach(options, id: \.self) { option in
-                OptionRow(title: option, selected: selection.contains(option),
-                          multi: isMulti) {
+                OptionRow(title: option, selected: selection.contains(option)) {
                     toggle(option)
                 }
             }
         }
     }
 
-    private var isMulti: Bool { if case .multi = mode { return true } else { return false } }
+    private var isMulti: Bool { if case .multi = mode { true } else { false } }
 
     private func toggle(_ option: String) {
         switch mode {
@@ -95,6 +93,7 @@ struct ValueSlider: View {
     let range: ClosedRange<Int>
     var unit: String
     var theme: ScreenTheme = .light
+    @Environment(\.horizontalSizeClass) private var sizeClass
 
     private var binding: Binding<Double> {
         Binding(get: { Double(value) }, set: { value = Int($0.rounded()) })
@@ -104,7 +103,7 @@ struct ValueSlider: View {
         VStack(spacing: PL.S.xxl) {
             VStack(spacing: PL.S.xs) {
                 Text("\(value)")
-                    .font(PL.F.serif(92, .regular))
+                    .font(PL.F.serif(sizeClass == .regular ? 118 : 92, .regular))
                     .foregroundColor(theme.textPrimary)
                     .monospacedDigit()
                     .contentTransition(.numericText())
@@ -160,13 +159,15 @@ struct EmojiSlider: View {
     let stops: [MoodStop]
     @Binding var index: Int
     var theme: ScreenTheme = .light
+    @Environment(\.horizontalSizeClass) private var sizeClass
 
     private var clamped: Int { min(max(index, 0), stops.count - 1) }
+    private var emojiSize: CGFloat { sizeClass == .regular ? 90 : 68 }
 
     var body: some View {
         VStack(spacing: PL.S.xl) {
             Text(stops[clamped].emoji)
-                .font(.system(size: 68))
+                .font(.system(size: emojiSize))
                 .id(clamped)
                 .transition(.scale.combined(with: .opacity))
                 .animation(.snappy(duration: 0.2), value: clamped)

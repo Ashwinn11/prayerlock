@@ -21,25 +21,28 @@ struct PrayerSessionView: View {
     var body: some View {
         ZStack {
             PL.C.cream.ignoresSafeArea()
-            switch stage {
-            case .relationship:
-                moodStage(title: "How's your relationship with God today?",
-                          accents: ["relationship with God"],
-                          stops: MoodStops.relationship, index: $relationship) {
-                    stage = .feeling
+            Group {
+                switch stage {
+                case .relationship:
+                    moodStage(title: "How's your relationship with God today?",
+                              accents: ["relationship with God"],
+                              stops: MoodStops.relationship, index: $relationship) {
+                        stage = .feeling
+                    }
+                case .feeling:
+                    moodStage(title: "How are you feeling today?", accents: ["feeling"],
+                              stops: MoodStops.feeling, index: $feeling) {
+                        startPrayer()
+                    }
+                case .pray:
+                    prayStage
+                case .reflect:
+                    reflectStage
+                case .amen:
+                    amenStage
                 }
-            case .feeling:
-                moodStage(title: "How are you feeling today?", accents: ["feeling"],
-                          stops: MoodStops.feeling, index: $feeling) {
-                    startPrayer()
-                }
-            case .pray:
-                prayStage
-            case .reflect:
-                reflectStage
-            case .amen:
-                amenStage
             }
+            .plContent()
         }
     }
 
@@ -87,17 +90,15 @@ struct PrayerSessionView: View {
                               italic: true, textColor: PL.C.gold, refColor: PL.C.textOnInk)
             Spacer(minLength: PL.S.lg)
             let done = remaining == 0
-            Button { if done { goReflect() } } label: {
-                Text(done ? "Continue" : "Be still · \(timeString)")
+            if done {
+                PrimaryButton(title: "Continue") { goReflect() }
+            } else {
+                Text("Be still · \(timeString)")
                     .font(.plButton)
-                    .foregroundColor(done ? PL.C.gold : PL.C.gold.opacity(0.35))
+                    .foregroundColor(PL.C.gold.opacity(0.35))
                     .frame(maxWidth: .infinity, minHeight: PL.L.buttonHeight)
-                    .overlay(Capsule().stroke(
-                        done ? PL.C.gold.opacity(0.5) : PL.C.gold.opacity(0.2),
-                        lineWidth: 1.4))
+                    .overlay(Capsule().stroke(PL.C.gold.opacity(0.2), lineWidth: 1.4))
             }
-            .buttonStyle(.plain)
-            .disabled(!done)
         }
         .padding(.horizontal, PL.L.margin)
         .padding(.top, PL.S.sm)
@@ -188,6 +189,8 @@ struct PrayerSessionView: View {
 struct BreathingRing: View {
     let total: Int
     let remaining: Int
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    private var diameter: CGFloat { sizeClass == .regular ? 270 : 210 }
     private var progress: Double {
         total > 0 ? Double(total - remaining) / Double(total) : 0
     }
@@ -204,6 +207,6 @@ struct BreathingRing: View {
                 Text("BREATHE").font(PL.F.sans(11, .bold)).tracking(2).foregroundColor(PL.C.textMuted)
             }
         }
-        .frame(width: 210, height: 210)
+        .frame(width: diameter, height: diameter)
     }
 }

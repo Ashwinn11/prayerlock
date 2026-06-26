@@ -36,6 +36,7 @@ struct PaywallScreen: View {
                     }
                     .padding(.top, PL.S.xxl)
                     .padding(.horizontal, PL.L.margin)
+                    .plContent()
                 }
                 footer
             }
@@ -66,6 +67,7 @@ struct PaywallScreen: View {
         .padding(.horizontal, PL.L.margin)
         .padding(.top, PL.S.md)
         .padding(.bottom, PL.S.lg)
+        .plContent()
     }
 }
 

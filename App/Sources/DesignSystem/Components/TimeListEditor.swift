@@ -1,21 +1,28 @@
 import SwiftUI
 
-/// Editable list of prayer times — matches the Settings design: each time is a
-/// tappable pill that opens the wheel picker, with a minus button to remove it,
-/// plus an "Add prayer time" button.
+/// Editable list of prayer times — tappable inline .compact DatePicker (iOS 26 Liquid Glass)
+/// with a minus button to remove, plus an "Add prayer time" button.
 struct TimeListEditor: View {
     @Binding var times: [PrayerTime]
     var theme: ScreenTheme = .light
-    @State private var editing: PrayerTime?
 
     var body: some View {
         VStack(spacing: PL.S.md) {
-            ForEach(times) { t in
+            ForEach(times.indices, id: \.self) { i in
                 HStack {
-                    Button { editing = t } label: { ValuePill(text: t.label) }
-                        .buttonStyle(.plain)
+                    DatePicker("", selection: Binding(
+                        get: { times[i].date },
+                        set: { d in
+                            let c = Calendar.current.dateComponents([.hour, .minute], from: d)
+                            times[i].hour = c.hour ?? 0
+                            times[i].minute = c.minute ?? 0
+                        }
+                    ), displayedComponents: .hourAndMinute)
+                    .datePickerStyle(.compact)
+                    .labelsHidden()
+                    .tint(PL.C.gold)
                     Spacer()
-                    Button { times.removeAll { $0.id == t.id } } label: {
+                    Button { times.remove(at: i) } label: {
                         Image(systemName: "minus.circle.fill")
                             .font(.system(size: 22))
                             .foregroundColor(PL.C.textMuted)
@@ -29,15 +36,6 @@ struct TimeListEditor: View {
                 .plCardStroke()
             }
             addButton
-        }
-        .sheet(item: $editing) { t in
-            TimePickerSheet(date: t.date) { newDate in
-                if let i = times.firstIndex(where: { $0.id == t.id }) {
-                    let c = Calendar.current.dateComponents([.hour, .minute], from: newDate)
-                    times[i].hour = c.hour ?? t.hour
-                    times[i].minute = c.minute ?? t.minute
-                }
-            }
         }
     }
 

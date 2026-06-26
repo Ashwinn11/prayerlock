@@ -5,7 +5,8 @@ import SwiftUI
 /// then the locks pop off and the icons brighten — looping.
 struct AppLockShowcase: View {
     @State private var locked = true
-    var tile: CGFloat = 58
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    private var tile: CGFloat { sizeClass == .regular ? 76 : 58 }
     private let timer = Timer.publish(every: 2.4, on: .main, in: .common).autoconnect()
     private let brands: [AppBrand] = [.instagram, .snapchat, .x, .whatsapp]
 

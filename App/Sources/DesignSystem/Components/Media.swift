@@ -30,10 +30,17 @@ struct ScriptureBlock: View {
 
 /// Slot for an illustration asset. Renders the named asset when present (your SVGs),
 /// otherwise a tasteful on-brand placeholder so layout is faithful before art lands.
+/// `size` is the base iPhone size; on iPad it scales up proportionally (capped at 260pt).
 struct IllustrationSlot: View {
     let name: String
     var fallbackSymbol: String = "cross.fill"
     var size: CGFloat = 180
+
+    @Environment(\.horizontalSizeClass) private var sizeClass
+
+    private var actualSize: CGFloat {
+        sizeClass == .regular ? min(size * 1.45, 260) : size
+    }
 
     private var assetExists: Bool { UIImage(named: name) != nil }
 
@@ -45,12 +52,12 @@ struct IllustrationSlot: View {
                 ZStack {
                     Circle().fill(PL.C.gold.opacity(0.18))
                     Image(systemName: fallbackSymbol)
-                        .font(.system(size: size * 0.34, weight: .light))
+                        .font(.system(size: actualSize * 0.34, weight: .light))
                         .foregroundColor(PL.C.gold)
                 }
             }
         }
-        .frame(width: size, height: size)
+        .frame(width: actualSize, height: actualSize)
         .accessibilityHidden(true)
     }
 }

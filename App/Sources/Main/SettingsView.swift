@@ -5,16 +5,23 @@ struct SettingsView: View {
     @ObservedObject var app = AppModel.shared
     @ObservedObject var screen = ScreenTimeManager.shared
     @State private var showPicker = false
-    @State private var editingTime: PrayerTime?
-    @State private var editingReminder = false
     @State private var confirmDelete = false
     @State private var legal: LegalDoc?
     @State private var showAuthAlert = false
 
-    private var reminderLabel: String {
-        let c = DateComponents(hour: app.reminderHour, minute: app.reminderMinute)
-        let d = Calendar.current.date(from: c) ?? Date()
-        let f = DateFormatter(); f.dateFormat = "h:mm a"; return f.string(from: d)
+    // Binding<Date> for the reminder DatePicker — reads/writes hour+minute @AppStorage
+    private var reminderBinding: Binding<Date> {
+        Binding(
+            get: {
+                Calendar.current.date(from: DateComponents(
+                    hour: app.reminderHour, minute: app.reminderMinute)) ?? Date()
+            },
+            set: { d in
+                let c = Calendar.current.dateComponents([.hour, .minute], from: d)
+                app.reminderHour = c.hour ?? app.reminderHour
+                app.reminderMinute = c.minute ?? app.reminderMinute
+            }
+        )
     }
 
     var body: some View {
@@ -31,28 +38,12 @@ struct SettingsView: View {
             .padding(.horizontal, PL.L.margin)
             .padding(.top, PL.S.sm)
             .padding(.bottom, 110)
+            .plContent()
         }
         .background(PL.C.cream.ignoresSafeArea())
         .familyActivityPicker(isPresented: $showPicker, selection: $screen.selection)
         .onChange(of: screen.selection) { newValue in
             BlockedSelectionStore().save(newValue)
-        }
-        .sheet(item: $editingTime) { t in
-            TimePickerSheet(date: t.date) { newDate in
-                if let i = app.prayerTimes.firstIndex(where: { $0.id == t.id }) {
-                    let c = Calendar.current.dateComponents([.hour, .minute], from: newDate)
-                    app.prayerTimes[i].hour = c.hour ?? t.hour
-                    app.prayerTimes[i].minute = c.minute ?? t.minute
-                    screen.reschedule(times: app.prayerTimes)
-                }
-            }
-        }
-        .sheet(isPresented: $editingReminder) {
-            TimePickerSheet(date: reminderDate) { newDate in
-                let c = Calendar.current.dateComponents([.hour, .minute], from: newDate)
-                app.reminderHour = c.hour ?? app.reminderHour
-                app.reminderMinute = c.minute ?? app.reminderMinute
-            }
         }
         .sheet(item: $legal) { LegalView(doc: $0) }
         .alert("Delete all data?", isPresented: $confirmDelete) {
@@ -71,11 +62,6 @@ struct SettingsView: View {
         }
     }
 
-    private var reminderDate: Date {
-        Calendar.current.date(from: DateComponents(hour: app.reminderHour, minute: app.reminderMinute)) ?? Date()
-    }
-
-    /// FamilyActivityPicker only works once authorized — ensure auth first.
     private func openPicker() {
         if screen.isAuthorized {
             showPicker = true
@@ -111,12 +97,30 @@ struct SettingsView: View {
             Text("Apps lock at these times until you pray.")
                 .font(.plSubtitle).foregroundColor(PL.C.textMuted).padding(.leading, PL.S.xs)
             VStack(spacing: PL.S.md) {
-                ForEach($app.prayerTimes) { $t in
+                ForEach(app.prayerTimes.indices, id: \.self) { i in
                     HStack {
-                        Button { editingTime = t } label: { ValuePill(text: t.label) }
-                            .buttonStyle(.plain)
+                        DatePicker("", selection: Binding(
+                            get: { app.prayerTimes[i].date },
+                            set: { d in
+                                let c = Calendar.current.dateComponents([.hour, .minute], from: d)
+                                app.prayerTimes[i].hour = c.hour ?? 0
+                                app.prayerTimes[i].minute = c.minute ?? 0
+                                screen.reschedule(times: app.prayerTimes)
+                            }
+                        ), displayedComponents: .hourAndMinute)
+                        .datePickerStyle(.compact)
+                        .labelsHidden()
+                        .tint(PL.C.gold)
                         Spacer()
-                        Toggle("", isOn: $t.enabled).labelsHidden().tint(PL.C.gold)
+                        Button {
+                            app.prayerTimes.remove(at: i)
+                            screen.reschedule(times: app.prayerTimes)
+                        } label: {
+                            Image(systemName: "minus.circle.fill")
+                                .font(.system(size: 22))
+                                .foregroundColor(PL.C.textMuted)
+                        }
+                        .buttonStyle(.plain)
                     }
                     .padding(.horizontal, PL.S.lg)
                     .frame(height: 60)
@@ -152,10 +156,12 @@ struct SettingsView: View {
                 Toggle("", isOn: $app.dailyReminderEnabled).labelsHidden().tint(PL.C.gold)
             }
             SettingsRowDivider()
-            Button { editingReminder = true } label: {
-                SettingsRow(label: "Time") { ValuePill(text: reminderLabel) }
+            SettingsRow(label: "Time") {
+                DatePicker("", selection: reminderBinding, displayedComponents: .hourAndMinute)
+                    .datePickerStyle(.compact)
+                    .labelsHidden()
+                    .tint(PL.C.gold)
             }
-            .buttonStyle(.plain)
         }
     }
 
@@ -192,31 +198,5 @@ struct SettingsView: View {
             }
             .buttonStyle(.plain)
         }
-    }
-}
-
-/// Reusable wheel time picker sheet.
-struct TimePickerSheet: View {
-    let initial: Date
-    let onSave: (Date) -> Void
-    @Environment(\.dismiss) private var dismiss
-    @State private var date: Date
-
-    init(date: Date, onSave: @escaping (Date) -> Void) {
-        self.initial = date; self.onSave = onSave
-        _date = State(initialValue: date)
-    }
-
-    var body: some View {
-        VStack(spacing: PL.S.xl) {
-            Text("Set time")
-                .font(PL.F.serif(24, .regular)).foregroundColor(PL.C.text).padding(.top, PL.S.xl)
-            DatePicker("", selection: $date, displayedComponents: .hourAndMinute)
-                .datePickerStyle(.wheel).labelsHidden()
-            PrimaryButton(title: "Save") { onSave(date); dismiss() }
-                .padding(.horizontal, PL.L.margin).padding(.bottom, PL.S.xl)
-        }
-        .background(PL.C.cream.ignoresSafeArea())
-        .presentationDetents([.height(340)])
     }
 }

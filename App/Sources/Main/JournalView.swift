@@ -23,6 +23,7 @@ struct JournalView: View {
             .padding(.horizontal, PL.L.margin)
             .padding(.top, PL.S.sm)
             .padding(.bottom, 110)
+            .plContent()
         }
         .background(PL.C.cream.ignoresSafeArea())
         .sheet(item: $selected) { entry in
@@ -133,6 +134,7 @@ struct JournalEntryDetail: View {
                 }
                 .padding(.horizontal, PL.L.margin)
                 .padding(.vertical, PL.S.xl)
+                .plContent()
             }
         }
     }

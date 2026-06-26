@@ -64,13 +64,13 @@ struct OnboardingTopBar: View {
 }
 
 /// The universal onboarding/flow screen container.
-/// Light or dark theme, optional back + progress, centered or top-aligned content,
-/// pinned bottom button.
+/// Light or dark theme, optional back + progress, top-aligned content, pinned bottom button.
+/// `centered` is accepted but ignored — all screens are top-aligned for visual consistency.
 struct OnbScaffold<Content: View>: View {
     var theme: ScreenTheme = .light
     var showBack: Bool = true
     var progress: Double? = nil
-    var centered: Bool = false
+    var centered: Bool = false   // kept for call-site compatibility; layout is always top-aligned
     var onBack: () -> Void = {}
     var primary: ButtonConfig? = nil
     @ViewBuilder var content: () -> Content
@@ -90,14 +90,8 @@ struct OnbScaffold<Content: View>: View {
                     Spacer().frame(height: PL.S.xl)
                 }
 
-                if centered {
-                    Spacer(minLength: 0)
-                    content()
-                    Spacer(minLength: 0)
-                } else {
-                    content()
-                    Spacer(minLength: PL.S.lg)
-                }
+                content()
+                Spacer(minLength: PL.S.lg)
 
                 if let primary {
                     PrimaryButton(title: primary.title, style: primary.style,
@@ -107,6 +101,7 @@ struct OnbScaffold<Content: View>: View {
                 }
             }
             .padding(.horizontal, PL.L.margin)
+            .plContent()
         }
         .preferredColorScheme(theme.colorScheme)
     }

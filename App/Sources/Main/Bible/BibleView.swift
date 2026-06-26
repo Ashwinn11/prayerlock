@@ -19,6 +19,7 @@ struct BibleView: View {
                 .padding(.horizontal, PL.L.margin)
                 .padding(.top, PL.S.sm)
                 .padding(.bottom, 110)
+                .plContent()
             }
             .background(PL.C.cream.ignoresSafeArea())
         }
@@ -86,6 +87,7 @@ struct ChapterListView: View {
             }
             .padding(PL.L.margin)
             .padding(.bottom, 110)
+            .plContent()
         }
         .background(PL.C.cream.ignoresSafeArea())
         .navigationTitle(book.name)
@@ -117,6 +119,7 @@ struct ReaderView: View {
             .padding(.horizontal, PL.L.margin)
             .padding(.top, PL.S.sm)
             .padding(.bottom, 110)
+            .plContent()
         }
         .background(PL.C.cream.ignoresSafeArea())
         .navigationTitle("\(book.name) \(chapter)")
