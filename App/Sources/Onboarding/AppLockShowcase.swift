@@ -17,7 +17,8 @@ struct AppLockShowcase: View {
             }
         }
         .onReceive(timer) { _ in
-            withAnimation(.spring(response: 0.55, dampingFraction: 0.7)) { locked.toggle() }
+            withPLAnimation(PL.Motion.bounce) { locked.toggle() }
+            if !locked { PL.Haptics.soft() }   // a soft tick each time the apps free up
         }
     }
 }
@@ -163,10 +164,13 @@ struct IntroUnlockScreen: View {
             primary: ButtonConfig(title: "Get started", action: ob.next)
         ) {
             VStack(spacing: PL.S.xl) {
-                IllustrationSlot(name: "cross-shroud", fallbackSymbol: "cross.fill", size: 150)
+                FloatingIllustration(name: "cross-shroud", symbol: "cross.fill", size: 150)
+                    .plReveal(0)
                 GoldHeadline("Once you pray, your apps unlock.", accents: ["pray"],
-                             size: 28, alignment: .center)
+                             size: 28, alignment: .center, foil: true)
+                    .plReveal(1)
                 AppLockShowcase().padding(.top, PL.S.sm)
+                    .plReveal(2)
             }
         }
     }

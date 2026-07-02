@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01E372161A12987F55A70330 /* AmbientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D7A71E511D2424453DB3B7 /* AmbientBackground.swift */; };
+		029B64B76909F00254CF48CC /* Shaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033640058A254587347A563 /* Shaders.swift */; };
 		031502B49591AC6CF594FDD1 /* Newsreader-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9717297ABE22FBF8992FCC15 /* Newsreader-SemiBold.ttf */; };
 		043CECE6DAD71D2128A4CA57 /* BibleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456349401580B0857269578 /* BibleStore.swift */; };
 		09648343F413749F3D8B46EC /* Lora-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D2296AA303DCB878F718C /* Lora-RegularItalic.ttf */; };
@@ -29,9 +31,11 @@
 		489D7EF64DF6431DAA45F5D9 /* AppLockShowcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D861980B733675D31602 /* AppLockShowcase.swift */; };
 		4A22E31D90CB46C24BAFCDD7 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFA6FC624D2A41CDA2865F /* JournalView.swift */; };
 		54FB98871FE09ACCD2734F92 /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
+		56045E41B098E00B1517C216 /* PremiumKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B8D43F83DD9A1B459E2D30 /* PremiumKit.swift */; };
 		5BABA2BE40B2635A2E2033CB /* Lora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C256F4E4DA3ABE9A34AA3E /* Lora-SemiBold.ttf */; };
 		68BAF63266E101D77D5A358E /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */; };
 		6D07B62055AA2BD82DDDAD6D /* PrayerSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F68A903250807815257B /* PrayerSessionView.swift */; };
+		6D10105185C426E2541524B7 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC0ADD229B1294BE45D8E6 /* Shaders.metal */; };
 		6DDD54C0102ABFE6002F30AA /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C5BE7EE983F7DEC4973E65E /* Manrope-Regular.ttf */; };
 		6EBFDF271C105802F8AC7F35 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */; };
 		7349820B1B111395B2B1A289 /* Shield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FDDE87368536B3842549A2F /* Shield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -46,6 +50,7 @@
 		882A0145121E46DB8EE90249 /* OnboardingCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369F4493DF3AF1471E1B5373 /* OnboardingCustom.swift */; };
 		8DE8570730C75491010FBC5F /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		8ED4A59E11CBD7479C09E2C9 /* HankenGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 868E7E33874CF48A9A01714B /* HankenGrotesk-Medium.ttf */; };
+		9079225A26D49B058CB678C0 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B27C690F0B84F72AB23B76 /* Motion.swift */; };
 		909579EB197CD107DC51620E /* Newsreader-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E98E0F7EC46464EA07A20351 /* Newsreader-Regular.ttf */; };
 		9568EE998D5713D26525AB1F /* PrayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D834D2AF1AE08A8586922 /* PrayerPreview.swift */; };
 		992C541AC21BFF83D700A656 /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F8DBF0284057B42966EFD /* BibleView.swift */; };
@@ -57,10 +62,12 @@
 		ACC388C6C5F4B51E6DBA2D9A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6C5644FDCE1D41D708F5E /* RootView.swift */; };
 		AFCBF65A8F5DF16D796FD0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1739002A004CB579C481CA32 /* Assets.xcassets */; };
 		B405E32463A596B55EBF0CC3 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78E3664DF49CC751198F96 /* OnboardingScreens.swift */; };
+		B6102D27CFCCF17BD5D9C579 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD9A3A1E48957E11486F88 /* Glass.swift */; };
 		B745AD9EF1D3993BC2966E9D /* PrayerLockShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C24431289F269B86568C5 /* PrayerLockShared.swift */; };
 		B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461C0F2012650F99FDCF408 /* AppModel.swift */; };
 		B79E56C0714317878EF57652 /* MainComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA27602CE7320CED1F0B66C /* MainComponents.swift */; };
 		B839E7AEE46D10CCDA061755 /* Newsreader-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FF9BE417DF0C5B11027E0F4 /* Newsreader-Light.ttf */; };
+		B987052D87EDB59F3F1B2EDB /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381CEAD56A8E98369FC8F16 /* Haptics.swift */; };
 		BB36A8ECE526E797AF690CFF /* PrayerLockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8CA6315D4EFD2908B7D5C /* PrayerLockApp.swift */; };
 		BC178990B8A360F691E898BD /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1169E2B2AE5CE8B1A7A96CC0 /* Journal.swift */; };
 		BCEC013F5D2038A40200090D /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 637991545F3D4C024611412F /* Lora-Regular.ttf */; };
@@ -123,6 +130,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06B8D43F83DD9A1B459E2D30 /* PremiumKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumKit.swift; sourceTree = "<group>"; };
 		0B7DB97719C39E213C03A464 /* Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputs.swift; sourceTree = "<group>"; };
 		0EFD7F5727F2CE0CABD73E62 /* GoldHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldHeadline.swift; sourceTree = "<group>"; };
 		0F01488EDF9AC42124F8685B /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -141,8 +149,10 @@
 		3828CE47F5CBC640BEB51473 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
 		3DCC9F7BE260926E7E8FB774 /* Lora-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-MediumItalic.ttf"; sourceTree = "<group>"; };
 		3FDDE87368536B3842549A2F /* Shield.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Shield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4033640058A254587347A563 /* Shaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shaders.swift; sourceTree = "<group>"; };
 		4AA27602CE7320CED1F0B66C /* MainComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponents.swift; sourceTree = "<group>"; };
 		4C344C8C2CA897B7FA924FA1 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
+		4FBC0ADD229B1294BE45D8E6 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		5092EA8C62E6000B70EF2BF2 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		52D5C8557D0C53A1EF26CB3C /* TypewriterText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterText.swift; sourceTree = "<group>"; };
 		56F6C5644FDCE1D41D708F5E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 		6D608041A184DD00042F6685 /* Monitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Monitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7456349401580B0857269578 /* BibleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleStore.swift; sourceTree = "<group>"; };
 		76957BDFE6701F8BCADD8FDD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		7BFD9A3A1E48957E11486F88 /* Glass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
 		825C69FCD98B433CC4712290 /* kjv.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kjv.json; sourceTree = "<group>"; };
 		835C24431289F269B86568C5 /* PrayerLockShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerLockShared.swift; sourceTree = "<group>"; };
 		846AE8066B722872EB92FCB0 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
@@ -165,6 +176,7 @@
 		91775386DF1B1D5D7283FE3D /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
 		929F9DBEB06DF797027F018B /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
 		93112E95FBAE6E1B753493A3 /* OnboardingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainer.swift; sourceTree = "<group>"; };
+		9381CEAD56A8E98369FC8F16 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		941CB7B19A0D4BF4F4FC7404 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		9461C0F2012650F99FDCF408 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		94E0D1AB538C72CC3E9EF8E0 /* Newsreader-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-Italic.ttf"; sourceTree = "<group>"; };
@@ -184,6 +196,8 @@
 		B9D1ADB4530C7A0175706409 /* HankenGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HankenGrotesk-Regular.ttf"; sourceTree = "<group>"; };
 		BEC82EBD32B396462C8A2D1C /* Newsreader-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Newsreader-Medium.ttf"; sourceTree = "<group>"; };
 		C75CF7FDB07E50FEEABB1CA0 /* PLNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLNamespace.swift; sourceTree = "<group>"; };
+		C8B27C690F0B84F72AB23B76 /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
+		C8D7A71E511D2424453DB3B7 /* AmbientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientBackground.swift; sourceTree = "<group>"; };
 		D05D497043B96DD148FAB509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D733E09D0882BA8DC2C9FD4E /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
 		D9E51993D3BDA1FB3EBFA6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -228,6 +242,15 @@
 				8ABB4FAD0484932CD2A469E5 /* ShieldAction.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0B17A5C117FABBB57317CEA0 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				4FBC0ADD229B1294BE45D8E6 /* Shaders.metal */,
+				4033640058A254587347A563 /* Shaders.swift */,
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 		1C935B7E2267E75811942056 /* Shield */ = {
@@ -378,6 +401,8 @@
 			isa = PBXGroup;
 			children = (
 				F89B7B0094C9629B1CB5FC74 /* Components */,
+				DB311379FEC8B88020B9DD1D /* Motion */,
+				0B17A5C117FABBB57317CEA0 /* Shaders */,
 				5092EA8C62E6000B70EF2BF2 /* Metrics.swift */,
 				A4C52A281C99284630633FA7 /* Palette.swift */,
 				B1CD841B6DDFDC6F55324DB8 /* Typography.swift */,
@@ -408,6 +433,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		DB311379FEC8B88020B9DD1D /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				9381CEAD56A8E98369FC8F16 /* Haptics.swift */,
+				C8B27C690F0B84F72AB23B76 /* Motion.swift */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
 		F1C52969007B7096D994BFA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,10 +454,13 @@
 		F89B7B0094C9629B1CB5FC74 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C8D7A71E511D2424453DB3B7 /* AmbientBackground.swift */,
 				2868F726CC77C52FE7955F19 /* Cards.swift */,
+				7BFD9A3A1E48957E11486F88 /* Glass.swift */,
 				0EFD7F5727F2CE0CABD73E62 /* GoldHeadline.swift */,
 				0B7DB97719C39E213C03A464 /* Inputs.swift */,
 				76957BDFE6701F8BCADD8FDD /* Media.swift */,
+				06B8D43F83DD9A1B459E2D30 /* PremiumKit.swift */,
 				5EFE82AB09B74C44EAC8FCE7 /* PrimaryButton.swift */,
 				5B9ECC3D6A81F0CF27A1505A /* Scaffold.swift */,
 				E35838E259B10E5F3975DF9E /* TimeListEditor.swift */,
@@ -627,12 +664,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01E372161A12987F55A70330 /* AmbientBackground.swift in Sources */,
 				489D7EF64DF6431DAA45F5D9 /* AppLockShowcase.swift in Sources */,
 				B770E5BF6166E8317C48F6CF /* AppModel.swift in Sources */,
 				043CECE6DAD71D2128A4CA57 /* BibleStore.swift in Sources */,
 				992C541AC21BFF83D700A656 /* BibleView.swift in Sources */,
 				A9CF9BBCE5CC3993C407D4CE /* Cards.swift in Sources */,
+				B6102D27CFCCF17BD5D9C579 /* Glass.swift in Sources */,
 				CF527BC6938BDAE4DA4705DB /* GoldHeadline.swift in Sources */,
+				B987052D87EDB59F3F1B2EDB /* Haptics.swift in Sources */,
 				E76512EA7759D21EA28F55D3 /* HomeView.swift in Sources */,
 				2F04B2E2B1D79AD5473F662F /* Inputs.swift in Sources */,
 				BC178990B8A360F691E898BD /* Journal.swift in Sources */,
@@ -642,6 +682,7 @@
 				1B76651D34D9768429C9FB33 /* MainTabView.swift in Sources */,
 				BD6B78B0978638DE73758D23 /* Media.swift in Sources */,
 				850A3B210233C54E0272F5CB /* Metrics.swift in Sources */,
+				9079225A26D49B058CB678C0 /* Motion.swift in Sources */,
 				472EA2F5D25127DE1EB14160 /* Onboarding.swift in Sources */,
 				463AF4C31FEB818E3C5727A2 /* OnboardingContainer.swift in Sources */,
 				882A0145121E46DB8EE90249 /* OnboardingCustom.swift in Sources */,
@@ -654,11 +695,14 @@
 				BD267BAB2ECFE551DEAE9534 /* PrayerLockShared.swift in Sources */,
 				9568EE998D5713D26525AB1F /* PrayerPreview.swift in Sources */,
 				6D07B62055AA2BD82DDDAD6D /* PrayerSessionView.swift in Sources */,
+				56045E41B098E00B1517C216 /* PremiumKit.swift in Sources */,
 				D4E9BC8CD7D076EF5BC57454 /* PrimaryButton.swift in Sources */,
 				ACC388C6C5F4B51E6DBA2D9A /* RootView.swift in Sources */,
 				2271F6327F1AD8A1AFAEA84B /* Scaffold.swift in Sources */,
 				C4DADAC37798B6079347B84E /* ScreenTimeManager.swift in Sources */,
 				F46ABAE45E4FD80066F51E04 /* SettingsView.swift in Sources */,
+				6D10105185C426E2541524B7 /* Shaders.metal in Sources */,
+				029B64B76909F00254CF48CC /* Shaders.swift in Sources */,
 				A33D8AE53F7FE4A998AC87D1 /* TimeListEditor.swift in Sources */,
 				2E804E1A20B2F5636C9D2DB4 /* TypewriterText.swift in Sources */,
 				21DA5C7D8E86771831AA7835 /* Typography.swift in Sources */,
@@ -787,7 +831,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -887,7 +931,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -2,16 +2,30 @@ import SwiftUI
 
 struct OnboardingContainer: View {
     @StateObject private var ob = Onboarding()
+    @Environment(\.accessibilityReduceMotion) private var reduce
 
     var body: some View {
         ZStack {
+            // Persistent base color behind the transition — matches the current step's theme so
+            // the plain white window can never show through during a screen change.
+            (ob.stepTheme == .dark ? PL.C.ink : PL.C.cream)
+                .ignoresSafeArea()
+                .animation(PL.Motion.smooth, value: ob.stepTheme)
+
             screen
                 .id(ob.index)
-                .transition(.asymmetric(
-                    insertion: .move(edge: ob.forward ? .trailing : .leading).combined(with: .opacity),
-                    removal: .move(edge: ob.forward ? .leading : .trailing).combined(with: .opacity)
-                ))
+                .transition(transition)
         }
+    }
+
+    /// A clean opaque push: both screens stay fully opaque and slide in lockstep so they abut
+    /// with no gap (and no see-through). Reduce Motion → simple crossfade over the base.
+    private var transition: AnyTransition {
+        if reduce { return .opacity }
+        return .asymmetric(
+            insertion: .move(edge: ob.forward ? .trailing : .leading),
+            removal: .move(edge: ob.forward ? .leading : .trailing)
+        )
     }
 
     @ViewBuilder private var screen: some View {
@@ -45,7 +59,8 @@ struct OnboardingContainer: View {
                            selection: $ob.age)
         case .phoneHours:
             SliderScreen(ob: ob, title: "How long are you on your phone each day?",
-                         unit: "hours/day", range: 1...10, value: $ob.phoneHours)
+                         unit: "hours/day", range: 1...10, value: $ob.phoneHours,
+                         note: { [weak ob] _ in "≈ \(ob?.yearsOnPhone ?? 0) years of your life" })
         case .prayWeek:
             SliderScreen(ob: ob, title: "How often do you pray per week?",
                          unit: "days/week", range: 0...7, value: $ob.prayWeek)

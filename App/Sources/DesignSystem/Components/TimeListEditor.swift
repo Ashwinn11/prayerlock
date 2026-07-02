@@ -23,19 +23,21 @@ struct TimeListEditor: View {
                     .tint(PL.C.gold)
                     Spacer()
                     Button {
-                        times.removeAll { $0.id == time.id }
+                        PL.Haptics.light()
+                        withPLAnimation(PL.Motion.smooth) {
+                            times.removeAll { $0.id == time.id }
+                        }
                     } label: {
                         Image(systemName: "minus.circle.fill")
                             .font(.system(size: 22))
                             .foregroundColor(PL.C.textMuted)
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(.pressable)
                 }
                 .padding(.horizontal, PL.S.lg)
                 .frame(height: 60)
-                .background(PL.C.card)
-                .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
-                .plCardStroke()
+                .liquidGlassCard(PL.R.card, elevation: .button)
+                .transition(.scale(scale: 0.9).combined(with: .opacity))
             }
             addButton
         }
@@ -43,7 +45,10 @@ struct TimeListEditor: View {
 
     private var addButton: some View {
         Button {
-            times.append(PrayerTime(hour: 9, minute: 0))
+            PL.Haptics.selection()
+            withPLAnimation(PL.Motion.bounce) {
+                times.append(PrayerTime(hour: 9, minute: 0))
+            }
         } label: {
             HStack(spacing: PL.S.sm) {
                 Image(systemName: "plus.circle.fill")

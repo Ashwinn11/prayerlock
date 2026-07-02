@@ -14,6 +14,62 @@ enum PLTab: String, CaseIterable, Identifiable {
         case .settings: return "gearshape.fill"
         }
     }
+    var iconInactive: String {
+        switch self {
+        case .home: return "house"
+        case .bible: return "book.closed"
+        case .journal: return "checkmark.seal"
+        case .settings: return "gearshape"
+        }
+    }
+}
+
+/// Floating liquid-glass tab bar: a gold selection pill morphs between items
+/// (matched geometry), icons bounce on select, every switch ticks.
+struct PLTabBar: View {
+    @Binding var selected: PLTab
+    @Namespace private var ns
+
+    var body: some View {
+        HStack(spacing: 2) {
+            ForEach(PLTab.allCases) { tab in
+                item(tab)
+            }
+        }
+        .padding(5)
+        .liquidGlass(Capsule(), elevation: .floating)
+    }
+
+    private func item(_ tab: PLTab) -> some View {
+        let active = tab == selected
+        return Button {
+            guard !active else { return }
+            PL.Haptics.selection()
+            withPLAnimation(PL.Motion.bounce) { selected = tab }
+        } label: {
+            VStack(spacing: 2) {
+                Image(systemName: active ? tab.icon : tab.iconInactive)
+                    .font(.system(size: 17, weight: .medium))
+                    .symbolEffect(.bounce, value: active)
+                    .frame(height: 22)
+                Text(tab.title)
+                    .font(PL.F.sans(10, .semibold))
+            }
+            .foregroundColor(active ? PL.C.text : PL.C.textMuted)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 7)
+            .background {
+                if active {
+                    Capsule()
+                        .fill(PL.C.gold.opacity(0.15))
+                        .overlay(Capsule().stroke(PL.C.gold.opacity(0.30), lineWidth: 1))
+                        .matchedGeometryEffect(id: "tab-pill", in: ns)
+                }
+            }
+            .contentShape(Capsule())
+        }
+        .buttonStyle(.plain)
+    }
 }
 
 // MARK: - Home pieces
@@ -30,6 +86,8 @@ struct CompanionRing: View {
             Circle().trim(from: 0, to: max(0.02, min(1, progress)))
                 .stroke(PL.C.gold, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                 .rotationEffect(.degrees(-90))
+                .shadow(color: PL.C.goldGlow.opacity(0.35), radius: 5)
+                .animation(PL.Motion.gentle, value: progress)
             VStack(spacing: 0) {
                 Text("LEVEL \(level)")
                     .font(PL.F.sans(8, .bold)).tracking(1).foregroundColor(PL.C.textMuted)
@@ -40,13 +98,13 @@ struct CompanionRing: View {
     }
 }
 
-/// A single stat column (big serif number + caps label).
+/// A single stat column (big rolling serif number + caps label).
 struct StatColumn: View {
-    let value: String
+    let value: Int
     let label: String
     var body: some View {
         VStack(spacing: 4) {
-            Text(value).font(PL.F.serif(28, .regular)).foregroundColor(PL.C.text)
+            RollingNumber(value: value, font: PL.F.serif(28, .regular))
             Text(label).font(PL.F.sans(11, .bold)).tracking(1).foregroundColor(PL.C.textMuted)
         }
         .frame(maxWidth: .infinity)
@@ -62,6 +120,9 @@ struct HeatmapGrid: View {
     var fillFromEnd: Bool = false
     var emptyColor: Color = Color.white.opacity(0.07)
 
+    @State private var appeared = false
+    @Environment(\.accessibilityReduceMotion) private var reduce
+
     private func filled(_ i: Int) -> Bool {
         fillFromEnd ? i >= total - done : i < done
     }
@@ -72,8 +133,15 @@ struct HeatmapGrid: View {
                 RoundedRectangle(cornerRadius: 5, style: .continuous)
                     .fill(filled(i) ? PL.C.gold : emptyColor)
                     .aspectRatio(1, contentMode: .fit)
+                    .scaleEffect(appeared ? 1 : 0.2)
+                    .opacity(appeared ? 1 : 0)
+                    .animation(reduce ? .easeOut(duration: 0.2)
+                                      : PL.Motion.bounce.delay(Double(i) * 0.006),
+                               value: appeared)
             }
         }
+        .onAppear { appeared = true }
+        .animation(PL.Motion.bounce, value: total)   // 7-day ↔ 90-day expand morphs
     }
 }
 
@@ -86,9 +154,7 @@ struct SettingsSection<Content: View>: View {
         VStack(alignment: .leading, spacing: PL.S.sm) {
             Eyebrow(text: title).padding(.leading, PL.S.xs)
             VStack(spacing: 0) { content }
-                .background(PL.C.card)
-                .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
-                .plCardStroke()
+                .liquidGlassCard(PL.R.card)
         }
     }
 }

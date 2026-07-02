@@ -15,19 +15,29 @@ struct StarRow: View {
     }
 }
 
-/// A 5-star testimonial card.
+/// A 5-star review card (App Store style): stars + optional bold title, body, and author.
 struct ReviewCard: View {
     let text: String
+    var title: String? = nil
     let author: String
     var body: some View {
         VStack(alignment: .leading, spacing: PL.S.sm) {
-            StarRow(size: 13)
+            HStack(spacing: PL.S.sm) {
+                StarRow(size: 13)
+                if let title {
+                    Text(title)
+                        .font(PL.F.sans(12, .bold)).tracking(0.4)
+                        .foregroundColor(PL.C.text)
+                        .lineLimit(1)
+                }
+                Spacer(minLength: 0)
+            }
             Text(text)
                 .font(PL.F.sans(15, .medium))
                 .foregroundColor(PL.C.text)
                 .fixedSize(horizontal: false, vertical: true)
-            Text(author)
-                .font(PL.F.sans(12, .bold))
+            Text("— \(author)")
+                .font(PL.F.sans(12, .semibold))
                 .foregroundColor(PL.C.textMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)

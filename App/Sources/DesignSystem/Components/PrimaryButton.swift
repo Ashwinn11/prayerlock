@@ -14,18 +14,20 @@ struct PrimaryButton: View {
     var style: Style = .primary
     var enabled: Bool = true
     var loading: Bool = false
+    /// Continuously sweep a highlight band across the fill (money CTA).
+    var shimmer: Bool = false
     let action: () -> Void
 
     private var active: Bool { enabled && !loading }
 
     var body: some View {
-        Button(action: { if active { action() } }) {
+        Button(action: { if active { PL.Haptics.rigid(); action() } }) {
             label
         }
-        .buttonStyle(.plain)
+        .buttonStyle(PressableStyle(scale: 0.97, haptic: false))
         .disabled(!active)
-        .animation(.easeInOut(duration: 0.15), value: enabled)
-        .animation(.easeInOut(duration: 0.15), value: loading)
+        .animation(PL.Motion.smooth, value: enabled)
+        .animation(PL.Motion.smooth, value: loading)
     }
 
     @ViewBuilder private var content: some View {
@@ -45,8 +47,13 @@ struct PrimaryButton: View {
                 .font(.plButton)
                 .foregroundColor(PL.C.buttonText)
                 .frame(maxWidth: .infinity, minHeight: PL.L.buttonHeight)
-                .background(active ? PL.C.button : PL.C.buttonDisabled)
+                .background(
+                    Capsule().fill(active ? PL.C.button : PL.C.buttonDisabled)
+                        .plShimmer(active: shimmer && active)
+                )
                 .clipShape(Capsule())
+                .shadow(color: PL.C.shadowKey, radius: 10, y: 5)
+                .plGlow(PL.C.goldGlow, radius: 12, active: shimmer && active)
         case .invertedPill:
             content
                 .font(.plButton)
@@ -64,9 +71,10 @@ struct PrimaryButton: View {
                 .font(.plButton)
                 .foregroundColor(PL.C.text)
                 .frame(maxWidth: .infinity, minHeight: PL.L.buttonHeight)
-                .background(PL.C.card)
-                .clipShape(Capsule())
+                .background(Capsule().fill(PL.C.card))
                 .overlay(Capsule().stroke(PL.C.stroke, lineWidth: 1))
+                .clipShape(Capsule())
+                .shadow(color: PL.C.shadowAmbient, radius: 12, y: 6)
         }
     }
 }

@@ -29,18 +29,20 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: PL.S.xl) {
                 Text("Settings")
                     .font(PL.F.serif(34, .regular)).foregroundColor(PL.C.text)
-                blocking
-                prayerTimes
-                reminders
-                about
-                data
+                    .plReveal(0)
+                blocking.plReveal(1)
+                prayerTimes.plReveal(2)
+                reminders.plReveal(3)
+                about.plReveal(4)
+                data.plReveal(5)
             }
             .padding(.horizontal, PL.L.margin)
             .padding(.top, PL.S.sm)
             .padding(.bottom, 110)
             .plContent()
         }
-        .background(PL.C.cream.ignoresSafeArea())
+        .plScreen()
+        .sensoryFeedback(.selection, trigger: app.dailyReminderEnabled)
         .familyActivityPicker(isPresented: $showPicker, selection: $screen.selection)
         .onChange(of: screen.selection) { newValue in
             BlockedSelectionStore().save(newValue)
@@ -113,20 +115,22 @@ struct SettingsView: View {
                         .tint(PL.C.gold)
                         Spacer()
                         Button {
-                            app.prayerTimes.removeAll { $0.id == time.id }
+                            PL.Haptics.light()
+                            withPLAnimation(PL.Motion.smooth) {
+                                app.prayerTimes.removeAll { $0.id == time.id }
+                            }
                             screen.reschedule(times: app.prayerTimes)
                         } label: {
                             Image(systemName: "minus.circle.fill")
                                 .font(.system(size: 22))
                                 .foregroundColor(PL.C.textMuted)
                         }
-                        .buttonStyle(.plain)
+                        .buttonStyle(.pressable)
                     }
                     .padding(.horizontal, PL.S.lg)
                     .frame(height: 60)
-                    .background(PL.C.card)
-                    .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
-                    .plCardStroke()
+                    .liquidGlassCard(PL.R.card, elevation: .button)
+                    .transition(.scale(scale: 0.9).combined(with: .opacity))
                 }
                 addTimeButton
             }
@@ -135,7 +139,10 @@ struct SettingsView: View {
 
     private var addTimeButton: some View {
         Button {
-            app.prayerTimes.append(PrayerTime(hour: 9, minute: 0))
+            PL.Haptics.selection()
+            withPLAnimation(PL.Motion.bounce) {
+                app.prayerTimes.append(PrayerTime(hour: 9, minute: 0))
+            }
             screen.reschedule(times: app.prayerTimes)
         } label: {
             HStack(spacing: PL.S.sm) {

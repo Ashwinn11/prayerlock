@@ -5,6 +5,7 @@ struct HomeView: View {
     @ObservedObject var screen = ScreenTimeManager.shared
     var onPray: () -> Void
     var onMenu: () -> Void = {}
+    @State private var ringShown = false
 
     private var locked: Bool { app.isLocked }
 
@@ -35,18 +36,24 @@ struct HomeView: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: PL.S.xl) {
                 header
+                    .plReveal(0)
                 heroCard
+                    .plReveal(1)
                 PrimaryButton(title: locked ? "Pray now" : "Pray again",
-                              style: locked ? .primary : .soft, action: onPray)
+                              style: locked ? .primary : .soft,
+                              shimmer: locked, action: onPray)
+                    .plReveal(2)
                 statsRow
+                    .plReveal(3)
                 companionCard
+                    .plReveal(4)
             }
             .padding(.horizontal, PL.L.margin)
             .padding(.top, PL.S.sm)
             .padding(.bottom, 110)
             .plContent()
         }
-        .background(PL.C.cream.ignoresSafeArea())
+        .plScreen()
     }
 
     private var header: some View {
@@ -57,13 +64,13 @@ struct HomeView: View {
                     .font(PL.F.serif(30, .regular)).foregroundColor(PL.C.text)
             }
             Spacer()
-            Button(action: onMenu) {
+            Button(action: { PL.Haptics.light(); onMenu() }) {
                 Image(systemName: "line.3.horizontal")
                     .font(.system(size: 17, weight: .medium)).foregroundColor(PL.C.text)
                     .frame(width: 40, height: 40)
                     .overlay(Circle().stroke(PL.C.stroke, lineWidth: 1))
             }
-            .buttonStyle(.plain)
+            .buttonStyle(.pressable)
         }
     }
 
@@ -71,8 +78,11 @@ struct HomeView: View {
         VStack(spacing: PL.S.md) {
             IllustrationSlot(name: locked ? "home-locked" : "home-unlocked",
                              fallbackSymbol: locked ? "lock.fill" : "bird.fill", size: 96)
+                .id(locked)
+                .transition(.scale(scale: 0.85).combined(with: .opacity))
             Text(locked ? "Locked" : "Unlocked")
                 .font(PL.F.serif(30, .regular)).foregroundColor(PL.C.textOnInk)
+                .contentTransition(.opacity)
             Text(locked ? "Pray to unlock your apps" : "Open until your next prayer time")
                 .font(.plSubtitle).foregroundColor(PL.C.textOnInkMuted)
             VStack(spacing: PL.S.sm) {
@@ -82,29 +92,46 @@ struct HomeView: View {
                     Spacer()
                     Text(nextTimeLabel)
                         .font(PL.F.sans(15, .semibold)).foregroundColor(PL.C.gold)
+                        .plGlow(PL.C.goldGlow, radius: 8, active: locked)
                 }
-                Rectangle().fill(PL.C.gold).frame(height: 1.5)
+                Rectangle().fill(
+                    LinearGradient(colors: [PL.C.goldDeep, PL.C.gold, PL.C.goldHi, PL.C.gold],
+                                   startPoint: .leading, endPoint: .trailing)
+                ).frame(height: 1.5)
             }
             .padding(.top, PL.S.sm)
         }
         .padding(PL.S.xl)
         .frame(maxWidth: .infinity)
-        .background(PL.C.ink)
+        .background(
+            RoundedRectangle(cornerRadius: PL.R.bigCard, style: .continuous)
+                .fill(PL.C.ink)
+                .overlay(
+                    // Warm inner light from above — the card feels lit, not flat.
+                    RoundedRectangle(cornerRadius: PL.R.bigCard, style: .continuous)
+                        .fill(RadialGradient(colors: [PL.C.inkGlow.opacity(0.9), .clear],
+                                             center: .init(x: 0.5, y: 0.0),
+                                             startRadius: 0, endRadius: 300))
+                )
+        )
         .clipShape(RoundedRectangle(cornerRadius: PL.R.bigCard, style: .continuous))
+        .shadow(color: PL.C.shadowAmbient, radius: 24, y: 12)
+        .shadow(color: PL.C.shadowKey, radius: 6, y: 3)
+        .animation(PL.Motion.bounce, value: locked)
     }
 
     private var statsRow: some View {
         HStack(spacing: 0) {
-            StatColumn(value: "\(app.streak)", label: "STREAK")
-            StatColumn(value: "\(app.totalPrayers)", label: "PRAYERS")
-            StatColumn(value: "\(max(0, 7 - app.streak))", label: "TO 7 DAYS")
+            StatColumn(value: app.streak, label: "STREAK")
+            StatColumn(value: app.totalPrayers, label: "PRAYERS")
+            StatColumn(value: max(0, 7 - app.streak), label: "TO 7 DAYS")
         }
         .padding(.vertical, PL.S.sm)
     }
 
     private var companionCard: some View {
         HStack(spacing: PL.S.xl) {
-            CompanionRing(level: app.companionLevel, progress: levelProgress)
+            CompanionRing(level: app.companionLevel, progress: ringShown ? levelProgress : 0)
             VStack(alignment: .leading, spacing: 4) {
                 Text(app.companionName)
                     .font(PL.F.serif(22, .regular)).foregroundColor(PL.C.text)
@@ -115,8 +142,9 @@ struct HomeView: View {
             Spacer(minLength: 0)
         }
         .padding(PL.S.lg)
-        .background(PL.C.card)
-        .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
-        .plCardStroke()
+        .liquidGlassCard(PL.R.card)
+        .onAppear {
+            withPLAnimation(PL.Motion.gentle.delay(0.4)) { ringShown = true }
+        }
     }
 }

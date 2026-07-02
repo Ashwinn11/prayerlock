@@ -116,11 +116,22 @@ final class Onboarding: ObservableObject {
 
     var showBack: Bool { index > 0 }
 
+    /// The background theme of the current step — drives the persistent base color behind
+    /// the screen transition so nothing white ever shows through between screens.
+    var stepTheme: ScreenTheme {
+        switch step {
+        case .insightYears, .giveBack, .howItWorks, .commitmentBeautiful, .signCommitment:
+            return .dark
+        default:
+            return .light
+        }
+    }
+
     // MARK: Navigation
     func next() {
         if index < order.count - 1 {
             forward = true
-            withAnimation(.easeInOut(duration: 0.28)) { index += 1 }
+            withPLAnimation(PL.Motion.screen) { index += 1 }
         } else {
             finish()
         }
@@ -128,7 +139,7 @@ final class Onboarding: ObservableObject {
     func back() {
         guard index > 0 else { return }
         forward = false
-        withAnimation(.easeInOut(duration: 0.28)) { index -= 1 }
+        withPLAnimation(PL.Motion.screen) { index -= 1 }
     }
 
     /// Persist results and flip the app into the main experience.

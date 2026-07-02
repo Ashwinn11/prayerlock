@@ -22,15 +22,23 @@ struct OptionRow: View {
             .padding(.vertical, PL.S.lg)
             .frame(minHeight: PL.L.optionRow)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(PL.C.card)
+            .background(
+                RoundedRectangle(cornerRadius: PL.R.card, style: .continuous)
+                    .fill(PL.C.card)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: PL.R.card, style: .continuous)
+                            .fill(PL.C.gold.opacity(selected ? 0.07 : 0))
+                    )
+            )
             .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: PL.R.card, style: .continuous)
                     .stroke(selected ? PL.C.gold : PL.C.stroke, lineWidth: selected ? 1.6 : 1)
             )
+            .plGlow(PL.C.goldGlow, radius: 7, active: selected)
         }
-        .buttonStyle(.plain)
-        .animation(.easeOut(duration: 0.12), value: selected)
+        .buttonStyle(.pressable)
+        .animation(PL.Motion.bounce, value: selected)
     }
 
     @ViewBuilder private var indicator: some View {
@@ -61,10 +69,11 @@ struct SelectableList: View {
 
     var body: some View {
         VStack(spacing: PL.S.md) {
-            ForEach(options, id: \.self) { option in
+            ForEach(Array(options.enumerated()), id: \.element) { idx, option in
                 OptionRow(title: option, selected: selection.contains(option)) {
                     toggle(option)
                 }
+                .plReveal(idx)
             }
         }
     }
@@ -72,6 +81,7 @@ struct SelectableList: View {
     private var isMulti: Bool { if case .multi = mode { true } else { false } }
 
     private func toggle(_ option: String) {
+        PL.Haptics.selection()
         switch mode {
         case .single:
             selection = [option]
@@ -118,6 +128,7 @@ struct ValueSlider: View {
                        in: Double(range.lowerBound)...Double(range.upperBound),
                        step: 1)
                     .tint(PL.C.gold)
+                    .sensoryFeedback(.selection, trigger: value)
                 HStack {
                     Text("\(range.lowerBound)")
                     Spacer()
@@ -175,6 +186,7 @@ struct EmojiSlider: View {
                                   set: { index = Int($0.rounded()) }),
                    in: 0...Double(stops.count - 1), step: 1)
                 .tint(PL.C.gold)
+                .sensoryFeedback(.selection, trigger: clamped)
             Text(stops[clamped].word)
                 .font(.plSubtitle)
                 .foregroundColor(theme.textMuted)
@@ -201,8 +213,6 @@ struct PLTextField: View {
             .padding(.horizontal, PL.S.xl)
             .frame(maxWidth: .infinity)
             .frame(height: 56)
-            .background(PL.C.card)
-            .clipShape(RoundedRectangle(cornerRadius: PL.R.field, style: .continuous))
-            .plCardStroke(PL.R.field)
+            .liquidGlassCard(PL.R.field, elevation: .button)
     }
 }

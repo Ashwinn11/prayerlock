@@ -3,26 +3,16 @@ import SwiftUI
 struct MainTabView: View {
     @State private var selectedTab: PLTab = .home
     @State private var showPray = false
+    @Environment(\.accessibilityReduceMotion) private var reduce
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HomeView(onPray: { showPray = true }, onMenu: { selectedTab = .settings })
-                .tabItem { Label("Home", systemImage: "house.fill") }
-                .tag(PLTab.home)
-
-            BibleView()
-                .tabItem { Label("Bible", systemImage: "book.closed.fill") }
-                .tag(PLTab.bible)
-
-            JournalView()
-                .tabItem { Label("Journal", systemImage: "checkmark.seal.fill") }
-                .tag(PLTab.journal)
-
-            SettingsView()
-                .tabItem { Label("Settings", systemImage: "gearshape.fill") }
-                .tag(PLTab.settings)
+        ZStack(alignment: .bottom) {
+            content
+            PLTabBar(selected: $selectedTab)
+                .padding(.horizontal, PL.S.xxl)
+                .padding(.bottom, PL.S.sm)
         }
-        .tint(PL.C.gold)
+        .ignoresSafeArea(.keyboard)   // the floating bar shouldn't ride the keyboard
         .fullScreenCover(isPresented: $showPray) {
             PrayerSessionView(onClose: { showPray = false })
         }
@@ -33,6 +23,27 @@ struct MainTabView: View {
             if !stm.isAuthorized { await stm.requestAuthorization() }
             stm.reschedule(times: AppModel.shared.prayerTimes.filter { $0.enabled })
         }
+    }
+
+    /// Active tab content with a soft cross-tab transition (fade + slight rise).
+    @ViewBuilder private var content: some View {
+        Group {
+            switch selectedTab {
+            case .home:
+                HomeView(onPray: { showPray = true },
+                         onMenu: { withPLAnimation(PL.Motion.bounce) { selectedTab = .settings } })
+            case .bible:
+                BibleView()
+            case .journal:
+                JournalView()
+            case .settings:
+                SettingsView()
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .transition(reduce ? .opacity
+                           : .opacity.combined(with: .offset(y: 10)).combined(with: .scale(scale: 0.995)))
+        .id(selectedTab)
     }
 
     private func openPrayIfRequested() {

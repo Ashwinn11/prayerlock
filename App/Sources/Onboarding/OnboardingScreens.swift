@@ -28,6 +28,7 @@ struct QuestionScreen: View {
         ) {
             VStack(alignment: .leading, spacing: PL.S.xl) {
                 QuestionHeader(title: title, accents: accents, subtitle: subtitle)
+                    .plReveal(0)
                 SelectableList(options: options, selection: $selection, mode: mode)
             }
         }
@@ -43,6 +44,8 @@ struct SliderScreen: View {
     let unit: String
     let range: ClosedRange<Int>
     @Binding var value: Int
+    /// Optional live line under the slider derived from the value (e.g. "≈ 7 years of your life").
+    var note: ((Int) -> String)? = nil
 
     var body: some View {
         OnbScaffold(
@@ -54,9 +57,21 @@ struct SliderScreen: View {
         ) {
             VStack(alignment: .leading, spacing: 0) {
                 QuestionHeader(title: title, subtitle: subtitle)
+                    .plReveal(0)
                 Spacer().frame(height: PL.S.xxxl)
                 ValueSlider(value: $value, range: range, unit: unit)
                     .padding(.horizontal, PL.S.xs)
+                    .plReveal(1)
+                if let note {
+                    Text(note(value))
+                        .font(PL.F.sans(14, .semibold))
+                        .foregroundColor(PL.C.gold)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, PL.S.xl)
+                        .contentTransition(.numericText())
+                        .animation(PL.Motion.snappy, value: value)
+                        .plReveal(2)
+                }
             }
         }
     }
@@ -78,8 +93,10 @@ struct MoodSliderScreen: View {
             primary: ButtonConfig(title: "Continue", action: ob.next)
         ) {
             VStack(spacing: PL.S.xxxl) {
-                GoldHeadline(title, accents: accents, size: 28, alignment: .center)
+                GoldHeadline(title, accents: accents, size: 28, alignment: .center, foil: true)
+                    .plReveal(0)
                 EmojiSlider(stops: stops, index: $index)
+                    .plReveal(1)
             }
         }
     }
@@ -107,18 +124,26 @@ struct InsightScreen: View {
             progress: nil,
             centered: true,
             onBack: ob.back,
-            primary: ButtonConfig(title: buttonTitle, style: buttonStyle, action: ob.next)
+            primary: ButtonConfig(title: buttonTitle, style: buttonStyle, action: ob.next),
+            godRays: theme == .dark
         ) {
             VStack(spacing: PL.S.xl) {
-                if let emoji {
-                    Text(emoji).font(.system(size: 76))
-                } else {
-                    IllustrationSlot(name: illustration, fallbackSymbol: symbol, size: illustrationSize)
+                Group {
+                    if let emoji {
+                        Text(emoji).font(.system(size: 76))
+                            .scaleEffect(1).shadow(color: PL.C.goldGlow.opacity(theme == .dark ? 0.5 : 0), radius: 24)
+                    } else {
+                        FloatingIllustration(name: illustration, symbol: symbol,
+                                             size: illustrationSize, glow: theme == .dark)
+                    }
                 }
+                .plReveal(0)
                 GoldHeadline(headline, accents: accents, size: 28,
-                             base: theme.textPrimary, alignment: .center)
+                             base: theme.textPrimary, alignment: .center, foil: true)
+                    .plReveal(1)
                 if let subtitle {
                     PLSubtitle(subtitle, alignment: .center, color: theme.textMuted)
+                        .plReveal(2)
                 }
             }
         }
@@ -129,8 +154,9 @@ struct InsightScreen: View {
 extension GoldHeadline {
     init(_ text: String, accents: [String] = [], size: CGFloat = 32,
          weight: PL.F.SerifWeight = .regular, base: Color = PL.C.text,
-         accent: Color = PL.C.gold, alignment: TextAlignment = .leading) {
+         accent: Color = PL.C.gold, alignment: TextAlignment = .leading,
+         foil: Bool = false) {
         self.init(text: text, accents: accents, size: size, weight: weight,
-                  base: base, accent: accent, alignment: alignment)
+                  base: base, accent: accent, alignment: alignment, foil: foil)
     }
 }

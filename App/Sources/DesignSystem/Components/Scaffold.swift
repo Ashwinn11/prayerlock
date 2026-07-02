@@ -45,7 +45,7 @@ struct OnbDots: View {
                 Circle()
                     .fill(i < filled ? PL.C.gold : PL.C.track)
                     .frame(width: i < filled ? 8 : 6, height: i < filled ? 8 : 6)
-                    .animation(.easeOut(duration: 0.2), value: filled)
+                    .animation(PL.Motion.bounce, value: filled)
             }
         }
     }
@@ -69,11 +69,13 @@ struct OnbScaffold<Content: View>: View {
     var centered: Bool = false
     var onBack: () -> Void = {}
     var primary: ButtonConfig? = nil
+    /// Overlay warm volumetric god-rays on the background (dark insight beats).
+    var godRays: Bool = false
     @ViewBuilder var content: () -> Content
 
     var body: some View {
         ZStack {
-            theme.background.ignoresSafeArea()
+            background
             VStack(spacing: 0) {
                 Spacer(minLength: PL.S.xl)
 
@@ -87,6 +89,15 @@ struct OnbScaffold<Content: View>: View {
             .plContent()
         }
         .preferredColorScheme(theme.colorScheme)
+    }
+
+    @ViewBuilder private var background: some View {
+        if godRays {
+            ScreenBackground(theme: theme)
+                .plGodRays(source: .init(x: 0.5, y: 0.16), strength: theme == .dark ? 1 : 0.55)
+        } else {
+            ScreenBackground(theme: theme)
+        }
     }
 
     // MARK: Footer
@@ -108,14 +119,14 @@ struct OnbScaffold<Content: View>: View {
 
     @ViewBuilder private var backButton: some View {
         if showBack {
-            Button(action: onBack) {
+            Button(action: { PL.Haptics.light(); onBack() }) {
                 Image(systemName: "chevron.left")
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundColor(theme.textPrimary)
                     .frame(width: PL.L.backButton, height: PL.L.backButton)
                     .overlay(Circle().stroke(theme.textPrimary.opacity(0.22), lineWidth: 1.2))
             }
-            .buttonStyle(.plain)
+            .buttonStyle(.pressable)
         } else {
             EmptyView()
         }
@@ -129,11 +140,13 @@ struct OnbScaffold<Content: View>: View {
 
         return Button {
             guard cfg.enabled && !cfg.loading else { return }
+            PL.Haptics.rigid()
             cfg.action()
         } label: {
             ZStack {
                 Capsule()
                     .fill(bg)
+                    .shadow(color: isDark ? .clear : PL.C.shadowKey, radius: 8, y: 4)
                 if isDark {
                     Capsule()
                         .strokeBorder(strokeColor, lineWidth: 1.2)
@@ -153,9 +166,9 @@ struct OnbScaffold<Content: View>: View {
             .frame(minWidth: cfg.loading ? 80 : 160 + extraWidth, minHeight: PL.L.backButton, maxHeight: PL.L.backButton)
             .opacity(cfg.enabled ? 1 : 0.4)
         }
-        .buttonStyle(.plain)
-        .animation(.easeOut(duration: 0.15), value: cfg.enabled)
-        .animation(.easeOut(duration: 0.15), value: cfg.loading)
+        .buttonStyle(PressableStyle(scale: 0.95, haptic: false))
+        .animation(PL.Motion.smooth, value: cfg.enabled)
+        .animation(PL.Motion.smooth, value: cfg.loading)
     }
 
     private func labelColor(_ style: PrimaryButton.Style) -> Color {

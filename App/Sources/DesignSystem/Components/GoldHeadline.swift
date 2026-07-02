@@ -10,14 +10,26 @@ struct GoldHeadline: View {
     var base: Color = PL.C.text
     var accent: Color = PL.C.gold
     var alignment: TextAlignment = .leading
+    /// Gild the gold accent words with a slow moving foil sheen (hero headlines).
+    var foil: Bool = false
 
     var body: some View {
-        Text(Self.attributed(text, accents: accents, font: PL.F.serif(size, weight),
-                             base: base, accent: accent))
+        headline
             .multilineTextAlignment(alignment)
-            .lineSpacing(1)
+            .lineSpacing(size >= 30 ? 2 : 1)
+            .tracking(size >= 26 ? -0.4 : 0)   // optical tightening on large serif
             .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity, alignment: alignment == .center ? .center : .leading)
+    }
+
+    @ViewBuilder private var headline: some View {
+        let text = Text(Self.attributed(self.text, accents: accents, font: PL.F.serif(size, weight),
+                                        base: base, accent: accent))
+        if foil && !accents.isEmpty {
+            text.plGoldFoil()
+        } else {
+            text
+        }
     }
 
     static func attributed(_ text: String, accents: [String], font: Font,

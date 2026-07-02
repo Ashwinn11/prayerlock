@@ -10,13 +10,16 @@ struct JournalView: View {
             VStack(alignment: .leading, spacing: PL.S.lg) {
                 Text("Journal")
                     .font(PL.F.serif(34, .regular)).foregroundColor(PL.C.text)
+                    .plReveal(0)
                 journeyCard
+                    .plReveal(1)
                 if app.journal.isEmpty {
                     emptyState
                 } else {
-                    ForEach(app.journal) { entry in
-                        Button { selected = entry } label: { entryRow(entry) }
-                            .buttonStyle(.plain)
+                    ForEach(Array(app.journal.enumerated()), id: \.element.id) { idx, entry in
+                        Button { PL.Haptics.light(); selected = entry } label: { entryRow(entry) }
+                            .buttonStyle(.pressable(scale: 0.97, haptic: false))
+                            .plReveal(idx + 2)
                     }
                 }
             }
@@ -25,7 +28,7 @@ struct JournalView: View {
             .padding(.bottom, 110)
             .plContent()
         }
-        .background(PL.C.cream.ignoresSafeArea())
+        .plScreen()
         .sheet(item: $selected) { entry in
             JournalEntryDetail(entry: entry)
         }
@@ -41,7 +44,10 @@ struct JournalView: View {
                         .font(PL.F.sans(13, .medium)).foregroundColor(PL.C.textOnInkMuted)
                 }
                 Spacer()
-                Button { withAnimation(.snappy) { expanded.toggle() } } label: {
+                Button {
+                    PL.Haptics.selection()
+                    withPLAnimation(PL.Motion.bounce) { expanded.toggle() }
+                } label: {
                     HStack(spacing: 3) {
                         Text(expanded ? "Less" : "90 days")
                         Image(systemName: expanded ? "chevron.up" : "chevron.down")
@@ -49,7 +55,7 @@ struct JournalView: View {
                     }
                     .font(PL.F.sans(14, .semibold)).foregroundColor(PL.C.gold)
                 }
-                .buttonStyle(.plain)
+                .buttonStyle(.pressable)
             }
             HeatmapGrid(total: expanded ? 90 : 7,
                         columns: expanded ? 9 : 7,
@@ -58,6 +64,8 @@ struct JournalView: View {
         .padding(PL.S.xl)
         .background(PL.C.ink)
         .clipShape(RoundedRectangle(cornerRadius: PL.R.bigCard, style: .continuous))
+        .shadow(color: PL.C.shadowAmbient, radius: 18, y: 9)
+        .shadow(color: PL.C.shadowKey, radius: 5, y: 2)
     }
 
     private func entryRow(_ entry: JournalEntry) -> some View {
@@ -71,9 +79,7 @@ struct JournalView: View {
             Spacer(minLength: 0)
         }
         .padding(PL.S.lg)
-        .background(PL.C.card)
-        .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
-        .plCardStroke()
+        .liquidGlassCard(PL.R.card, elevation: .button)
     }
 
     private var emptyState: some View {
@@ -100,7 +106,7 @@ struct JournalEntryDetail: View {
 
     var body: some View {
         ZStack {
-            PL.C.cream.ignoresSafeArea()
+            ScreenBackground(theme: .light)
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: PL.S.lg) {
                     HStack {
@@ -128,6 +134,7 @@ struct JournalEntryDetail: View {
                         if let i = app.journal.firstIndex(where: { $0.id == entry.id }) {
                             app.journal[i].reflection = reflection
                         }
+                        PL.Haptics.success()
                         dismiss()
                     }
                     .padding(.top, PL.S.sm)
@@ -157,8 +164,6 @@ struct ReflectionEditor: View {
                 .padding(PL.S.md)
                 .frame(height: 150)
         }
-        .background(PL.C.card)
-        .clipShape(RoundedRectangle(cornerRadius: PL.R.card, style: .continuous))
-        .plCardStroke()
+        .liquidGlassCard(PL.R.card, elevation: .button)
     }
 }

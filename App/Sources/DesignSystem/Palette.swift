@@ -36,6 +36,27 @@ extension PL {
 
         /// The single gold accent — emphasis words, slider fill, progress.
         static let gold = Color(hex: 0xA87C3D)
+        /// Gold spectrum for foil, gradients, glow. `goldHi` = specular highlight,
+        /// `goldDeep` = amber shadow. Used by the goldFoil shader + gilded surfaces.
+        static let goldHi = Color(hex: 0xE7BE71)
+        static let goldLight = Color(hex: 0xC79A50)
+        static let goldDeep = Color(hex: 0x6E4A22)
+        /// Warm glow tint radiated by light-emitting surfaces (buttons, rings, unlock).
+        static let goldGlow = Color(hex: 0xD9A24A)
+
+        /// Cream depth stops — feed the light-screen ambient mesh + vignette.
+        static let creamHi = Color(hex: 0xFDFBF6)
+        static let creamDeep = Color(hex: 0xE7DECE)
+        /// Warm ink depth stops — feed the dark-screen ambient mesh + raised surfaces.
+        static let inkRaised = Color(hex: 0x413B33)
+        static let inkGlow = Color(hex: 0x4E4539)
+
+        /// Warm-tinted shadows (never pure black) — two-layer elevation.
+        static let shadowAmbient = Color(.sRGB, red: 0.22, green: 0.16, blue: 0.07, opacity: 0.10)
+        static let shadowKey = Color(.sRGB, red: 0.20, green: 0.14, blue: 0.05, opacity: 0.16)
+        /// Warm translucent film for hand-built glass surfaces.
+        static let glassTint = Color(.sRGB, red: 1, green: 0.99, blue: 0.96, opacity: 0.55)
+        static let glassTintDark = Color(.sRGB, red: 0.28, green: 0.25, blue: 0.20, opacity: 0.45)
 
         /// Primary pill button fill + its text.
         static let button = Color(hex: 0x34302A)
